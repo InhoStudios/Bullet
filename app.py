@@ -10,7 +10,8 @@ from datetime import datetime
 
 CAL_FOLDER = './calendars/'
 
-client = discord.Client()
+intents = discord.Intents().all()
+client = discord.Client(intents=intents)
 
 users = {}
 
@@ -34,7 +35,7 @@ async def on_message(message):
     content = message.content
     chan = message.channel
     attachments = message.attachments
-    guild = message.guild
+    guild = chan.guild
 
     print("{} in {}: {}".format(author.name, chan.name, content))
 
@@ -48,8 +49,11 @@ async def on_message(message):
             msg = "Hi! **Who** is here to help!\n" + \
                     "To get started, download your schedule as a `.ics` file. " \
                     "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
-                    "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n" \
-                    "To check who's free, type `?free`."
+                    "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n" \
+                    "Commands:\n" \
+                        "`?free` — Checks who's free at the moment\n" \
+                        "`?event` — Lists all events you have scheduled\n" \
+                        "`? @[user]` — Lists what event @[user] is currently attending\n"
             await chan.send(msg)
         if cmd.startswith(" <@!"):
             uid = cmd.split(">")[0].replace(" <@!","")
@@ -66,12 +70,15 @@ async def on_message(message):
             else:
                 await chan.send("User is not in the system yet. Use ?update")
         if cmd == "free":
-            freeList = "The following users are free right now: "
+            head = "The following users are free right now: "
+            freeList = head
             for user_key in users.keys():
-                # if guild.get_member(int(user_key)) != None:
-                cal = users[user_key]
-                if cal.checkFree(now):
-                    freeList += "<@{}> ".format(user_key)
+                if guild.get_member(int(user_key)) != None:
+                    cal = users[user_key]
+                    if cal.checkFree(now):
+                        freeList += "<@{}> ".format(user_key)
+            if freeList == head:
+                freeList = "Sorry, nobody seems to be free right now :("
             await chan.send(freeList)
         if cmd == "update":
             if not str(author.id) in users:
