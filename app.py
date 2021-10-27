@@ -28,6 +28,7 @@ async def on_ready():
         file = open(filename, 'rb')
         calendar = Calendar.from_ical(file.read())
         parseCalendar(calendar, uid)
+        file.close()
 
 @client.event
 async def on_message(message):
