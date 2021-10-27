@@ -1,11 +1,15 @@
 import credentials
 import discord
 from icalendar import Calendar, Event
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil.parser import parse
-from pytz import timezone, utc
+from pytz import UTC, timezone
+from CalEvent import CalEvent
+from DiscCalendar import DiscCalendar
 
 client = discord.Client()
+
+users = {}
 
 @client.event
 async def on_ready():
@@ -17,16 +21,24 @@ async def on_message(message):
     content = message.content
     chan = message.channel
     attachments = message.attachments
+    guild = message.guild
 
     if author == client.user:
         return
-
+    
+    if not str(author.id) in users:
+        cal = DiscCalendar()
+        users[str(author.id)] = cal
 
     if content.startswith('?'):
         cmd = content.split('?')[1]
         if cmd == "free":
-            #TODO: Implement calendar checking
-            print('do something')
+            freeList = "The following users are free right now: "
+            for user_key in users.keys():
+                cal = users[user_key]
+                if cal.checkFree():
+                    freeList += "<@{}> ".format(user_key)
+            await chan.send(freeList)
         if cmd == "update":
             await chan.send("Updating...")
             events = ""
@@ -35,20 +47,15 @@ async def on_message(message):
                 print(filename)
                 if filename.endswith(".ics"):
                     cal = Calendar.from_ical(await attachment.read())
-                    parseCalendar(cal)
-            await chan.send(events)
+                    parseCalendar(cal, author.id)
+            await chan.send("Thanks, <@{}>! Your calendar has been updated".format(author.id))
                 
-def parseCalendar(gcal):
+def parseCalendar(gcal, id):
+    cal = users[str(id)]
     for event in gcal.walk():
         if event.name == "VEVENT":
-            title = event.get("summary")
-            start_time = event.get("dtstart").dt
-            end_time = event.get("dtend").dt
-            repeat = event.get("rrule")['UNTIL']
-            print(repeat)
-            now = datetime.now(tz=utc).astimezone(timezone('America/Vancouver'))
-            delta = start_time - now
-            print(delta)
+            evt = CalEvent(event)
+            cal.addEvent(evt)
     return None
 
 client.run(credentials.token)
