@@ -1,9 +1,14 @@
+from os.path import join, exists
+from os import listdir, remove
+
 import credentials
 import discord
 from icalendar import Calendar
 from CalEvent import CalEvent
 from DiscCalendar import DiscCalendar
 from datetime import datetime
+
+CAL_FOLDER = './calendars/'
 
 client = discord.Client()
 
@@ -14,6 +19,14 @@ async def on_ready():
     activity = discord.Activity(type=discord.ActivityType.listening, name="?help")
     await client.change_presence(status=discord.Status.online, activity=activity)
     print('Logged in as {0.user}'.format(client))
+    #TODO: load all .ics files from directory
+    cals = listdir(CAL_FOLDER)
+    for calfile in cals:
+        filename = join(CAL_FOLDER, calfile)
+        uid = calfile.split('.')[0]
+        file = open(filename, 'rb')
+        calendar = Calendar.from_ical(file.read())
+        parseCalendar(calendar, uid)
 
 @client.event
 async def on_message(message):
@@ -28,7 +41,7 @@ async def on_message(message):
     if author == client.user:
         return
 
-    if content.startswith('?'):
+    if content.startswith('?') or content.startswith('whos'):
         now = datetime.now()
         cmd = content.split('?')[1]
         if cmd == "help":
@@ -69,10 +82,11 @@ async def on_message(message):
                 await chan.send("Please attach the .ics file in the ?update message")
                 return
             await chan.send("Updating...")
-            events = ""
+            # TODO: Save attachment into folder with UID as filename
             for attachment in attachments:
                 filename = attachment.filename
                 if filename.endswith(".ics"):
+                    await attachment.save(CAL_FOLDER + str(author.id) + ".ics")
                     cal = Calendar.from_ical(await attachment.read())
                     parseCalendar(cal, author.id)
             await chan.send("Thanks, <@{}>! Your calendar has been updated".format(author.id))
@@ -88,8 +102,8 @@ def parseEvents(curEvts):
     return evtMsg
 
 def parseCalendar(gcal, id):
-    cal = users[str(id)]
     cal = DiscCalendar()
+    users[str(id)] = cal
     for event in gcal.walk():
         if event.name == "VEVENT":
             evt = CalEvent(event)
