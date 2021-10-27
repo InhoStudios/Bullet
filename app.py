@@ -1,9 +1,6 @@
 import credentials
 import discord
-from icalendar import Calendar, Event
-from datetime import datetime, timedelta
-from dateutil.parser import parse
-from pytz import UTC, timezone
+from icalendar import Calendar
 from CalEvent import CalEvent
 from DiscCalendar import DiscCalendar
 
@@ -32,7 +29,7 @@ async def on_message(message):
         cmd = content.split('?')[1]
         if cmd == "help":
             msg = "Hi! **Who** is here to help!\n" + \
-                    "To get started, download your schedule as a `.ics` file." \
+                    "To get started, download your schedule as a `.ics` file. " \
                     "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
                     "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n" \
                     "To check who's free, type `?free`."
@@ -61,6 +58,7 @@ async def on_message(message):
                 
 def parseCalendar(gcal, id):
     cal = users[str(id)]
+    cal = DiscCalendar()
     for event in gcal.walk():
         if event.name == "VEVENT":
             evt = CalEvent(event)
