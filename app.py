@@ -27,10 +27,6 @@ async def on_message(message):
 
     if author == client.user:
         return
-    
-    if not str(author.id) in users:
-        cal = DiscCalendar()
-        users[str(author.id)] = cal
 
     if content.startswith('?'):
         cmd = content.split('?')[1]
@@ -50,6 +46,9 @@ async def on_message(message):
                     freeList += "<@{}> ".format(user_key)
             await chan.send(freeList)
         if cmd == "update":
+            if not str(author.id) in users:
+                cal = DiscCalendar()
+                users[str(author.id)] = cal
             await chan.send("Updating...")
             events = ""
             for attachment in attachments:
