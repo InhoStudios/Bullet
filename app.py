@@ -44,10 +44,10 @@ async def on_message(message):
         if cmd == "free":
             freeList = "The following users are free right now: "
             for user_key in users.keys():
-                if guild.get_member(user_key) != None:
-                    cal = users[user_key]
-                    if cal.checkFree():
-                        freeList += "<@{}> ".format(user_key)
+                # if guild.get_member(int(user_key)) != None:
+                cal = users[user_key]
+                if cal.checkFree():
+                    freeList += "<@{}> ".format(user_key)
             await chan.send(freeList)
         if cmd == "update":
             await chan.send("Updating...")
