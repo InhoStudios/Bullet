@@ -43,7 +43,7 @@ async def on_message(message):
     if author == client.user:
         return
 
-    if content.startswith('?') or content.startswith('whos'):
+    if content.startswith('?'):
         now = datetime.now()
         cmd = content.split('?')[1]
         if cmd == "help":
@@ -53,7 +53,7 @@ async def on_message(message):
                     "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n" \
                     "Commands:\n" \
                         "`?free` — Checks who's free at the moment\n" \
-                        "`?event` — Lists all events you have scheduled\n" \
+                        "`?events` — Lists all events you have scheduled\n" \
                         "`? @[user]` — Lists what event @[user] is currently attending\n"
             await chan.send(msg)
         if cmd.startswith(" <@!"):
@@ -82,21 +82,15 @@ async def on_message(message):
                 freeList = "Sorry, nobody seems to be free right now :("
             await chan.send(freeList)
         if cmd == "update":
-            if not str(author.id) in users:
-                cal = DiscCalendar()
-                users[str(author.id)] = cal
-
             if len(attachments) == 0:
                 await chan.send("Please attach the .ics file in the ?update message")
                 return
-            await chan.send("Updating...")
-            # TODO: Save attachment into folder with UID as filename
             for attachment in attachments:
                 filename = attachment.filename
                 if filename.endswith(".ics"):
                     await attachment.save(CAL_FOLDER + str(author.id) + ".ics")
                     cal = Calendar.from_ical(await attachment.read())
-                    parseCalendar(cal, author.id)
+                    parseCalendar(cal, str(author.id))
             await chan.send("Thanks, <@{}>! Your calendar has been updated".format(author.id))
 
 def parseEvents(curEvts):
@@ -110,12 +104,12 @@ def parseEvents(curEvts):
     return evtMsg
 
 def parseCalendar(gcal, id):
+    users[id] = None
     cal = DiscCalendar()
-    users[str(id)] = cal
     for event in gcal.walk():
         if event.name == "VEVENT":
             evt = CalEvent(event)
             cal.addEvent(evt)
-    return None
+    users[id] = cal
 
 client.run(credentials.token)
