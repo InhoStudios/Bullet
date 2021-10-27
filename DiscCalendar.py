@@ -1,10 +1,7 @@
 class DiscCalendar:
 
-    events = []
-
-
     def __init__(self):
-        pass
+        self.events = []
 
     def addEvent(self, calEvt):
         self.events.append(calEvt)
