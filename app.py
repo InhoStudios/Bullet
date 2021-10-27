@@ -2,7 +2,8 @@ import credentials
 import discord
 from icalendar import Calendar, Event
 from datetime import datetime
-from pytz import UTC
+from dateutil.parser import parse
+from pytz import timezone, utc
 
 client = discord.Client()
 
@@ -22,7 +23,7 @@ async def on_message(message):
 
 
     if content.startswith('?'):
-        cmd = content.split('?')[0]
+        cmd = content.split('?')[1]
         if cmd == "free":
             #TODO: Implement calendar checking
             print('do something')
@@ -34,14 +35,20 @@ async def on_message(message):
                 print(filename)
                 if filename.endswith(".ics"):
                     cal = Calendar.from_ical(await attachment.read())
-                    for component in cal.walk():
-                        if component.name == "VEVENT":
-                            events += component.get("summary") + "\n"
+                    parseCalendar(cal)
             await chan.send(events)
                 
-def createCalendar(gcal):
-    for component in gcal.walk():
-        if component.name == "VEVENT":
-            # handle each event
+def parseCalendar(gcal):
+    for event in gcal.walk():
+        if event.name == "VEVENT":
+            title = event.get("summary")
+            start_time = event.get("dtstart").dt
+            end_time = event.get("dtend").dt
+            repeat = event.get("rrule")['UNTIL']
+            print(repeat)
+            now = datetime.now(tz=utc).astimezone(timezone('America/Vancouver'))
+            delta = start_time - now
+            print(delta)
+    return None
 
 client.run(credentials.token)
