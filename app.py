@@ -13,6 +13,8 @@ users = {}
 
 @client.event
 async def on_ready():
+    activity = discord.Activity(type=discord.ActivityType.listening, name="?help")
+    await client.change_presence(status=discord.Status.online, activity=activity)
     print('Logged in as {0.user}'.format(client))
 
 @client.event
@@ -32,12 +34,20 @@ async def on_message(message):
 
     if content.startswith('?'):
         cmd = content.split('?')[1]
+        if cmd == "help":
+            msg = "Hi! **Who** is here to help!\n" + \
+                    "To get started, download your schedule as a `.ics` file." \
+                    "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
+                    "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n" \
+                    "To check who's free, type `?free`."
+            await chan.send(msg)
         if cmd == "free":
             freeList = "The following users are free right now: "
             for user_key in users.keys():
-                cal = users[user_key]
-                if cal.checkFree():
-                    freeList += "<@{}> ".format(user_key)
+                if guild.get_member(user_key) != None:
+                    cal = users[user_key]
+                    if cal.checkFree():
+                        freeList += "<@{}> ".format(user_key)
             await chan.send(freeList)
         if cmd == "update":
             await chan.send("Updating...")
