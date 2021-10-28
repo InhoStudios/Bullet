@@ -125,7 +125,7 @@ async def on_message(message):
                     await attachment.save(CAL_FOLDER + str(author.id) + ".ics")
                     cal = Calendar.from_ical(await attachment.read())
                     parseCalendar(cal, str(author.id))
-            await chan.send("Thanks, <@{}>! Your calendar has been updated".format(author.id))
+            await chan.send("Thanks, {}! Your calendar has been updated".format(author.display_name))
         if cmd == "busy":
             if authid in users.keys():
                 cal = users[authid]
