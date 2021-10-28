@@ -147,10 +147,11 @@ def parseEvents(curEvts, user, status):
         embed.add_field(name=details['title'], value=details['day'], inline=False)
         embed.add_field(name="Start:", value=details['start'], inline=True)
         embed.add_field(name="End:", value=details['end'], inline=True)
+        embed.add_field(name="Location:", value=details['location'], inline=True)
     if len(curEvts) == 0:
         embed.description = "There are no events to display"
     if status:
-        embed.color = 0xFFFF00
+        embed.color = 0xFFAA00
     else:
         embed.color = 0x00FF00
     return embed

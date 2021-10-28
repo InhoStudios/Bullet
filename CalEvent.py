@@ -20,6 +20,8 @@ class CalEvent:
         except:
             self.end_date = self.end_time
         self.location = event.get("location")
+        if self.location == None or self.location == "":
+            self.location = "Not specified"
 
     # Returns whether or not an event is happening at the current time
     def eventHappening(self, now):
