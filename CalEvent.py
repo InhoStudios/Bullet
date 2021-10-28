@@ -13,7 +13,10 @@ class CalEvent:
         self.title = event.get("summary")
         self.start_date = event.get("dtstart").dt
         self.start_time = self.start_date
-        self.end_time = event.get("dtend").dt
+        try:
+            self.end_time = event.get("dtend").dt
+        except:
+            self.end_time = self.start_time + timedelta(hours=1)
         repeat_rule = event.get("rrule")
         try:
             self.end_date = self.tz.localize(repeat_rule['UNTIL'][0])
