@@ -14,9 +14,9 @@ class CalEvent:
         self.start_date = event.get("dtstart").dt
         self.start_time = self.start_date
         self.end_time = event.get("dtend").dt
-        repeat_rule = event.get("rrule")
+        repeat_rule = event.get("rrule")['UNTIL']
         if not repeat_rule == None:
-            self.end_date = self.tz.localize(repeat_rule['UNTIL'][0])
+            self.end_date = self.tz.localize(repeat_rule[0])
         else:
             self.end_date = self.end_time
         self.location = event.get("location")
