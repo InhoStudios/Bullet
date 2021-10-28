@@ -1,4 +1,3 @@
-from _typeshed import NoneType
 from icalendar import Calendar, Event
 from datetime import datetime, timedelta
 import calendar
@@ -16,9 +15,9 @@ class CalEvent:
         self.start_time = self.start_date
         self.end_time = event.get("dtend").dt
         repeat_rule = event.get("rrule")
-        if not repeat_rule == NoneType:
+        try:
             self.end_date = self.tz.localize(repeat_rule['UNTIL'][0])
-        else:
+        except:
             self.end_date = self.end_time
         self.location = event.get("location")
 
