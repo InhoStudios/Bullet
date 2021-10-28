@@ -14,7 +14,11 @@ class CalEvent:
         self.start_date = event.get("dtstart").dt
         self.start_time = self.start_date
         self.end_time = event.get("dtend").dt
-        self.end_date = self.tz.localize(event.get("rrule")['UNTIL'][0])
+        repeat_rule = event.get("rrule")
+        if not repeat_rule == None:
+            self.end_date = self.tz.localize(repeat_rule['UNTIL'][0])
+        else:
+            self.end_date = self.end_time
         self.location = event.get("location")
 
     # Returns whether or not an event is happening at the current time
@@ -34,11 +38,13 @@ class CalEvent:
         day = calendar.day_name[self.start_time.weekday()]
         st_time = self.start_time.strftime("%H:%M")
         end_time = self.end_time.strftime("%H:%M")
+        location = self.location
         return {
             'title': title,
             'day': day,
             'start': st_time,
-            'end':end_time
+            'end':end_time,
+            'location':location
         }
     
     def inPeriod(self, now):

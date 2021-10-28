@@ -33,6 +33,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     author = message.author
+    authid = str(author.id)
     content = message.content
     chan = message.channel
     attachments = message.attachments
@@ -63,10 +64,40 @@ async def on_message(message):
                 await chan.send(parseEvents(cal.getCurrentEvents(now)))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
+        if cmd.startswith("status"):
+            usr = cmd.replace("status","").replace(" ","")
+            msg = ""
+            if usr == "":
+                if authid in users.keys():
+                    cal = users[authid]
+                    if cal.getStatus():
+                        msg += "🟡 Busy"
+                    else:
+                        msg += "🟢 Available"
+                    await chan.send(msg)
+                else:
+                    await chan.send("User is not in the system yet. Use ?update")
+            else:
+                try:
+                    usr = usr.split("<@!")[1]
+                    usr = usr.split(">")[1]
+                    if authid in users.keys():
+                        cal = users[authid]
+                        if cal.getStatus():
+                            msg += "🟡 Busy"
+                        else:
+                            msg += "🟢 Available"
+                        await chan.send(msg)
+                    else:
+                        await chan.send("User is not in the system yet. Use ?update")
+                except:
+                    await chan.send("Please tag a user")
+
+            
+
         if cmd == "events":
-            uid = str(author.id)
-            if uid in users.keys():
-                cal = users[uid]
+            if authid in users.keys():
+                cal = users[authid]
                 await chan.send(parseEvents(cal.getAllEvents(now)))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
@@ -92,6 +123,18 @@ async def on_message(message):
                     cal = Calendar.from_ical(await attachment.read())
                     parseCalendar(cal, str(author.id))
             await chan.send("Thanks, <@{}>! Your calendar has been updated".format(author.id))
+        if cmd == "busy":
+            if authid in users.keys():
+                cal = users[authid]
+                cal.toggleBusy()
+                msg = "Gotcha {}! Your status is updated: ".format(author.name)
+                if cal.getStatus():
+                    msg += "Busy"
+                else:
+                    msg += "Free"
+                await chan.send(msg)
+            else:
+                await chan.send("User is not in the system yet. Use ?update")
 
 def parseEvents(curEvts):
     evtMsg = ""
