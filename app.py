@@ -48,20 +48,25 @@ async def on_message(message):
         now = datetime.now()
         cmd = content.split('?')[1]
         if cmd == "help":
-            msg = "Hi! **Who** is here to help!\n" + \
-                    "To get started, download your schedule as a `.ics` file. " \
+            title = "Hi! Who is here to help!"
+            desc = "To get started, download your schedule as a `.ics` file. " \
                     "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
-                    "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n" \
-                    "Commands:\n" \
-                        "`?free` — Checks who's free at the moment\n" \
-                        "`?events` — Lists all events you have scheduled\n" \
-                        "`? @[user]` — Lists what event @[user] is currently attending\n"
-            await chan.send(msg)
+                    "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n"
+            embed = discord.Embed(title=title, description=desc)
+            embed.add_field(name="?update", value="Updates your current calendar (please attach a valid .ics file)")
+            embed.add_field(name="?free", value="Checks who's free at the moment")
+            embed.add_field(name="?events", value="Lists all of your events")
+            embed.add_field(name="? @[user]", value="Lists what event @[user] is currently attending")
+            embed.add_field(name="?busy", value="Toggles your status (Available / Busy)")
+            embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
+            embed.set_footer(text="Made with ❤️ by InhoStudios")
+            await chan.send(embed=embed)
         if cmd.startswith(" <@!"):
             uid = cmd.split(">")[0].replace(" <@!","")
             if uid in users.keys():
                 cal = users[uid]
-                await chan.send(parseEvents(cal.getCurrentEvents(now)))
+                user = client.get_user(int(uid))
+                await chan.send(embed=parseEvents(cal.getCurrentEvents(now), user, cal.getStatus()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
         if cmd.startswith("status"):
@@ -71,9 +76,9 @@ async def on_message(message):
                 if authid in users.keys():
                     cal = users[authid]
                     if cal.getStatus():
-                        msg += "🟡 Busy"
+                        msg = "🟡 Busy"
                     else:
-                        msg += "🟢 Available"
+                        msg = "🟢 Available"
                     await chan.send(msg)
                 else:
                     await chan.send("User is not in the system yet. Use ?update")
@@ -84,25 +89,22 @@ async def on_message(message):
                     if authid in users.keys():
                         cal = users[authid]
                         if cal.getStatus():
-                            msg += "🟡 Busy"
+                            msg = "🟡 Busy"
                         else:
-                            msg += "🟢 Available"
+                            msg = "🟢 Available"
                         await chan.send(msg)
                     else:
                         await chan.send("User is not in the system yet. Use ?update")
                 except:
                     await chan.send("Please tag a user")
-
-            
-
         if cmd == "events":
             if authid in users.keys():
                 cal = users[authid]
-                await chan.send(parseEvents(cal.getAllEvents(now)))
+                await chan.send(embed=parseEvents(cal.getAllEvents(now), author, cal.getStatus()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
         if cmd == "free":
-            head = "The following users are free right now: "
+            head = ""
             freeList = head
             for user_key in users.keys():
                 if guild.get_member(int(user_key)) != None:
@@ -111,7 +113,8 @@ async def on_message(message):
                         freeList += "<@{}> ".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free right now :("
-            await chan.send(freeList)
+            embed = discord.Embed(title="The following users are free:", description=freeList)
+            await chan.send(embed=embed)
         if cmd == "update":
             if len(attachments) == 0:
                 await chan.send("Please attach the .ics file in the ?update message")
@@ -136,15 +139,21 @@ async def on_message(message):
             else:
                 await chan.send("User is not in the system yet. Use ?update")
 
-def parseEvents(curEvts):
-    evtMsg = ""
+def parseEvents(curEvts, user, status):
+    embed = discord.Embed(title="Calendar")
+    embed.set_author(name=user.display_name, icon_url=user.avatar_url)
     for event in curEvts:
         details = event.getDetails()
-        msgStr = "{}: {} - ({} - {})".format(details['day'], details['title'], details['start'], details['end'])
-        evtMsg += msgStr + "\n"
-    if evtMsg == "":
-        evtMsg = "There are no events to display."
-    return evtMsg
+        embed.add_field(name=details['title'], value=details['day'], inline=False)
+        embed.add_field(name="Start:", value=details['start'], inline=True)
+        embed.add_field(name="End:", value=details['end'], inline=True)
+    if len(curEvts) == 0:
+        embed.description = "There are no events to display"
+    if status:
+        embed.color = 0xFFFF00
+    else:
+        embed.color = 0x00FF00
+    return embed
 
 def parseCalendar(gcal, id):
     users[id] = None
