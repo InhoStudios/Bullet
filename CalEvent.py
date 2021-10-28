@@ -21,7 +21,7 @@ class CalEvent:
         try:
             self.end_date = self.tz.localize(repeat_rule['UNTIL'][0])
         except:
-            self.end_date = self.end_time
+            self.end_date = self.start_time
         self.location = event.get("location")
         if self.location == None or self.location == "":
             self.location = "Not specified"
