@@ -7,6 +7,7 @@ from icalendar import Calendar
 from CalEvent import CalEvent
 from DiscCalendar import DiscCalendar
 from datetime import datetime, timezone, timedelta
+from pytz import timezone as ptz
 
 CAL_FOLDER = './calendars/'
 
@@ -45,7 +46,8 @@ async def on_message(message):
         return
 
     if content.startswith('?'):
-        now = datetime.now(timezone.utc)
+        tz = ptz("America/Vancouver")
+        now = tz.localize(datetime.now())
         if str(now.astimezone().tzinfo) == "PST":
             now = now - timedelta(hours=1)
         cmd = content.split('?')[1]
