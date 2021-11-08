@@ -143,7 +143,8 @@ async def on_message(message):
             else:
                 await chan.send("User is not in the system yet. Use ?update")
         if cmd == "now":
-            await chan.send("The current time is " + str(now))
+            await chan.send("The current time is " + str(now) +
+                            "\nThe timezone is " + str(now.astimezone().tzinfo))
 
 def parseEvents(curEvts, user, status):
     embed = discord.Embed(title="Calendar")
