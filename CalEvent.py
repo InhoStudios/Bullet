@@ -28,7 +28,6 @@ class CalEvent:
 
     # Returns whether or not an event is happening at the current time
     def eventHappening(self, now):
-        now = self.tz.localize(now)
         while (now - self.start_time > self.week and self.dateInBounds()):
             self.start_time = self.start_time + self.week
             self.end_time = self.end_time + self.week
@@ -52,6 +51,5 @@ class CalEvent:
             'location':location
         }
     
-    def inPeriod(self, now):
-        now = self.tz.localize(now)
+    def inPeriod(self, now): 
         return now >= self.start_date and now <= self.end_date

@@ -6,7 +6,7 @@ import discord
 from icalendar import Calendar
 from CalEvent import CalEvent
 from DiscCalendar import DiscCalendar
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 CAL_FOLDER = './calendars/'
 
@@ -45,7 +45,9 @@ async def on_message(message):
         return
 
     if content.startswith('?'):
-        now = datetime.now()
+        now = datetime.now(timezone.utc)
+        if str(now.astimezone().tzinfo) == "PST":
+            now = now - timedelta(hours=1)
         cmd = content.split('?')[1]
         if cmd == "help":
             title = "Hi! Who is here to help!"
@@ -138,6 +140,8 @@ async def on_message(message):
                 await chan.send(msg)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
+        if cmd == "now":
+            await chan.send("The current time is " + str(now))
 
 def parseEvents(curEvts, user, status):
     embed = discord.Embed(title="Calendar")
