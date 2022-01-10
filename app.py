@@ -48,8 +48,8 @@ async def on_message(message):
     if content.startswith('?'):
         tz = ptz("America/Vancouver")
         now = tz.localize(datetime.now())
-        if str(now.astimezone().tzinfo) == "PST" or str(now.astimezone().tzinfo) == "Pacific Standard Time":
-            now = now - timedelta(hours=1)
+        # if str(now.astimezone().tzinfo) == "PST" or str(now.astimezone().tzinfo) == "Pacific Standard Time":
+        #     now = now - timedelta(hours=1)
         cmd = content.split('?')[1]
         if cmd == "help":
             title = "Hi! Who is here to help!"
