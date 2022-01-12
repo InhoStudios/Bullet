@@ -167,7 +167,7 @@ async def on_message(message):
                 freeList = "Sorry, nobody seems to be free {} :(".format(checked_time)
             embed = discord.Embed(title="These people are free {}!".format(checked_time), description=freeList)
             if upcomingList != head:
-                embed.add_field(name="and these people will be free in the next hour", value=upcomingList)
+                embed.add_field(name="and these people will be free in the hour after", value=upcomingList)
             await chan.send(embed=embed)
         if call.startswith(globals.update):
             if len(attachments) == 0:
