@@ -1,7 +1,8 @@
 from os.path import join, exists
 from os import listdir, remove
 
-import credentials
+import credentials, globals
+
 import discord
 from icalendar import Calendar
 from CalEvent import CalEvent
@@ -21,7 +22,6 @@ async def on_ready():
     activity = discord.Activity(type=discord.ActivityType.listening, name="?help")
     await client.change_presence(status=discord.Status.online, activity=activity)
     print('Logged in as {0.user}'.format(client))
-    #TODO: load all .ics files from directory
     cals = listdir(CAL_FOLDER)
     for calfile in cals:
         filename = join(CAL_FOLDER, calfile)
@@ -58,19 +58,28 @@ async def on_message(message):
                     "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n"
             embed = discord.Embed(title=title, description=desc)
             embed.add_field(name="?update", value="Updates your current calendar (please attach a valid .ics file)")
-            embed.add_field(name="?free", value="Checks who's free at the moment")
+            embed.add_field(name="?free", value="Checks who's free at the moment. Type `?free HH:MM` to see whos free at a given time.")
             embed.add_field(name="?events", value="Lists all of your events")
-            embed.add_field(name="? @[user]", value="Lists what event @[user] is currently attending")
+            embed.add_field(name="? @[user]", value="Lists what event @[user] is currently attending. Type `? @[user] HH:MM` to see if that user is free at a given time.")
             embed.add_field(name="?busy", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
         if cmd.startswith(" <@!"):
             uid = cmd.split(">")[0].replace(" <@!","")
+            checkDT = now
+
+            # handle time
+            try:
+                time = cmd.split(">")[1].replace(" ","")
+                checkDT = None # replace with parse time
+            except:
+                pass
+
             if uid in users.keys():
                 cal = users[uid]
                 user = client.get_user(int(uid))
-                await chan.send(embed=parseEvents(cal.getCurrentEvents(now), user, cal.getStatus()))
+                await chan.send(embed=parseEvents(cal.getCurrentEvents(checkDT), user, cal.getStatus()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
         if cmd.startswith("status"):
@@ -110,14 +119,19 @@ async def on_message(message):
         if cmd == "free":
             head = ""
             freeList = head
+            upcomingList = head
             for user_key in users.keys():
                 if guild.get_member(int(user_key)) != None:
                     cal = users[user_key]
                     if cal.checkFree(now):
                         freeList += "<@{}> ".format(user_key)
+                    elif cal.checkFree(now + timedelta(hours=1)):
+                        upcomingList += "<@{}>".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free right now :("
-            embed = discord.Embed(title="The following users are free:", description=freeList)
+            embed = discord.Embed(title="These people are free right now!", description=freeList)
+            if upcomingList != head:
+                embed.add_field(name="and these people will be free in the next hour", value=upcomingList)
             await chan.send(embed=embed)
         if cmd == "update":
             if len(attachments) == 0:
