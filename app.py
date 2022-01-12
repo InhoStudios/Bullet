@@ -64,7 +64,7 @@ async def on_message(message):
             embed = discord.Embed(title=title, description=desc)
             embed.add_field(name="?update", value="Updates your current calendar (please attach a valid .ics file)")
             embed.add_field(name="?free", value="Checks who's free at the moment. Type `?free HH:MM` to see whos free at a given time.")
-            embed.add_field(name="?events", value="Lists all of your events")
+            embed.add_field(name="?events (@[user])", value="Lists all of your events. If a user is mentioned, their events will be listed instead")
             embed.add_field(name="? @[user]", value="Lists what event @[user] is currently attending. Type `? @[user] HH:MM` to see if that user is free at a given time.")
             embed.add_field(name="?busy", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
