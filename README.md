@@ -5,8 +5,9 @@ Want to keep up with your friends on campus and see who's in or not in class at 
 
 ## It works like this
 
-* To get started, download your schedule as a .ics file. For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.
-* Next, upload the .ics file and type `?update` to update your calendar in Who's system.
+* To get started, download your schedule as a `.ics` file. For UBC students, do this by accessing your timetable from your SSC and downloading as ical (`.ics`) file.
+![ical download from the SSC](https://github.com/InhoStudios/Who/blob/main/ubcical.png?raw=true)
+* Next, upload the `.ics` file and type `?update` to update your calendar in Who's system.
 
 Once a calendar is uploaded, anyone in the server can see who's free at any given time by using the command `?free` or simply by asking `whos free`. Add on a time by asking `whos free 12:00` to see your friends' availability at 12!
 
