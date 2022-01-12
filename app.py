@@ -105,7 +105,7 @@ async def on_message(message):
             else:
                 try:
                     usr = usr.split("<@!")[1]
-                    usr = usr.split(">")[1]
+                    usr = usr.split(">")[0]
                     if usr in users.keys():
                         cal = users[usr]
                         if cal.getStatus():
@@ -127,6 +127,7 @@ async def on_message(message):
                     user = client.get_user(int(checked_id))
                 except:
                     await chan.send("Please mention a user")
+                    return
 
             if checked_id in users.keys():
                 cal = users[checked_id]
