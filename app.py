@@ -143,7 +143,7 @@ async def on_message(message):
             params = getParameters(call, globals.free)
             if params != "":
                 try:
-                    params.replace("at","")
+                    params = params.replace("at","")
                 except:
                     pass
                 try:
