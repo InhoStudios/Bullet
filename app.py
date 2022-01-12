@@ -143,6 +143,10 @@ async def on_message(message):
             params = getParameters(call, globals.free)
             if params != "":
                 try:
+                    params.replace("at","")
+                except:
+                    pass
+                try:
                     time = params.replace(" ","")
                     checkDT = parseTime(time, now)
                     checked_time = "at " + checkDT.strftime("%H:%M on %A, %b %d")
@@ -237,13 +241,17 @@ def getParameters(msg, command):
 # PRE: Time string in the format HH:MM, datetime to be modified
 # POST: Returns a datetime with updated hours
 def parseTime(time, now):
-    cur_time = datetime.strptime(time, "%H:%M")
+    try:
+        cur_time = datetime.strptime(time, "%H")
+        cur_time = cur_time.replace(minute=0) 
+    except:
+        cur_time = datetime.strptime(time, "%H:%M")
     parsed_time = now.replace(hour=cur_time.hour, minute=cur_time.minute)
     # check if hour is less than today
-    if now.hour > cur_time.hour:
-        parsed_time = parsed_time + timedelta(days=1)
     if cur_time.hour < 8:
         parsed_time = parsed_time + timedelta(hours=12)
+    if now > parsed_time:
+        parsed_time = parsed_time + timedelta(days=1)
     return parsed_time
 
 
