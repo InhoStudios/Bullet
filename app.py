@@ -45,13 +45,18 @@ async def on_message(message):
     if author == client.user:
         return
 
-    if content.startswith('?'):
+    if content.startswith(globals.prefix) or content.startswith(globals.prefix_who):
         tz = ptz("America/Vancouver")
         now = tz.localize(datetime.now())
+        state = globals.prefix
         # if str(now.astimezone().tzinfo) == "PST" or str(now.astimezone().tzinfo) == "Pacific Standard Time":
         #     now = now - timedelta(hours=1)
-        cmd = content.split('?')[1]
-        if cmd == "help":
+        if content.startswith(globals.prefix):
+            call = content.split(globals.prefix)[1]
+        else:
+            call = content.split(globals.prefix_who)[1]
+            state = globals.prefix_who
+        if call.startswith(globals.help):
             title = "Hi! Who is here to help!"
             desc = "To get started, download your schedule as a `.ics` file. " \
                     "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
@@ -65,16 +70,18 @@ async def on_message(message):
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
-        if cmd.startswith(" <@!"):
-            uid = cmd.split(">")[0].replace(" <@!","")
+        if call.startswith(" <@!"):
+            uid = call.split(">")[0].replace(" <@!","")
             checkDT = now
+            time = call.split(">")[1].replace(" ","")
 
-            # handle time
-            try:
-                time = cmd.split(">")[1].replace(" ","")
-                checkDT = None # replace with parse time
-            except:
-                pass
+            if time != "":
+                try:
+                    checkDT = parseTime(time, now)
+                    print(str(checkDT))
+                except:
+                    await chan.send("Check a time with `@[user] HH:MM`")
+                    return
 
             if uid in users.keys():
                 cal = users[uid]
@@ -82,8 +89,8 @@ async def on_message(message):
                 await chan.send(embed=parseEvents(cal.getCurrentEvents(checkDT), user, cal.getStatus()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
-        if cmd.startswith("status"):
-            usr = cmd.replace("status","").replace(" ","")
+        if call.startswith(globals.status):
+            usr = getParameters(call, globals.status).replace(" ","")
             msg = ""
             if usr == "":
                 if authid in users.keys():
@@ -110,22 +117,32 @@ async def on_message(message):
                         await chan.send("User is not in the system yet. Use ?update")
                 except:
                     await chan.send("Please tag a user")
-        if cmd == "events":
+        if call.startswith(globals.busy):
+            params = getParameters(call, globals.busy)
             if authid in users.keys():
                 cal = users[authid]
                 await chan.send(embed=parseEvents(cal.getAllEvents(now), author, cal.getStatus()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
-        if cmd == "free":
+        if call.startswith(globals.free):
+            checkDT = now
+            params = getParameters(call, globals.free)
+            if params != "":
+                try:
+                    time = params.replace(" ","")
+                    checkDT = parseTime(time, now)
+                    print(str(checkDT))
+                except:
+                    pass
             head = ""
             freeList = head
             upcomingList = head
             for user_key in users.keys():
                 if guild.get_member(int(user_key)) != None:
                     cal = users[user_key]
-                    if cal.checkFree(now):
+                    if cal.checkFree(checkDT):
                         freeList += "<@{}> ".format(user_key)
-                    elif cal.checkFree(now + timedelta(hours=1)):
+                    elif cal.checkFree(checkDT + timedelta(hours=1)):
                         upcomingList += "<@{}>".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free right now :("
@@ -133,7 +150,7 @@ async def on_message(message):
             if upcomingList != head:
                 embed.add_field(name="and these people will be free in the next hour", value=upcomingList)
             await chan.send(embed=embed)
-        if cmd == "update":
+        if call == "update":
             if len(attachments) == 0:
                 await chan.send("Please attach the .ics file in the ?update message")
                 return
@@ -144,7 +161,7 @@ async def on_message(message):
                     cal = Calendar.from_ical(await attachment.read())
                     parseCalendar(cal, str(author.id))
             await chan.send("Thanks, {}! Your calendar has been updated".format(author.display_name))
-        if cmd == "busy":
+        if call == "busy":
             if authid in users.keys():
                 cal = users[authid]
                 cal.toggleBusy()
@@ -156,7 +173,7 @@ async def on_message(message):
                 await chan.send(msg)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
-        if cmd == "now":
+        if call == "now":
             await chan.send("The current time is " + str(now) +
                             "\nThe timezone is " + str(now.astimezone().tzinfo))
 
@@ -185,5 +202,21 @@ def parseCalendar(gcal, id):
             evt = CalEvent(event)
             cal.addEvent(evt)
     users[id] = cal
+
+def getParameters(msg, command):
+    return msg.split(command)[1]
+
+# PRE: Time string in the format HH:MM, datetime to be modified
+# POST: Returns a datetime with updated hours
+def parseTime(time, now):
+    cur_time = datetime.strptime(time, "%H:%M")
+    parsed_time = now.replace(hour=cur_time.hour, minute=cur_time.minute)
+    # check if hour is less than today
+    if now.hour > cur_time.hour:
+        parsed_time = parsed_time + timedelta(days=1)
+    if cur_time.hour <= 12 and cur_time.hour < 8:
+            parsed_time = parsed_time + timedelta(hours=12)
+    return parsed_time
+
 
 client.run(credentials.token)
