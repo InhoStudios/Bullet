@@ -106,8 +106,8 @@ async def on_message(message):
                 try:
                     usr = usr.split("<@!")[1]
                     usr = usr.split(">")[1]
-                    if authid in users.keys():
-                        cal = users[authid]
+                    if usr in users.keys():
+                        cal = users[usr]
                         if cal.getStatus():
                             msg = "🟡 Busy"
                         else:
@@ -117,20 +117,33 @@ async def on_message(message):
                         await chan.send("User is not in the system yet. Use ?update")
                 except:
                     await chan.send("Please tag a user")
-        if call.startswith(globals.busy):
-            params = getParameters(call, globals.busy)
-            if authid in users.keys():
-                cal = users[authid]
-                await chan.send(embed=parseEvents(cal.getAllEvents(now), author, cal.getStatus()))
+        if call.startswith(globals.events):
+            params = getParameters(call, globals.events)
+            checked_id = authid
+            user = author
+            if params != "":
+                try:
+                    checked_id = params.replace(" <@!","").replace(">","")
+                    user = client.get_user(int(checked_id))
+                except:
+                    await chan.send("Please mention a user")
+
+            if checked_id in users.keys():
+                cal = users[checked_id]
+                embed = parseEvents(cal.getAllEvents(now), user, cal.getStatus())
+                await chan.send(embed=embed)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
         if call.startswith(globals.free):
+            checked_time = "right now"
+
             checkDT = now
             params = getParameters(call, globals.free)
             if params != "":
                 try:
                     time = params.replace(" ","")
                     checkDT = parseTime(time, now)
+                    checked_time = "at " + checkDT.strftime("%H:%M on %A, %b %d")
                     print(str(checkDT))
                 except:
                     pass
@@ -145,12 +158,12 @@ async def on_message(message):
                     elif cal.checkFree(checkDT + timedelta(hours=1)):
                         upcomingList += "<@{}>".format(user_key)
             if freeList == head:
-                freeList = "Sorry, nobody seems to be free right now :("
-            embed = discord.Embed(title="These people are free right now!", description=freeList)
+                freeList = "Sorry, nobody seems to be free {} :(".format(checked_time)
+            embed = discord.Embed(title="These people are free {}!".format(checked_time), description=freeList)
             if upcomingList != head:
                 embed.add_field(name="and these people will be free in the next hour", value=upcomingList)
             await chan.send(embed=embed)
-        if call == "update":
+        if call.startswith(globals.update):
             if len(attachments) == 0:
                 await chan.send("Please attach the .ics file in the ?update message")
                 return
@@ -161,7 +174,7 @@ async def on_message(message):
                     cal = Calendar.from_ical(await attachment.read())
                     parseCalendar(cal, str(author.id))
             await chan.send("Thanks, {}! Your calendar has been updated".format(author.display_name))
-        if call == "busy":
+        if call.startswith(globals.busy):
             if authid in users.keys():
                 cal = users[authid]
                 cal.toggleBusy()
@@ -173,9 +186,18 @@ async def on_message(message):
                 await chan.send(msg)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
-        if call == "now":
-            await chan.send("The current time is " + str(now) +
-                            "\nThe timezone is " + str(now.astimezone().tzinfo))
+        if call.startswith(globals.now):
+            checkDT = now
+            params = getParameters(call, globals.now)
+            if params != "":
+                try:
+                    time = params.replace(" ","")
+                    checkDT = parseTime(time, now)
+                    print(str(checkDT))
+                except:
+                    pass
+            await chan.send("The current time is " + str(checkDT) +
+                            "\nThe timezone is " + str(checkDT.astimezone().tzinfo))
 
 def parseEvents(curEvts, user, status):
     embed = discord.Embed(title="Calendar")
@@ -187,9 +209,10 @@ def parseEvents(curEvts, user, status):
         embed.add_field(name="End:", value=details['end'], inline=True)
         embed.add_field(name="Location:", value=details['location'], inline=True)
     if len(curEvts) == 0:
-        embed.description = "There are no events to display"
+        embed.description = "This user is free!"
     if status:
         embed.color = 0xFFAA00
+        embed.description = "This user is busy :("
     else:
         embed.color = 0x00FF00
     return embed
@@ -204,7 +227,10 @@ def parseCalendar(gcal, id):
     users[id] = cal
 
 def getParameters(msg, command):
-    return msg.split(command)[1]
+    try:
+        return msg.split(command)[1]
+    except:
+        return ""
 
 # PRE: Time string in the format HH:MM, datetime to be modified
 # POST: Returns a datetime with updated hours
@@ -214,8 +240,8 @@ def parseTime(time, now):
     # check if hour is less than today
     if now.hour > cur_time.hour:
         parsed_time = parsed_time + timedelta(days=1)
-    if cur_time.hour <= 12 and cur_time.hour < 8:
-            parsed_time = parsed_time + timedelta(hours=12)
+    if cur_time.hour < 8:
+        parsed_time = parsed_time + timedelta(hours=12)
     return parsed_time
 
 
