@@ -157,7 +157,7 @@ async def on_message(message):
                     if cal.checkFree(checkDT):
                         freeList += "<@{}> ".format(user_key)
                     elif cal.checkFree(checkDT + timedelta(hours=1)):
-                        upcomingList += "<@{}>".format(user_key)
+                        upcomingList += "<@{}> ".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free {} :(".format(checked_time)
             embed = discord.Embed(title="These people are free {}!".format(checked_time), description=freeList)
