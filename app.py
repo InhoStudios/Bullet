@@ -70,11 +70,12 @@ async def on_message(message):
             embed.add_field(name="?free (hh:mm)", value="Checks who's free right now. Specify a time to see whos free at a given time.")
             embed.add_field(name="?events (@[user]) (page)", value="Lists all of the users events. Show more pages by specifying the page number")
             embed.add_field(name="? @[user] (hh:mm)", value="Lists what event @[user] is currently attending. Specify a time check that time instead.")
-            embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
-            embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
+            embed.add_field(name="?upcoming (hh:mm))", value="Shows what events are happening in the next hour (or at the specified time).")
             embed.add_field(name="?busy", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
-            embed.add_field(name="Want to add Who to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!")
+            embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
+            embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
+            embed.add_field(name="Want to add Who to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!", inline=False)
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
             return
@@ -219,14 +220,25 @@ async def on_message(message):
                             "\nThe timezone is " + str(checkDT.astimezone().tzinfo))
         if call.startswith(globals.upcoming):
             checked_time = "right now"
-            check_dt = now
+            check_dt = now + timedelta(hours=1)
+            has_events = False
             if len(cmd_parameters) > 0:
                 for param in cmd_parameters:
                     if param != "at":
                         check_dt = parseTime(param, now)
                         checked_time = "at " + check_dt.strftime("%H:%M on %A, %b %d")
-            for user_key in users.key():
-                pass
+            for user_key in users.keys():
+                if guild.get_member(int(user_key)) != None:
+                    cal = users[user_key]
+                    if not cal.checkFree(check_dt):
+                        has_events = True
+                        user = guild.get_member(int(user_key))
+                        embed = parseEvents(cal.getCurrentEvents(check_dt), user, cal.getStatus())
+                        await chan.send(embed=embed)
+            if not has_events:
+                await chan.send(embed=discord.Embed(title="It seems there are no events upcoming!", description="There are no events happening {}".format(checked_time)))
+
+                    
         if call.startswith(" <@!"):
             uid = str(message.mentions[0].id)
             checkDT = now
