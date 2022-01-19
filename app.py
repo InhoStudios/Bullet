@@ -60,7 +60,7 @@ async def on_message(message):
         else:
             call = content.split(globals.prefix_who)[1]
             state = globals.prefix_who
-        cmd_parameters = getParameters(content)
+        cmd_parameters = getParameters(call)
         if call.startswith(globals.help):
             title = "Hi! Who is here to help!"
             desc = "To get started, download your schedule as a `.ics` file. " \
