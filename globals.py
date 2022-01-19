@@ -8,7 +8,8 @@ events = "events"
 free = "free"
 update = "update"
 busy = "busy"
-
+add = "add"
+upcoming = "upcoming"
 
 # Debugging
 now = "now"

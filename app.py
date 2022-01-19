@@ -26,9 +26,13 @@ async def on_ready():
     for calfile in cals:
         filename = join(CAL_FOLDER, calfile)
         uid = calfile.split('.')[0]
+        try:
+            uid = uid.split('_')[0]
+        except:
+            pass
         file = open(filename, 'rb')
         calendar = Calendar.from_ical(file.read())
-        parseCalendar(calendar, uid)
+        addCalEvents(calendar, uid)
         file.close()
 
 @client.event
@@ -56,112 +60,84 @@ async def on_message(message):
         else:
             call = content.split(globals.prefix_who)[1]
             state = globals.prefix_who
+        cmd_parameters = getParameters(content)
         if call.startswith(globals.help):
             title = "Hi! Who is here to help!"
             desc = "To get started, download your schedule as a `.ics` file. " \
                     "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
                     "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n"
             embed = discord.Embed(title=title, description=desc)
-            embed.add_field(name="?update", value="Updates your current calendar (please attach a valid .ics file)")
-            embed.add_field(name="?free", value="Checks who's free at the moment. Type `?free HH:MM` to see whos free at a given time.")
-            embed.add_field(name="?events (@[user])", value="Lists all of your events. If a user is mentioned, their events will be listed instead")
-            embed.add_field(name="? @[user]", value="Lists what event @[user] is currently attending. Type `? @[user] HH:MM` to see if that user is free at a given time.")
+            embed.add_field(name="?free (hh:mm)", value="Checks who's free right now. Specify a time to see whos free at a given time.")
+            embed.add_field(name="?events (@[user]) (page)", value="Lists all of the users events. Show more pages by specifying the page number")
+            embed.add_field(name="? @[user] (hh:mm)", value="Lists what event @[user] is currently attending. Specify a time check that time instead.")
+            embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
+            embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
             embed.add_field(name="?busy", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="Want to add Who to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!")
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
-        if call.startswith(" <@!"):
-            uid = call.split(">")[0].replace(" <@!","")
-            checkDT = now
-            time = call.split(">")[1].replace(" ","")
-
-            if time != "":
-                try:
-                    checkDT = parseTime(time, now)
-                    print(str(checkDT))
-                except:
-                    await chan.send("Check a time with `@[user] HH:MM`")
-                    return
-
-            if uid in users.keys():
-                cal = users[uid]
-                user = client.get_user(int(uid))
-                await chan.send(embed=parseEvents(cal.getCurrentEvents(checkDT), user, cal.getStatus()))
+            return
+        if call.startswith(globals.status):
+            usr = authid
+            if message.mentions:
+                usr = str(message.mentions[0].id)
+            msg = ""
+            if usr in users.keys():
+                cal = users[usr]
+                if cal.getStatus():
+                    msg = "🟡 Busy"
+                else:
+                    msg = "🟢 Available"
+                await chan.send(msg)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
-        if call.startswith(globals.status):
-            usr = getParameters(call, globals.status).replace(" ","")
-            msg = ""
-            if usr == "":
-                if authid in users.keys():
-                    cal = users[authid]
-                    if cal.getStatus():
-                        msg = "🟡 Busy"
-                    else:
-                        msg = "🟢 Available"
-                    await chan.send(msg)
-                else:
-                    await chan.send("User is not in the system yet. Use ?update")
-            else:
-                try:
-                    usr = usr.split("<@!")[1]
-                    usr = usr.split(">")[0]
-                    if usr in users.keys():
-                        cal = users[usr]
-                        if cal.getStatus():
-                            msg = "🟡 Busy"
-                        else:
-                            msg = "🟢 Available"
-                        await chan.send(msg)
-                    else:
-                        await chan.send("User is not in the system yet. Use ?update")
-                except:
-                    await chan.send("Please tag a user")
+            return
         if call.startswith(globals.events):
-            params = getParameters(call, globals.events)
+            # SET DEFAULT PARAMETERS
             checked_id = authid
             user = author
-            if params != "":
-                try:
-                    checked_id = params.replace(" <@!","").replace(">","")
-                    user = client.get_user(int(checked_id))
-                except:
-                    await chan.send("Please mention a user")
-                    return
-
+            page_num = 1
+            # PARSE PARAMETERS
+            if message.mentions:
+                checked_id = str(message.mentions[0].id)
+            
+            try:
+                page_num = int(cmd_parameters[-1])
+            except:
+                pass
+            
             if checked_id in users.keys():
                 cal = users[checked_id]
-                embed = parseEvents(cal.getAllEvents(now), user, cal.getStatus())
+                evt_page, tot_pages = cal.getEventPage(now, page_num)
+                if page_num > tot_pages:
+                    page_num = tot_pages
+                embed = parseEvents(evt_page, user, cal.getStatus())
+                embed.set_footer(text="Page " + str(page_num) + "/" + str(tot_pages))
                 await chan.send(embed=embed)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
+            return
         if call.startswith(globals.free):
             checked_time = "right now"
 
-            checkDT = now
-            params = getParameters(call, globals.free)
-            if params != "":
-                try:
-                    params = params.replace("at","")
-                except:
-                    pass
-                try:
-                    time = params.replace(" ","")
-                    checkDT = parseTime(time, now)
-                    checked_time = "at " + checkDT.strftime("%H:%M on %A, %b %d")
-                    print(str(checkDT))
-                except:
-                    pass
+            check_dt = now
+            if len(cmd_parameters) > 0:
+                for param in cmd_parameters:
+                    if param != "at":
+                        check_dt = parseTime(param, now)
+                        checked_time = "at " + check_dt.strftime("%H:%M on %A, %b %d")
+                        print(str(check_dt))
+
             head = ""
             freeList = head
             upcomingList = head
             for user_key in users.keys():
                 if guild.get_member(int(user_key)) != None:
                     cal = users[user_key]
-                    if cal.checkFree(checkDT):
+                    if cal.checkFree(check_dt):
                         freeList += "<@{}> ".format(user_key)
-                    elif cal.checkFree(checkDT + timedelta(hours=1)):
+                    elif cal.checkFree(check_dt + timedelta(hours=1)):
                         upcomingList += "<@{}> ".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free {} :(".format(checked_time)
@@ -169,6 +145,7 @@ async def on_message(message):
             if upcomingList != head:
                 embed.add_field(name="and these people will be free in the hour after", value=upcomingList)
             await chan.send(embed=embed)
+            return
         if call.startswith(globals.update):
             if len(attachments) == 0:
                 await chan.send("Please attach the .ics file in the ?update message")
@@ -176,10 +153,45 @@ async def on_message(message):
             for attachment in attachments:
                 filename = attachment.filename
                 if filename.endswith(".ics"):
-                    await attachment.save(CAL_FOLDER + str(author.id) + ".ics")
+                    FILE_PATH = CAL_FOLDER + str(author.id) + ".ics"
+                    save_file = FILE_PATH
+                    # Remove previous calendars
+                    cals = listdir(CAL_FOLDER)
+                    for calfile in cals:
+                        filename = join(CAL_FOLDER, calfile)
+                        uid = calfile.split('.')[0]
+                        try:
+                            uid = uid.split("_")[0]
+                        except:
+                            pass
+                        if uid == str(author.id):
+                            remove(filename)
+                    # Save current calendar file
+                    await attachment.save(save_file)
+
                     cal = Calendar.from_ical(await attachment.read())
                     parseCalendar(cal, str(author.id))
-            await chan.send("Thanks, {}! Your calendar has been updated".format(author.display_name))
+            await chan.send("Thanks, {}! Your calendar has been updated. Type ?events to see them!".format(author.display_name))
+            return
+        if call.startswith(globals.add):
+            if len(attachments) == 0:
+                await chan.send("Please attach the .ics file in the ?update message")
+                return
+            for attachment in attachments:
+                filename = attachment.filename
+                if filename.endswith(".ics"):
+                    FILE_PATH = join(CAL_FOLDER, str(author.id) + ".ics")
+                    save_file = FILE_PATH + ""
+                    i = 1
+                    while exists(save_file):
+                        print(save_file)
+                        save_file = join(CAL_FOLDER, str(author.id) + "_" + str(i) + ".ics")
+                        i += 1
+                    await attachment.save(save_file)
+                    cal = Calendar.from_ical(await attachment.read())
+                    addCalEvents(cal, str(author.id))
+            await chan.send("Thanks, {}! New events have been added to your calendar. Type ?events to see them!".format(author.display_name))
+            return
         if call.startswith(globals.busy):
             if authid in users.keys():
                 cal = users[authid]
@@ -192,18 +204,46 @@ async def on_message(message):
                 await chan.send(msg)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
+            return
         if call.startswith(globals.now):
             checkDT = now
-            params = getParameters(call, globals.now)
-            if params != "":
+            if len(cmd_parameters) > 0:
+                time = cmd_parameters[0]
+                print(time)
                 try:
-                    time = params.replace(" ","")
                     checkDT = parseTime(time, now)
                     print(str(checkDT))
                 except:
                     pass
             await chan.send("The current time is " + str(checkDT) +
                             "\nThe timezone is " + str(checkDT.astimezone().tzinfo))
+        if call.startswith(globals.upcoming):
+            checked_time = "right now"
+            check_dt = now
+            if len(cmd_parameters) > 0:
+                for param in cmd_parameters:
+                    if param != "at":
+                        check_dt = parseTime(param, now)
+                        checked_time = "at " + check_dt.strftime("%H:%M on %A, %b %d")
+            for user_key in users.key():
+                pass
+        if call.startswith(" <@!"):
+            uid = str(message.mentions[0].id)
+            checkDT = now
+            if len(cmd_parameters) > 1:
+                time = cmd_parameters[2]
+                try:
+                    checkDT = parseTime(time, now)
+                except:
+                    await chan.send("Check a time with `@[user] HH:MM`")
+                    return
+
+            if uid in users.keys():
+                cal = users[uid]
+                user = client.get_user(int(uid))
+                await chan.send(embed=parseEvents(cal.getCurrentEvents(checkDT), user, cal.getStatus()))
+            else:
+                await chan.send("User is not in the system yet. Use ?update")
 
 def parseEvents(curEvts, user, status):
     embed = discord.Embed(title="Calendar")
@@ -223,20 +263,31 @@ def parseEvents(curEvts, user, status):
         embed.color = 0x00FF00
     return embed
 
+# PRE: Takes in a new icalendar object and a user ID
+# POST: Creates new calendar and populates it with events
 def parseCalendar(gcal, id):
     users[id] = None
     cal = DiscCalendar()
+    users[id] = cal
+    addCalEvents(gcal, id)
+
+def addCalEvents(gcal, id):
+    try:
+        cal = users[id]
+    except:
+        cal = DiscCalendar()
+        users[id] = cal
     for event in gcal.walk():
         if event.name == "VEVENT":
             evt = CalEvent(event)
             cal.addEvent(evt)
     users[id] = cal
 
-def getParameters(msg, command):
+def getParameters(msg):
     try:
-        return msg.split(command)[1]
+        return msg.split(" ")[1:]
     except:
-        return ""
+        return []
 
 # PRE: Time string in the format HH:MM, datetime to be modified
 # POST: Returns a datetime with updated hours
