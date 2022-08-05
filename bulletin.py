@@ -62,9 +62,20 @@ class Calendar:
         -----
         date=datetime.utcnow(): datetime.datetime
             The date to check, set to the current date by default
+        
+        Returns
+        -----
+        week: list
+            A list of all events happening in any given week
         """
         sunday = date - timedelta(days=date.weekday())
-        pass
+        saturday = sunday + timedelta(days=7)
+        events = []
+        for event in self.events:
+            in_period, intervals = event.in_period(sunday, saturday)
+            if in_period:
+                events.append(event.copy().set_intervals(intervals))
+        return events
 
     def toggle_status(self):
         self.busy = not self.busy
@@ -115,6 +126,49 @@ class Event:
         """
         return
 
+    def set_intervals(self, intervals):
+        """
+        Sets time intervals of an event
+
+        Parameters
+        -----
+        intervals: list
+            List of time intervals to add to event
+        """
+        self.intervals = intervals
+        return self
+
+    def in_period(self, start_date, end_date):
+        """
+        Checks to see if there are intervals within a given period
+
+        Parameters
+        -----
+        start_date: date
+            The lower bound to check, must be earlier than end_date
+        end_date: date
+            The upper bound to check
+
+        Returns
+        -----
+        in_period: bool
+            Whether or not the event is within the given period
+        intervals: list
+            A list of the intervals of the event that occurs within the period
+        """
+        assert(start_date <= end_date)
+        in_period = False
+        intervals = []
+        for interval in self.intervals:
+            try:
+                if start_date <= interval[0].date() and end_date >= interval[0].date():
+                    in_period = True
+                    intervals.append(interval.copy())
+            except TypeError:
+                if start_date <= interval[0] and end_date >= interval[0]:
+                    in_period = True
+                    intervals.append(interval.copy())
+        return in_period, intervals
 
     def happening(self, date=datetime.utcnow()):
         """

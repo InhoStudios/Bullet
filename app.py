@@ -10,7 +10,7 @@ from DiscCalendar import DiscCalendar
 from datetime import datetime, timezone, timedelta
 from pytz import timezone as ptz
 
-from bulletin import Calendar
+from bulletin import Calendar as bCal
 
 CAL_FOLDER = './calendars/'
 
@@ -36,10 +36,11 @@ async def on_ready():
         # open file
         file = open(filename, 'r')
         # create new calendar to save object into
-        user_cal = Calendar()
+        user_cal = bCal()
         user_cal.import_calendar(file.read())
         # assign calendar to user
         users[uid] = user_cal
+        print(uid)
         file.close()
 
 @client.event
@@ -77,7 +78,7 @@ async def on_message(message):
             embed.add_field(name="?events (@[user]) (page)", value="Lists all of the users events. Show more pages by specifying the page number")
             embed.add_field(name="? @[user] (hh:mm)", value="Lists what event @[user] is currently attending. Specify a time check that time instead.")
             embed.add_field(name="?upcoming (hh:mm))", value="Shows what events are happening in the next hour (or at the specified time).")
-            embed.add_field(name="?busy", value="Toggles your status (Available / Busy)")
+            embed.add_field(name="?toggle", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
             embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
@@ -176,8 +177,10 @@ async def on_message(message):
                     # Save current calendar file
                     await attachment.save(save_file)
 
-                    cal = Calendar.from_ical(await attachment.read())
-                    parseCalendar(cal, str(author.id))
+                    cal = bCal()
+                    with open(save_file, 'r') as f: 
+                        cal.import_calendar(f.read())
+                    users[uid] = cal
             await chan.send("Thanks, {}! Your calendar has been updated. Type ?events to see them!".format(author.display_name))
             return
         if call.startswith(globals.add):
@@ -199,12 +202,12 @@ async def on_message(message):
                     addCalEvents(cal, str(author.id))
             await chan.send("Thanks, {}! New events have been added to your calendar. Type ?events to see them!".format(author.display_name))
             return
-        if call.startswith(globals.busy):
+        if call.startswith(globals.toggle):
             if authid in users.keys():
                 cal = users[authid]
-                cal.toggleBusy()
+                cal.toggle_status()
                 msg = "Gotcha {}! Your status is updated: ".format(author.name)
-                if cal.getStatus():
+                if cal.get_status():
                     msg += "Busy"
                 else:
                     msg += "Free"
