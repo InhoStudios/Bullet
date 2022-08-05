@@ -4,7 +4,7 @@ from datetime import datetime
 class Calendar:
     def __init__(self):
         self.events = []
-        self.calendar = vobject.iCalendar
+        self.calendar = vobject.iCalendar()
     
     def import_calendar(self, calendar_str):
         """
@@ -17,8 +17,21 @@ class Calendar:
         """
         import_cal = next(vobject.readComponents(calendar_str))
         for vevt in import_cal.vevent_list:
-            evt = Event.read_from_vevent(vevt)
+            evt = Event()
+            evt.read_from_vevent(vevt)
             self.events.append(evt)
+            # import all events
+            self.calendar.add(vevt)
+        
+    def get_events(self):
+        return self.events
+
+    def get_occurring(self, date=datetime.utcnow()):
+        rets = []
+        for evt in self.events:
+            if evt.happening(date):
+                rets.append(date)
+        return rets
 
 class Event:
     def __init__(self):
@@ -28,7 +41,6 @@ class Event:
         self.desc = ""
 
     def read_from_vevent(self, vevent):
-        self.__init__()
         """
         Creates an event from a vevent provided by the vobject API
 
@@ -44,7 +56,7 @@ class Event:
         except:
             pass
         # get interval
-        duration = vevent.dtstart.value - vevent.dtend.value
+        duration = vevent.dtend.value - vevent.dtstart.value
         try:
             for date in vevent.rruleset:
                 interval = [date, date + duration]
