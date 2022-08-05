@@ -1,5 +1,6 @@
 import vobject
 from datetime import datetime
+import calendar
 
 class Calendar:
     def __init__(self):
@@ -27,11 +28,30 @@ class Calendar:
         return self.events
 
     def get_occurring(self, date=datetime.utcnow()):
+        """
+        Checks what events are occurring at a specified time
+
+        Parameters
+        -----
+        date=datetime.utcnow(): datetime.datetime
+            The date to check, set to the current date by default
+        """
         rets = []
         for evt in self.events:
             if evt.happening(date):
-                rets.append(date)
+                rets.append(evt)
         return rets
+    
+    def is_free(self, date=datetime.utcnow()):
+        """
+        Checks if user is free at a specified time
+
+        Parameters
+        -----
+        date=datetime.utcnow(): datetime.datetime
+            The date to check, set to the current date by default
+        """
+        return len(self.get_occurring(date)) == 0
 
 class Event:
     def __init__(self):
@@ -66,6 +86,17 @@ class Event:
             self.intervals.append(interval)
         return self
 
+    def get_details(self):
+        """
+        Gets all relevant event details
+
+        Returns
+        -----
+        dict {title, day, start, end, location, description}
+        """
+        return
+
+
     def happening(self, date=datetime.utcnow()):
         """
         Checks to see if an event is happening at a specified time
@@ -79,6 +110,10 @@ class Event:
         """
         in_interval = False
         for interval in self.intervals:
-            if interval[0] <= date and interval[1] >= date:
-                in_interval = True
+            try:
+                if interval[0] <= date and interval[1] >= date:
+                    in_interval = True
+            except TypeError:
+                if interval[0] == date.date() or interval[1] == date.date():
+                    in_interval = True
         return in_interval
