@@ -7,7 +7,7 @@ status = "status"
 events = "events"
 free = "free"
 update = "update"
-busy = "busy"
+toggle = "toggle"
 add = "add"
 upcoming = "upcoming"
 
