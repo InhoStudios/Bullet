@@ -1,5 +1,5 @@
 import vobject
-from datetime import datetime
+from datetime import datetime, timedelta
 import calendar
 
 class Calendar:
@@ -52,6 +52,18 @@ class Calendar:
             The date to check, set to the current date by default
         """
         return len(self.get_occurring(date)) == 0
+    
+    def get_week(self, date=datetime.utcnow()):
+        """
+        Gets the weeks events of any specified date, starting on Sunday
+
+        Parameters
+        -----
+        date=datetime.utcnow(): datetime.datetime
+            The date to check, set to the current date by default
+        """
+        sunday = date - timedelta(days=date.weekday())
+        pass
 
 class Event:
     def __init__(self):
