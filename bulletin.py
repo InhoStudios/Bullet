@@ -6,6 +6,7 @@ class Calendar:
     def __init__(self):
         self.events = []
         self.calendar = vobject.iCalendar()
+        self.busy = False
     
     def import_calendar(self, calendar_str):
         """
@@ -64,6 +65,12 @@ class Calendar:
         """
         sunday = date - timedelta(days=date.weekday())
         pass
+
+    def toggle_status(self):
+        self.busy = not self.busy
+
+    def get_status(self):
+        return self.busy
 
 class Event:
     def __init__(self):

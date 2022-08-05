@@ -10,6 +10,8 @@ from DiscCalendar import DiscCalendar
 from datetime import datetime, timezone, timedelta
 from pytz import timezone as ptz
 
+from bulletin import Calendar
+
 CAL_FOLDER = './calendars/'
 
 intents = discord.Intents().all()
@@ -24,19 +26,25 @@ async def on_ready():
     print('Logged in as {0.user}'.format(client))
     cals = listdir(CAL_FOLDER)
     for calfile in cals:
+        # get user_id from calendar file
         filename = join(CAL_FOLDER, calfile)
         uid = calfile.split('.')[0]
         try:
             uid = uid.split('_')[0]
         except:
             pass
-        file = open(filename, 'rb')
-        calendar = Calendar.from_ical(file.read())
-        addCalEvents(calendar, uid)
+        # open file
+        file = open(filename, 'r')
+        # create new calendar to save object into
+        user_cal = Calendar()
+        user_cal.import_calendar(file.read())
+        # assign calendar to user
+        users[uid] = user_cal
         file.close()
 
 @client.event
 async def on_message(message):
+    # get information
     author = message.author
     authid = str(author.id)
     content = message.content
@@ -46,15 +54,13 @@ async def on_message(message):
 
     print("{} in {}: {}".format(author.name, chan.name, content))
 
+    # skip running if it's a bot message
     if author == client.user:
         return
 
     if content.startswith(globals.prefix) or content.startswith(globals.prefix_who):
-        tz = ptz("America/Vancouver")
-        now = tz.localize(datetime.now())
+        now = datetime.utcnow()
         state = globals.prefix
-        # if str(now.astimezone().tzinfo) == "PST" or str(now.astimezone().tzinfo) == "Pacific Standard Time":
-        #     now = now - timedelta(hours=1)
         if content.startswith(globals.prefix):
             call = content.split(globals.prefix)[1]
         else:
@@ -62,7 +68,7 @@ async def on_message(message):
             state = globals.prefix_who
         cmd_parameters = getParameters(call)
         if call.startswith(globals.help):
-            title = "Hi! Who is here to help!"
+            title = "Hey, I'm Bullet! I'm here to help!"
             desc = "To get started, download your schedule as a `.ics` file. " \
                     "For UBC students, do this by accessing your timetable from your SSC and downloading as ical (.ics) file.\n" \
                     "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n"
@@ -80,13 +86,13 @@ async def on_message(message):
             await chan.send(embed=embed)
             return
         if call.startswith(globals.status):
-            usr = authid
+            user_id = authid
             if message.mentions:
-                usr = str(message.mentions[0].id)
+                user_id = str(message.mentions[0].id)
             msg = ""
-            if usr in users.keys():
-                cal = users[usr]
-                if cal.getStatus():
+            if user_id in users.keys():
+                cal = users[user_id]
+                if cal.get_status():
                     msg = "🟡 Busy"
                 else:
                     msg = "🟢 Available"
@@ -110,11 +116,11 @@ async def on_message(message):
             
             if checked_id in users.keys():
                 cal = users[checked_id]
-                evt_page, tot_pages = cal.getEventPage(now, page_num)
-                if page_num > tot_pages:
-                    page_num = tot_pages
+                evt_page = cal.get_events(now, page_num)
+                # if page_num > tot_pages:
+                #     page_num = tot_pages
                 embed = parseEvents(evt_page, user, cal.getStatus())
-                embed.set_footer(text="Page " + str(page_num) + "/" + str(tot_pages))
+                # embed.set_footer(text="Page " + str(page_num) + "/" + str(tot_pages))
                 await chan.send(embed=embed)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
