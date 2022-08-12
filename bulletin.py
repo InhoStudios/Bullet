@@ -79,6 +79,7 @@ class Calendar:
 
     def toggle_status(self):
         self.busy = not self.busy
+        return self
 
     def get_status(self):
         return self.busy

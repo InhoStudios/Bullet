@@ -1,5 +1,6 @@
 from os.path import join, exists
 from os import listdir, remove
+from io import TextIOWrapper
 
 import credentials, globals
 
@@ -103,24 +104,24 @@ async def on_message(message):
             return
         if call.startswith(globals.events):
             # SET DEFAULT PARAMETERS
-            checked_id = authid
+            id_to_check = authid
             user = author
             page_num = 1
             # PARSE PARAMETERS
             if message.mentions:
-                checked_id = str(message.mentions[0].id)
+                id_to_check = str(message.mentions[0].id)
             
             try:
                 page_num = int(cmd_parameters[-1])
             except:
                 pass
             
-            if checked_id in users.keys():
-                cal = users[checked_id]
-                evt_page = cal.get_events(now, page_num)
+            if id_to_check in users.keys():
+                cal = users[id_to_check]
+                evt_page = cal.get_week()
                 # if page_num > tot_pages:
                 #     page_num = tot_pages
-                embed = parseEvents(evt_page, user, cal.getStatus())
+                embed = create_events_embed(evt_page, user, cal.get_status())
                 # embed.set_footer(text="Page " + str(page_num) + "/" + str(tot_pages))
                 await chan.send(embed=embed)
             else:
@@ -143,9 +144,9 @@ async def on_message(message):
             for user_key in users.keys():
                 if guild.get_member(int(user_key)) != None:
                     cal = users[user_key]
-                    if cal.checkFree(check_dt):
+                    if cal.is_free(check_dt):
                         freeList += "<@{}> ".format(user_key)
-                    elif cal.checkFree(check_dt + timedelta(hours=1)):
+                    elif cal.is_free(check_dt + timedelta(hours=1)):
                         upcomingList += "<@{}> ".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free {} :(".format(checked_time)
@@ -160,8 +161,9 @@ async def on_message(message):
                 return
             for attachment in attachments:
                 filename = attachment.filename
+                auth_id = str(author.id)
                 if filename.endswith(".ics"):
-                    FILE_PATH = CAL_FOLDER + str(author.id) + ".ics"
+                    FILE_PATH = CAL_FOLDER + auth_id + ".ics"
                     save_file = FILE_PATH
                     # Remove previous calendars
                     cals = listdir(CAL_FOLDER)
@@ -172,16 +174,19 @@ async def on_message(message):
                             uid = uid.split("_")[0]
                         except:
                             pass
-                        if uid == str(author.id):
+                        if uid == auth_id:
                             remove(filename)
                     # Save current calendar file
                     await attachment.save(save_file)
 
+                    bytes = await attachment.read()
+
+
                     cal = bCal()
                     with open(save_file, 'r') as f: 
                         cal.import_calendar(f.read())
-                    users[uid] = cal
-            await chan.send("Thanks, {}! Your calendar has been updated. Type ?events to see them!".format(author.display_name))
+                    users[auth_id] = cal
+            await chan.send("Thanks, **{}**! Your calendar has been updated.".format(author.display_name))
             return
         if call.startswith(globals.add):
             if len(attachments) == 0:
@@ -265,6 +270,23 @@ async def on_message(message):
                 await chan.send(embed=parseEvents(cal.getCurrentEvents(checkDT), user, cal.getStatus()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
+
+def create_week_embed(events, user, status):
+    embed = discord.Embed(title="Calendar")
+    embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+
+def create_events_embed(events, user, status):
+    embed = discord.Embed(title="Calendar")
+    embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+    for event in events:
+        embed.add_field(name=event.summary, value="Location: {}\nDetails: {}".format(event.location, event.desc))
+    if len(events) == 0:
+        embed.color = 0x00FF00
+        embed.description = "This user is free!"
+    if status:
+        embed.color = 0xFFAA00
+        embed.description = "This user is busy"
+    return embed
 
 def parseEvents(curEvts, user, status):
     embed = discord.Embed(title="Calendar")
