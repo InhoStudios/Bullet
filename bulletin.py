@@ -68,8 +68,8 @@ class Calendar:
         week: list
             A list of all events happening in any given week
         """
-        sunday = date - timedelta(days=date.weekday())
-        saturday = sunday + timedelta(days=7)
+        sunday = date - timedelta(days=date.weekday() + 1)
+        saturday = sunday + timedelta(days=6)
         events = []
         for event in self.events:
             in_period, intervals = event.in_period(sunday, saturday)

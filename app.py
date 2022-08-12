@@ -118,11 +118,11 @@ async def on_message(message):
             
             if id_to_check in users.keys():
                 cal = users[id_to_check]
-                date_to_check = datetime.utcnow() + timedelta(days=7*weeks)
+                date_to_check = datetime.now() + timedelta(days=7*weeks)
                 evt_page = cal.get_week(date_to_check)
                 
-                sunday = date_to_check - timedelta(days=date_to_check.weekday())
-                saturday = sunday + timedelta(days=7)
+                sunday = date_to_check - timedelta(days=date_to_check.weekday() + 1)
+                saturday = sunday + timedelta(days=6)
                 embed = create_events_embed(evt_page, user, cal.get_status())
                 embed.set_footer(text="From {} to {}".format(sunday.strftime("%d %B"), saturday.strftime("%d %B")))
                 await chan.send(embed=embed)
