@@ -1,6 +1,6 @@
 import vobject
 from datetime import datetime, timedelta
-import calendar
+from pytz import timezone
 
 class Calendar:
     def __init__(self):
@@ -90,6 +90,14 @@ class Event:
         self.intervals = []
         self.location = ""
         self.desc = ""
+    
+    def copy(self):
+        new_evt = Event()
+        new_evt.summary = self.summary
+        new_evt.location = self.location
+        new_evt.desc = self.desc
+        new_evt.intervals = self.intervals.copy()
+        return new_evt
 
     def read_from_vevent(self, vevent):
         """
@@ -160,7 +168,14 @@ class Event:
         assert(start_date <= end_date)
         in_period = False
         intervals = []
+        tz = timezone('America/Vancouver')
+        start_date = tz.localize(start_date)
+        end_date = tz.localize(end_date)
         for interval in self.intervals:
+            try:
+                interval[0] = tz.localize(interval[0])
+            except ValueError:
+                pass
             try:
                 if start_date <= interval[0].date() and end_date >= interval[0].date():
                     in_period = True

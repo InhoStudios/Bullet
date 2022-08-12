@@ -76,7 +76,7 @@ async def on_message(message):
                     "Next, upload the .ics file and type `?update` to update your schedule. It will be saved to the system.\n\n"
             embed = discord.Embed(title=title, description=desc)
             embed.add_field(name="?free (hh:mm)", value="Checks who's free right now. Specify a time to see whos free at a given time.")
-            embed.add_field(name="?events (@[user]) (page)", value="Lists all of the users events. Show more pages by specifying the page number")
+            embed.add_field(name="?events (@[user]) (week)", value="Lists all of the users events. Show future weeks by specifying how many weeks ahead to look")
             embed.add_field(name="? @[user] (hh:mm)", value="Lists what event @[user] is currently attending. Specify a time check that time instead.")
             embed.add_field(name="?upcoming (hh:mm))", value="Shows what events are happening in the next hour (or at the specified time).")
             embed.add_field(name="?toggle", value="Toggles your status (Available / Busy)")
@@ -106,23 +106,25 @@ async def on_message(message):
             # SET DEFAULT PARAMETERS
             id_to_check = authid
             user = author
-            page_num = 1
+            weeks = 0
             # PARSE PARAMETERS
             if message.mentions:
                 id_to_check = str(message.mentions[0].id)
             
             try:
-                page_num = int(cmd_parameters[-1])
+                weeks = int(cmd_parameters[-1])
             except:
                 pass
             
             if id_to_check in users.keys():
                 cal = users[id_to_check]
-                evt_page = cal.get_week()
-                # if page_num > tot_pages:
-                #     page_num = tot_pages
+                date_to_check = datetime.utcnow() + timedelta(days=7*weeks)
+                evt_page = cal.get_week(date_to_check)
+                
+                sunday = date_to_check - timedelta(days=date_to_check.weekday())
+                saturday = sunday + timedelta(days=7)
                 embed = create_events_embed(evt_page, user, cal.get_status())
-                # embed.set_footer(text="Page " + str(page_num) + "/" + str(tot_pages))
+                embed.set_footer(text="From {} to {}".format(sunday.strftime("%d %B"), saturday.strftime("%d %B")))
                 await chan.send(embed=embed)
             else:
                 await chan.send("User is not in the system yet. Use ?update")
@@ -178,10 +180,6 @@ async def on_message(message):
                             remove(filename)
                     # Save current calendar file
                     await attachment.save(save_file)
-
-                    bytes = await attachment.read()
-
-
                     cal = bCal()
                     with open(save_file, 'r') as f: 
                         cal.import_calendar(f.read())
@@ -274,12 +272,23 @@ async def on_message(message):
 def create_week_embed(events, user, status):
     embed = discord.Embed(title="Calendar")
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+    for event in events:
+        pass
+
 
 def create_events_embed(events, user, status):
     embed = discord.Embed(title="Calendar")
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
     for event in events:
-        embed.add_field(name=event.summary, value="Location: {}\nDetails: {}".format(event.location, event.desc))
+        timezone = datetime.now().tzinfo
+        date = event.intervals[0]
+        date_str = date[0].astimezone(timezone).strftime("%A %d %B, %Y")
+        start_time = date[0].astimezone(timezone).strftime("%H:%M")
+        end_time = date[1].astimezone(timezone).strftime("%H:%M")
+        location = event.location
+        if location == "":
+            location = "N/A"
+        embed.add_field(name=event.summary, value="{}\n{}-{}\nLocation: {}".format(date_str, start_time, end_time, location), inline=False)
     if len(events) == 0:
         embed.color = 0x00FF00
         embed.description = "This user is free!"
