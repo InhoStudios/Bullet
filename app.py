@@ -61,7 +61,7 @@ async def on_message(message):
         return
 
     if content.startswith(globals.prefix) or content.startswith(globals.prefix_who):
-        now = datetime.utcnow()
+        now = datetime.now().astimezone()
         state = globals.prefix
         if content.startswith(globals.prefix):
             call = content.split(globals.prefix)[1]
@@ -105,12 +105,13 @@ async def on_message(message):
         if call.startswith(globals.events):
             # SET DEFAULT PARAMETERS
             id_to_check = authid
-            user = author
             weeks = 0
             # PARSE PARAMETERS
             if message.mentions:
                 id_to_check = str(message.mentions[0].id)
             
+            user = client.get_user(int(id_to_check))
+
             try:
                 weeks = int(cmd_parameters[-1])
             except:
@@ -251,7 +252,7 @@ async def on_message(message):
                 await chan.send(embed=discord.Embed(title="It seems there are no events upcoming!", description="There are no events happening {}".format(checked_time)))
 
                     
-        if call.startswith(" <@!"):
+        if call.startswith(" <@"):
             uid = str(message.mentions[0].id)
             checkDT = now
             if len(cmd_parameters) > 1:
@@ -265,7 +266,7 @@ async def on_message(message):
             if uid in users.keys():
                 cal = users[uid]
                 user = client.get_user(int(uid))
-                await chan.send(embed=parseEvents(cal.getCurrentEvents(checkDT), user, cal.getStatus()))
+                await chan.send(embed=create_events_embed(cal.get_occurring(checkDT), user, cal.get_status()))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
 
