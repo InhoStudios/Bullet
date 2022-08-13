@@ -1,3 +1,4 @@
+from calendar import weekday
 from os.path import join, exists
 from os import listdir, remove
 from io import TextIOWrapper
@@ -10,6 +11,7 @@ from CalEvent import CalEvent
 from DiscCalendar import DiscCalendar
 from datetime import datetime, timezone, timedelta
 from pytz import timezone as ptz
+from calendar import day_name
 
 from bulletin import Calendar as bCal
 
@@ -68,7 +70,7 @@ async def on_message(message):
         else:
             call = content.split(globals.prefix_who)[1]
             state = globals.prefix_who
-        cmd_parameters = getParameters(call)
+        cmd_parameters = get_parameters(call)
         if call.startswith(globals.help):
             title = "Hey, I'm Bullet! I'm here to help!"
             desc = "To get started, download your schedule as a `.ics` file. " \
@@ -124,7 +126,7 @@ async def on_message(message):
                 
                 sunday = date_to_check - timedelta(days=date_to_check.weekday() + 1)
                 saturday = sunday + timedelta(days=6)
-                embed = create_events_embed(evt_page, user, cal.get_status())
+                embed = create_week_embed(evt_page, user, cal.get_status())
                 embed.set_footer(text="From {} to {}".format(sunday.strftime("%d %B"), saturday.strftime("%d %B")))
                 await chan.send(embed=embed)
             else:
@@ -137,7 +139,7 @@ async def on_message(message):
             if len(cmd_parameters) > 0:
                 for param in cmd_parameters:
                     if param != "at":
-                        check_dt = parseTime(param, now)
+                        check_dt = parse_time(param, now)
                         checked_time = "at " + check_dt.strftime("%H:%M on %A, %b %d")
                         print(str(check_dt))
 
@@ -202,8 +204,13 @@ async def on_message(message):
                         save_file = join(CAL_FOLDER, str(author.id) + "_" + str(i) + ".ics")
                         i += 1
                     await attachment.save(save_file)
-                    cal = Calendar.from_ical(await attachment.read())
-                    addCalEvents(cal, str(author.id))
+                    try:
+                        cal = users[user_id]
+                    except:
+                        cal = bCal()
+                        users[user_id] = cal
+                    with open(save_file, 'r') as f:
+                        cal.import_calendar(f.read())
             await chan.send("Thanks, {}! New events have been added to your calendar. Type ?events to see them!".format(author.display_name))
             return
         if call.startswith(globals.toggle):
@@ -225,7 +232,7 @@ async def on_message(message):
                 time = cmd_parameters[0]
                 print(time)
                 try:
-                    checkDT = parseTime(time, now)
+                    checkDT = parse_time(time, now)
                     print(str(checkDT))
                 except:
                     pass
@@ -238,15 +245,15 @@ async def on_message(message):
             if len(cmd_parameters) > 0:
                 for param in cmd_parameters:
                     if param != "at":
-                        check_dt = parseTime(param, now)
+                        check_dt = parse_time(param, now)
                         checked_time = "at " + check_dt.strftime("%H:%M on %A, %b %d")
             for user_key in users.keys():
                 if guild.get_member(int(user_key)) != None:
                     cal = users[user_key]
-                    if not cal.checkFree(check_dt):
+                    if not cal.is_free(check_dt):
                         has_events = True
                         user = guild.get_member(int(user_key))
-                        embed = parseEvents(cal.getCurrentEvents(check_dt), user, cal.getStatus())
+                        embed = create_events_embed(cal.get_occurring(check_dt), user, cal.get_status())
                         await chan.send(embed=embed)
             if not has_events:
                 await chan.send(embed=discord.Embed(title="It seems there are no events upcoming!", description="There are no events happening {}".format(checked_time)))
@@ -258,7 +265,7 @@ async def on_message(message):
             if len(cmd_parameters) > 1:
                 time = cmd_parameters[2]
                 try:
-                    checkDT = parseTime(time, now)
+                    checkDT = parse_time(time, now)
                 except:
                     await chan.send("Check a time with `@[user] HH:MM`")
                     return
@@ -271,10 +278,29 @@ async def on_message(message):
                 await chan.send("User is not in the system yet. Use ?update")
 
 def create_week_embed(events, user, status):
-    embed = discord.Embed(title="Calendar")
+    embed = discord.Embed(title="Schedule")
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+    weekday_vals = ["", "", "", "", "", "", ""]
     for event in events:
-        pass
+        timezone = datetime.now().tzinfo
+        for interval in event.intervals:
+            start_time = interval[0].astimezone(timezone).strftime("%H:%M")
+            end_time = interval[1].astimezone(timezone).strftime("%H:%M")
+            weekday_vals[int(interval[0].weekday())] = weekday_vals[int(interval[0].weekday())] + "```{}\n{}-{}```".format(event.summary, start_time, end_time)
+    for i in range(len(weekday_vals)):
+        if (weekday_vals[i] == ""):
+            weekday_vals[i] = "No events to display."
+        name = day_name[i]
+        if (datetime.now().weekday() == i):
+            name = "[   " + name + "   ]"
+        embed.add_field(name=name, value=weekday_vals[i])
+    if len(events) == 0:
+        embed.color = 0x00FF00
+        embed.description = "This user is free!"
+    if status:
+        embed.color = 0xFFAA00
+        embed.description = "This user is busy"
+    return embed
 
 
 def create_events_embed(events, user, status):
@@ -286,10 +312,10 @@ def create_events_embed(events, user, status):
         date_str = date[0].astimezone(timezone).strftime("%A %d %B, %Y")
         start_time = date[0].astimezone(timezone).strftime("%H:%M")
         end_time = date[1].astimezone(timezone).strftime("%H:%M")
-        location = event.location
-        if location == "":
-            location = "N/A"
-        embed.add_field(name=event.summary, value="{}\n{}-{}\nLocation: {}".format(date_str, start_time, end_time, location), inline=False)
+        location = ""
+        if event.location != "":
+            location = "\nLocation: {}".format(event.location)
+        embed.add_field(name=event.summary, value="```{}\n{}-{}{}```".format(date_str, start_time, end_time, location), inline=False)
     if len(events) == 0:
         embed.color = 0x00FF00
         embed.description = "This user is free!"
@@ -298,45 +324,7 @@ def create_events_embed(events, user, status):
         embed.description = "This user is busy"
     return embed
 
-def parseEvents(curEvts, user, status):
-    embed = discord.Embed(title="Calendar")
-    embed.set_author(name=user.display_name, icon_url=user.avatar_url)
-    for event in curEvts:
-        details = event.getDetails()
-        embed.add_field(name=details['title'], value=details['day'], inline=False)
-        embed.add_field(name="Start:", value=details['start'], inline=True)
-        embed.add_field(name="End:", value=details['end'], inline=True)
-        embed.add_field(name="Location:", value=details['location'], inline=True)
-    if len(curEvts) == 0:
-        embed.description = "This user is free!"
-    if status:
-        embed.color = 0xFFAA00
-        embed.description = "This user is busy :("
-    else:
-        embed.color = 0x00FF00
-    return embed
-
-# PRE: Takes in a new icalendar object and a user ID
-# POST: Creates new calendar and populates it with events
-def parseCalendar(gcal, id):
-    users[id] = None
-    cal = DiscCalendar()
-    users[id] = cal
-    addCalEvents(gcal, id)
-
-def addCalEvents(gcal, id):
-    try:
-        cal = users[id]
-    except:
-        cal = DiscCalendar()
-        users[id] = cal
-    for event in gcal.walk():
-        if event.name == "VEVENT":
-            evt = CalEvent(event)
-            cal.addEvent(evt)
-    users[id] = cal
-
-def getParameters(msg):
+def get_parameters(msg):
     try:
         return msg.split(" ")[1:]
     except:
@@ -344,7 +332,7 @@ def getParameters(msg):
 
 # PRE: Time string in the format HH:MM, datetime to be modified
 # POST: Returns a datetime with updated hours
-def parseTime(time, now):
+def parse_time(time, now):
     try:
         cur_time = datetime.strptime(time, "%H")
         cur_time = cur_time.replace(minute=0) 

@@ -28,39 +28,39 @@ class Calendar:
     def get_events(self):
         return self.events
 
-    def get_occurring(self, date=datetime.utcnow()):
+    def get_occurring(self, date=datetime.now()):
         """
         Checks what events are occurring at a specified time
 
         Parameters
         -----
-        date=datetime.utcnow(): datetime.datetime
+        date=datetime.now(): datetime.datetime
             The date to check, set to the current date by default
         """
         rets = []
         for evt in self.events:
             if evt.happening(date):
-                rets.append(evt)
+                rets.append(evt.copy())
         return rets
     
-    def is_free(self, date=datetime.utcnow()):
+    def is_free(self, date=datetime.now()):
         """
         Checks if user is free at a specified time
 
         Parameters
         -----
-        date=datetime.utcnow(): datetime.datetime
+        date=datetime.now(): datetime.datetime
             The date to check, set to the current date by default
         """
         return len(self.get_occurring(date)) == 0
     
-    def get_week(self, date=datetime.utcnow()):
+    def get_week(self, date=datetime.now()):
         """
         Gets the weeks events of any specified date, starting on Sunday
 
         Parameters
         -----
-        date=datetime.utcnow(): datetime.datetime
+        date=datetime.now(): datetime.datetime
             The date to check, set to the current date by default
         
         Returns
@@ -70,6 +70,9 @@ class Calendar:
         """
         sunday = date - timedelta(days=date.weekday() + 1)
         saturday = sunday + timedelta(days=6)
+        tz = timezone('America/Vancouver')
+        sunday = tz.localize(sunday)
+        saturday = tz.localize(saturday)
         events = []
         for event in self.events:
             in_period, intervals = event.in_period(sunday, saturday)
@@ -115,7 +118,10 @@ class Event:
         except:
             pass
         # get interval
-        duration = vevent.dtend.value - vevent.dtstart.value
+        try:
+            duration = vevent.dtend.value - vevent.dtstart.value
+        except AttributeError:
+            duration = vevent.duration.value
         try:
             for date in vevent.rruleset:
                 interval = [date, date + duration]
@@ -168,16 +174,18 @@ class Event:
         assert(start_date <= end_date)
         in_period = False
         intervals = []
-        tz = timezone('America/Vancouver')
-        start_date = tz.localize(start_date)
-        end_date = tz.localize(end_date)
         for interval in self.intervals:
+            tz = timezone('America/Vancouver')
             try:
                 interval[0] = tz.localize(interval[0])
-            except ValueError:
+            except (ValueError, AttributeError):
                 pass
             try:
                 if start_date <= interval[0].date() and end_date >= interval[0].date():
+                    in_period = True
+                    intervals.append(interval.copy())
+            except AttributeError:
+                if start_date.date() <= interval[0] and end_date.date() >= interval[0]:
                     in_period = True
                     intervals.append(interval.copy())
             except TypeError:
@@ -186,16 +194,19 @@ class Event:
                     intervals.append(interval.copy())
         return in_period, intervals
 
-    def happening(self, date=datetime.utcnow()):
+    def happening(self, date=datetime.now()):
         """
         Checks to see if an event is happening at a specified time
+
+        Parameters
+        -----
+        date=datetime.now(): datetime.datetime
+            The date to check when the event is happening, set to the current date by default
 
         Returns
         -----
         in_interval: bool
             A boolean that is true if the event is happening, and false if the event is not
-        date=datetime.utcnow(): datetime.datetime
-            The date to check when the event is happening, set to the current date by default
         """
         in_interval = False
         for interval in self.intervals:
