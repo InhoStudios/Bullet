@@ -79,7 +79,7 @@ async def on_message(message):
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
             embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
-            embed.add_field(name="Want to add Who to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!", inline=False)
+            embed.add_field(name="Want to add Bullet to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!", inline=False)
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
             return

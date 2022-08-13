@@ -52,7 +52,7 @@ class Calendar:
         date=datetime.now(): datetime.datetime
             The date to check, set to the current date by default
         """
-        return len(self.get_occurring(date)) == 0
+        return len(self.get_occurring(date)) == 0 and not self.busy
     
     def get_week(self, date=datetime.now()):
         """
