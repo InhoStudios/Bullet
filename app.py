@@ -1,19 +1,13 @@
-from calendar import weekday
 from os.path import join, exists
 from os import listdir, remove
-from io import TextIOWrapper
 
 import credentials, globals
 
 import discord
-from icalendar import Calendar
-from CalEvent import CalEvent
-from DiscCalendar import DiscCalendar
-from datetime import datetime, timezone, timedelta
-from pytz import timezone as ptz
+from datetime import datetime, timedelta
 from calendar import day_name
 
-from bulletin import Calendar as bCal
+from bulletin import Calendar
 
 CAL_FOLDER = './calendars/'
 
@@ -39,7 +33,7 @@ async def on_ready():
         # open file
         file = open(filename, 'r')
         # create new calendar to save object into
-        user_cal = bCal()
+        user_cal = Calendar()
         user_cal.import_calendar(file.read())
         # assign calendar to user
         users[uid] = user_cal
@@ -183,11 +177,11 @@ async def on_message(message):
                             remove(filename)
                     # Save current calendar file
                     await attachment.save(save_file)
-                    cal = bCal()
+                    cal = Calendar()
                     with open(save_file, 'r') as f: 
                         cal.import_calendar(f.read())
                     users[auth_id] = cal
-            await chan.send("Thanks, **{}**! Your calendar has been updated.".format(author.display_name))
+            await chan.send("Thanks, {}! Your calendar has been updated.".format(author.display_name))
             return
         if call.startswith(globals.add):
             if len(attachments) == 0:
@@ -207,7 +201,7 @@ async def on_message(message):
                     try:
                         cal = users[user_id]
                     except:
-                        cal = bCal()
+                        cal = Calendar()
                         users[user_id] = cal
                     with open(save_file, 'r') as f:
                         cal.import_calendar(f.read())
@@ -217,7 +211,7 @@ async def on_message(message):
             if authid in users.keys():
                 cal = users[authid]
                 cal.toggle_status()
-                msg = "Gotcha {}! Your status is updated: ".format(author.name)
+                msg = "Gotcha {}! Your status is updated: ".format(author.display_name)
                 if cal.get_status():
                     msg += "Busy"
                 else:
@@ -253,7 +247,7 @@ async def on_message(message):
                     if not cal.is_free(check_dt):
                         has_events = True
                         user = guild.get_member(int(user_key))
-                        embed = create_events_embed(cal.get_occurring(check_dt), user, cal.get_status())
+                        embed = create_events_embed(cal.get_occurring(check_dt), user, cal.get_status(), title="Upcoming events")
                         await chan.send(embed=embed)
             if not has_events:
                 await chan.send(embed=discord.Embed(title="It seems there are no events upcoming!", description="There are no events happening {}".format(checked_time)))
@@ -273,12 +267,12 @@ async def on_message(message):
             if uid in users.keys():
                 cal = users[uid]
                 user = client.get_user(int(uid))
-                await chan.send(embed=create_events_embed(cal.get_occurring(checkDT), user, cal.get_status()))
+                await chan.send(embed=create_events_embed(cal.get_occurring(checkDT), user, cal.get_status(), "Current event"))
             else:
                 await chan.send("User is not in the system yet. Use ?update")
 
-def create_week_embed(events, user, status):
-    embed = discord.Embed(title="Schedule")
+def create_week_embed(events, user, status, title="Schedule"):
+    embed = discord.Embed(title=title)
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
     weekday_vals = ["", "", "", "", "", "", ""]
     for event in events:
@@ -303,8 +297,8 @@ def create_week_embed(events, user, status):
     return embed
 
 
-def create_events_embed(events, user, status):
-    embed = discord.Embed(title="Calendar")
+def create_events_embed(events, user, status, title="Calendar"):
+    embed = discord.Embed(title=title)
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
     for event in events:
         timezone = datetime.now().tzinfo
