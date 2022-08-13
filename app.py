@@ -80,7 +80,7 @@ async def on_message(message):
             embed.add_field(name="?free (hh:mm)", value="Checks who's free right now. Specify a time to see whos free at a given time.")
             embed.add_field(name="?events (@[user]) (week)", value="Lists all of the users events. Show future weeks by specifying how many weeks ahead to look")
             embed.add_field(name="? @[user] (hh:mm)", value="Lists what event @[user] is currently attending. Specify a time check that time instead.")
-            embed.add_field(name="?upcoming (hh:mm))", value="Shows what events are happening in the next hour (or at the specified time).")
+            embed.add_field(name="?upcoming (hh:mm)", value="Shows what events are happening in the next hour (or at the specified time).")
             embed.add_field(name="?toggle", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
