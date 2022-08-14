@@ -6,6 +6,7 @@ import credentials, globals
 import discord
 from datetime import datetime, timedelta
 from calendar import day_name
+from pytz import timezone
 
 from bulletin import Calendar
 
@@ -33,10 +34,13 @@ async def on_ready():
         # open file
         file = open(filename, 'r')
         # create new calendar to save object into
-        user_cal = Calendar()
+        if uid in users.keys():
+            user_cal = users[uid]
+        else:
+            user_cal = Calendar()
+            users[uid] = user_cal
         user_cal.import_calendar(file.read())
         # assign calendar to user
-        users[uid] = user_cal
         print(uid)
         file.close()
 
@@ -190,19 +194,19 @@ async def on_message(message):
             for attachment in attachments:
                 filename = attachment.filename
                 if filename.endswith(".ics"):
-                    FILE_PATH = join(CAL_FOLDER, str(author.id) + ".ics")
+                    FILE_PATH = join(CAL_FOLDER, str(authid) + ".ics")
                     save_file = FILE_PATH + ""
                     i = 1
                     while exists(save_file):
                         print(save_file)
-                        save_file = join(CAL_FOLDER, str(author.id) + "_" + str(i) + ".ics")
+                        save_file = join(CAL_FOLDER, str(authid) + "_" + str(i) + ".ics")
                         i += 1
                     await attachment.save(save_file)
                     try:
-                        cal = users[user_id]
+                        cal = users[authid]
                     except:
                         cal = Calendar()
-                        users[user_id] = cal
+                        users[authid] = cal
                     with open(save_file, 'r') as f:
                         cal.import_calendar(f.read())
             await chan.send("Thanks, {}! New events have been added to your calendar. Type ?events to see them!".format(author.display_name))
@@ -222,6 +226,10 @@ async def on_message(message):
             return
         if call.startswith(globals.now):
             checkDT = now
+            if authid in users.keys():
+                tz = users[authid].timezone
+            else:
+                tz = timezone("America/Vancouver")
             if len(cmd_parameters) > 0:
                 time = cmd_parameters[0]
                 print(time)
@@ -230,8 +238,8 @@ async def on_message(message):
                     print(str(checkDT))
                 except:
                     pass
-            await chan.send("The current time is " + str(checkDT) +
-                            "\nThe timezone is " + str(checkDT.astimezone().tzinfo))
+            await chan.send("The current time is " + str(checkDT.astimezone(tz).strftime("%H:%M on %A, %b %d")) +
+                            "\nThe timezone is " + str(checkDT.astimezone(tz).tzinfo))
         if call.startswith(globals.upcoming):
             checked_time = "right now"
             check_dt = now + timedelta(hours=1)
@@ -275,8 +283,9 @@ def create_week_embed(events, user, status, title="Schedule"):
     embed = discord.Embed(title=title)
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
     weekday_vals = ["", "", "", "", "", "", ""]
+    timezone = users[str(user.id)].timezone
+    embed.description = "Timezone: {}".format(timezone)
     for event in events:
-        timezone = datetime.now().tzinfo
         for interval in event.intervals:
             start_time = interval[0].astimezone(timezone).strftime("%H:%M")
             end_time = interval[1].astimezone(timezone).strftime("%H:%M")
@@ -300,8 +309,8 @@ def create_week_embed(events, user, status, title="Schedule"):
 def create_events_embed(events, user, status, title="Calendar"):
     embed = discord.Embed(title=title)
     embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+    timezone = users[str(user.id)].timezone
     for event in events:
-        timezone = datetime.now().tzinfo
         date = event.intervals[0]
         date_str = date[0].astimezone(timezone).strftime("%A %d %B, %Y")
         start_time = date[0].astimezone(timezone).strftime("%H:%M")

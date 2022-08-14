@@ -1,12 +1,13 @@
 import vobject
 from datetime import datetime, timedelta
-from pytz import timezone
+from pytz import timezone, utc
 
 class Calendar:
     def __init__(self):
         self.events = []
         self.calendar = vobject.iCalendar()
         self.busy = False
+        self.timezone = None
     
     def import_calendar(self, calendar_str):
         """
@@ -18,13 +19,26 @@ class Calendar:
             Readable string of .ics file contents
         """
         import_cal = next(vobject.readComponents(calendar_str))
+        # import timezone
+        try:
+            tz_str = import_cal.vtimezone.tzid.value
+        except AttributeError:
+            tz_index = calendar_str.find("X-WR-TIMEZONE")
+            if tz_index == -1:
+                return None
+            tz_index = tz_index + len("X-WR-TIMEZONE") + 1
+            tz_str = calendar_str[tz_index:]
+            tz_str = tz_str[:tz_str.find('\n')]
+        self.timezone = timezone(tz_str)
+
         for vevt in import_cal.vevent_list:
-            evt = Event()
+            evt = Event(self.timezone)
             evt.read_from_vevent(vevt)
             self.events.append(evt)
             # import all events
             self.calendar.add(vevt)
         
+
     def get_events(self):
         return self.events
 
@@ -71,8 +85,8 @@ class Calendar:
         sunday = date - timedelta(days=date.weekday() + 1)
         saturday = sunday + timedelta(days=6)
         tz = timezone('America/Vancouver')
-        sunday = tz.localize(sunday)
-        saturday = tz.localize(saturday)
+        sunday = self.timezone.localize(sunday)
+        saturday = self.timezone.localize(saturday)
         events = []
         for event in self.events:
             in_period, intervals = event.in_period(sunday, saturday)
@@ -88,14 +102,15 @@ class Calendar:
         return self.busy
 
 class Event:
-    def __init__(self):
+    def __init__(self, timezone):
         self.summary = ""
         self.intervals = []
         self.location = ""
         self.desc = ""
+        self.timezone = timezone
     
     def copy(self):
-        new_evt = Event()
+        new_evt = Event(self.timezone)
         new_evt.summary = self.summary
         new_evt.location = self.location
         new_evt.desc = self.desc
@@ -124,10 +139,17 @@ class Event:
             duration = vevent.duration.value
         try:
             for date in vevent.rruleset:
+                try:
+                    date = self.timezone.localize(date).astimezone(utc)
+                except (ValueError, AttributeError):
+                    pass
                 interval = [date, date + duration]
                 self.intervals.append(interval)
         except TypeError:
-            interval = [vevent.dtstart.value, vevent.dtend.value]
+            try:
+                interval = [vevent.dtstart.value, vevent.dtend.value]
+            except AttributeError:
+                interval = [vevent.dtstart.value, vevent.dtstart.value + vevent.duration.value]
             self.intervals.append(interval)
         return self
 
@@ -175,11 +197,6 @@ class Event:
         in_period = False
         intervals = []
         for interval in self.intervals:
-            tz = timezone('America/Vancouver')
-            try:
-                interval[0] = tz.localize(interval[0])
-            except (ValueError, AttributeError):
-                pass
             try:
                 if start_date <= interval[0].date() and end_date >= interval[0].date():
                     in_period = True
