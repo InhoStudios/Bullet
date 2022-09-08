@@ -13,6 +13,7 @@ from bulletin import Calendar
 
 CAL_FOLDER = './calendars/'
 WEATHER_BASE_URL = f'http://api.openweathermap.org/data/2.5/weather?appid={credentials.weather_api_key}&lat=49.26&lon=-123.25'
+FORECAST_BASE_URL = f'http://api.openweathermap.org/data/2.5/forecast?appid={credentials.weather_api_key}&lat=49.26&lon=-123.25'
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
@@ -86,7 +87,7 @@ async def on_message(message):
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
             embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
-            embed.add_field(name="?weather", value="Shows the weather on UBC campus")
+            embed.add_field(name="?weather (upcoming)", value="Shows the weather on UBC campus. Specify \"upcoming\" to see the forecast for the next 4 days.")
             embed.add_field(name="Want to add Bullet to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!", inline=False)
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
@@ -300,7 +301,14 @@ async def on_message(message):
             else:
                 await chan.send("User is not in the system yet.")
         if call.startswith("weather"):
-            await chan.send(get_current_weather())
+            if len(cmd_parameters) > 0:
+                if cmd_parameters[0] == "upcoming":
+                    weather_embed = get_forecast()
+                else:
+                    weather_embed = get_current_weather()
+            else:
+                weather_embed = get_current_weather()
+            await chan.send(embed=weather_embed)
 
 def create_week_embed(events, user, status, title="Schedule"):
     embed = discord.Embed(title=title)
@@ -376,15 +384,41 @@ def get_current_weather():
     response = requests.get(WEATHER_BASE_URL, verify=False)
     weather_json = response.json()
     print(weather_json)
+
+    embed = discord.Embed()
     if weather_json["cod"] != "404":
         info = weather_json['main']
         temp = int(info['temp']) - 273
+        feels_like = int(info['feels_like']) - 273
         weather = weather_json['weather']
         desc = weather[0]['description']
+        icon_url = f"http://openweathermap.org/img/w/{weather[0]['icon']}.png"
 
-        return f"Currently, {temp}°C at UBC. Expect {desc}"
+        embed.set_author(name=desc.capitalize(), icon_url=icon_url)
+        embed.add_field(name="Temperature", value=f"{temp}°C")
+        embed.add_field(name="Feels like", value=f"{feels_like}°C")
+        embed.set_footer(text="Data provided by OpenWeatherMap API for UBC")
     else:
-        return "Weather info not found. Sorry!"
+        embed.description = "Weather info not found. Sorry!"
+    return embed
+
+def get_forecast():
+    response = requests.get(FORECAST_BASE_URL, verify=False)
+    forecast_json = response.json()
+
+    embed = discord.Embed(title="Forecast")
+    if forecast_json["cod"] != "404":
+        for day in forecast_json['list']:
+            if day['dt_txt'][11:] == "12:00:00":
+                date = datetime.fromtimestamp(day['dt'])
+                date_plaintext = date.strftime("%A %d %B, %Y")
+                day_info = day['main']
+                weather = day['weather'][0]
+                embed.add_field(name=date_plaintext,value=f"Expect {weather['description']} and **{int(day_info['temp'])-273}°C**. There is a **{day['pop']*100}%** chance of precipitation.")
+        embed.set_footer(text="All forecasts are for 12:00PM each day. Data provided by OpenWeatherMap API for UBC")
+    else:
+        embed.description = "Weather info not found. Sorry!"
+    return embed
 
 
 client.run(credentials.token)
