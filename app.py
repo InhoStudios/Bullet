@@ -7,10 +7,12 @@ import discord
 from datetime import datetime, timedelta
 from calendar import day_name
 from pytz import timezone
+import requests, json
 
 from bulletin import Calendar
 
 CAL_FOLDER = './calendars/'
+WEATHER_BASE_URL = f'http://api.openweathermap.org/data/2.5/weather?appid={credentials.weather_api_key}&lat=49.26&lon=-123.25'
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
@@ -39,9 +41,10 @@ async def on_ready():
         else:
             user_cal = Calendar()
             users[uid] = user_cal
-        user_cal.import_calendar(file.read())
-        # assign calendar to user
-        print(uid)
+        try:
+            user_cal.import_calendar(file.read())
+        except:
+            pass
         file.close()
 
 @client.event
@@ -83,6 +86,7 @@ async def on_message(message):
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
             embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
+            embed.add_field(name="?weather", value="Shows the weather on UBC campus")
             embed.add_field(name="Want to add Bullet to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!", inline=False)
             embed.set_footer(text="Made with ❤️ by InhoStudios")
             await chan.send(embed=embed)
@@ -92,7 +96,7 @@ async def on_message(message):
             if message.mentions:
                 user_id = str(message.mentions[0].id)
             msg = ""
-            if user_id in users.keys():
+            if user_id in users.keys() and client.get_user(int(uid)) in chan.members:
                 cal = users[user_id]
                 if cal.get_status():
                     msg = "🟡 Busy"
@@ -100,7 +104,7 @@ async def on_message(message):
                     msg = "🟢 Available"
                 await chan.send(msg)
             else:
-                await chan.send("User is not in the system yet. Use ?update")
+                await chan.send("Unknown user.")
             return
         if call.startswith(globals.events):
             # SET DEFAULT PARAMETERS
@@ -111,22 +115,25 @@ async def on_message(message):
                 id_to_check = str(message.mentions[0].id)
             
             user = client.get_user(int(id_to_check))
-
+            
             try:
                 weeks = int(cmd_parameters[-1])
             except:
                 pass
             
             if id_to_check in users.keys():
-                cal = users[id_to_check]
-                date_to_check = datetime.now() + timedelta(days=7*weeks)
-                evt_page = cal.get_week(date_to_check)
-                
-                sunday = date_to_check - timedelta(days=date_to_check.weekday() + 1)
-                saturday = sunday + timedelta(days=6)
-                embed = create_week_embed(evt_page, user, cal.get_status())
-                embed.set_footer(text="From {} to {}".format(sunday.strftime("%d %B"), saturday.strftime("%d %B")))
-                await chan.send(embed=embed)
+                if user in chan.members:
+                    cal = users[id_to_check]
+                    date_to_check = datetime.now() + timedelta(days=7*weeks)
+                    evt_page = cal.get_week(date_to_check)
+                    
+                    sunday = date_to_check - timedelta(days=date_to_check.weekday() + 1)
+                    saturday = sunday + timedelta(days=6)
+                    embed = create_week_embed(evt_page, user, cal.get_status())
+                    embed.set_footer(text="From {} to {}".format(sunday.strftime("%d %B"), saturday.strftime("%d %B")))
+                    await chan.send(embed=embed)
+                else:
+                    await chan.send("User does not have access to this channel.")
             else:
                 await chan.send("User is not in the system yet. Use ?update")
             return
@@ -144,13 +151,22 @@ async def on_message(message):
             head = ""
             freeList = head
             upcomingList = head
-            for user_key in users.keys():
-                if guild.get_member(int(user_key)) != None:
+            for member in chan.members:
+                user_key = str(member.id)
+                print(user_key)
+                if user_key in users.keys():
                     cal = users[user_key]
                     if cal.is_free(check_dt):
                         freeList += "<@{}> ".format(user_key)
                     elif cal.is_free(check_dt + timedelta(hours=1)):
                         upcomingList += "<@{}> ".format(user_key)
+            # for user_key in users.keys():
+            #     if guild.get_member(int(user_key)) != None:
+            #         cal = users[user_key]
+            #         if cal.is_free(check_dt):
+            #             freeList += "<@{}> ".format(user_key)
+            #         elif cal.is_free(check_dt + timedelta(hours=1)):
+            #             upcomingList += "<@{}> ".format(user_key)
             if freeList == head:
                 freeList = "Sorry, nobody seems to be free {} :(".format(checked_time)
             embed = discord.Embed(title="These people are free {}!".format(checked_time), description=freeList)
@@ -183,7 +199,10 @@ async def on_message(message):
                     await attachment.save(save_file)
                     cal = Calendar()
                     with open(save_file, 'r') as f: 
-                        cal.import_calendar(f.read())
+                        try:
+                            cal.import_calendar(f.read())
+                        except:
+                            pass
                     users[auth_id] = cal
             await chan.send("Thanks, {}! Your calendar has been updated.".format(author.display_name))
             return
@@ -259,8 +278,7 @@ async def on_message(message):
                         await chan.send(embed=embed)
             if not has_events:
                 await chan.send(embed=discord.Embed(title="It seems there are no events upcoming!", description="There are no events happening {}".format(checked_time)))
-
-                    
+             
         if call.startswith(" <@"):
             uid = str(message.mentions[0].id)
             checkDT = now
@@ -275,9 +293,14 @@ async def on_message(message):
             if uid in users.keys():
                 cal = users[uid]
                 user = client.get_user(int(uid))
-                await chan.send(embed=create_events_embed(cal.get_occurring(checkDT), user, cal.get_status(), "Current event"))
+                if user in chan.members:
+                    await chan.send(embed=create_events_embed(cal.get_occurring(checkDT), user, cal.get_status(), "Current event"))
+                else:
+                    await chan.send("User does not have access to this channel.")
             else:
-                await chan.send("User is not in the system yet. Use ?update")
+                await chan.send("User is not in the system yet.")
+        if call.startswith("weather"):
+            await chan.send(get_current_weather())
 
 def create_week_embed(events, user, status, title="Schedule"):
     embed = discord.Embed(title=title)
@@ -348,6 +371,20 @@ def parse_time(time, now):
     if now > parsed_time:
         parsed_time = parsed_time + timedelta(days=1)
     return parsed_time
+
+def get_current_weather():
+    response = requests.get(WEATHER_BASE_URL, verify=False)
+    weather_json = response.json()
+    print(weather_json)
+    if weather_json["cod"] != "404":
+        info = weather_json['main']
+        temp = int(info['temp']) - 273
+        weather = weather_json['weather']
+        desc = weather[0]['description']
+
+        return f"Currently, {temp}°C at UBC. Expect {desc}"
+    else:
+        return "Weather info not found. Sorry!"
 
 
 client.run(credentials.token)
