@@ -64,13 +64,13 @@ async def on_message(message):
     if author == client.user:
         return
 
-    if content.startswith(globals.prefix) or content.startswith(globals.prefix_who):
+    if content.startswith(globals.prefix) or content.lower().startswith(globals.prefix_who):
         now = datetime.now().astimezone()
         state = globals.prefix
         if content.startswith(globals.prefix):
             call = content.split(globals.prefix)[1]
         else:
-            call = content.split(globals.prefix_who)[1]
+            call = content.lower().split(globals.prefix_who)[1]
             state = globals.prefix_who
         cmd_parameters = get_parameters(call)
         if call.startswith(globals.help):
@@ -284,7 +284,7 @@ async def on_message(message):
             uid = str(message.mentions[0].id)
             checkDT = now
             if len(cmd_parameters) > 1:
-                time = cmd_parameters[2]
+                time = cmd_parameters[1]
                 try:
                     checkDT = parse_time(time, now)
                 except:
