@@ -102,6 +102,7 @@ class Calendar:
         return self.busy
 
 class Event:
+
     def __init__(self, timezone):
         self.summary = ""
         self.intervals = []
@@ -138,13 +139,18 @@ class Event:
         except AttributeError:
             duration = vevent.duration.value
         try:
+            total_intervals = 365
+            num_intervals = 0
             for date in vevent.rruleset:
+                if num_intervals >= total_intervals:
+                    break
                 try:
                     date = self.timezone.localize(date).astimezone(utc)
                 except (ValueError, AttributeError):
                     pass
                 interval = [date, date + duration]
                 self.intervals.append(interval)
+                num_intervals += 1
         except TypeError:
             try:
                 interval = [vevent.dtstart.value, vevent.dtend.value]
