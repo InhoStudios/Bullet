@@ -205,7 +205,11 @@ async def on_message(message):
                         except:
                             pass
                     users[auth_id] = cal
+            evt_page = cal.get_week(datetime.now())
+            embed = create_week_embed(evt_page, author, cal.get_status())
+            embed.set_footer(text="Events this week")
             await chan.send("Thanks, {}! Your calendar has been updated.".format(author.display_name))
+            await chan.send(embed=embed)
             return
         if call.startswith(globals.add):
             if len(attachments) == 0:
@@ -229,7 +233,11 @@ async def on_message(message):
                         users[authid] = cal
                     with open(save_file, 'r') as f:
                         cal.import_calendar(f.read())
-            await chan.send("Thanks, {}! New events have been added to your calendar. Type ?events to see them!".format(author.display_name))
+            evt_page = cal.get_week(datetime.now())
+            embed = create_week_embed(evt_page, author, cal.get_status())
+            embed.set_footer(text="Events this week")
+            await chan.send("Thanks, {}! New events have been added to your calendar.".format(author.display_name))
+            await chan.send(embed=embed)
             return
         if call.startswith(globals.toggle):
             if authid in users.keys():
