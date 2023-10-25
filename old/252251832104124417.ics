@@ -1,0 +1,418 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:ATSC 201 101
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:Restricted seats for HON and MAJ ATSC students. Homework will be given each week.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791525abcd208732
+DTSTART;TZID=America/Vancouver:20210906T140000
+DTEND;TZID=America/Vancouver:20210906T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:ATSC 201 101
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:Restricted seats for HON and MAJ ATSC students. Homework will be given each week.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791525abcd459473
+DTSTART;TZID=America/Vancouver:20210908T140000
+DTEND;TZID=America/Vancouver:20210908T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:ATSC 201 101
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:Restricted seats for HON and MAJ ATSC students. Homework will be given each week.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd312132
+DTSTART;TZID=America/Vancouver:20210910T140000
+DTEND;TZID=America/Vancouver:20210910T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:MATH 200 101
+LOCATION:Leonard S. Klinck\, Room 201
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd591146
+DTSTART;TZID=America/Vancouver:20210906T090000
+DTEND;TZID=America/Vancouver:20210906T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:MATH 200 101
+LOCATION:Leonard S. Klinck\, Room 201
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd237943
+DTSTART;TZID=America/Vancouver:20210908T090000
+DTEND;TZID=America/Vancouver:20210908T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:MATH 200 101
+LOCATION:Leonard S. Klinck\, Room 201
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd219308
+DTSTART;TZID=America/Vancouver:20210910T090000
+DTEND;TZID=America/Vancouver:20210910T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:PHIL 240A 001
+LOCATION:Buchanan\, Room A202
+DESCRIPTION:Phil 240 is an introduction to philosophical issues about the nature of knowledge and evidence (epistemology).  In our everyday lives\, we often claim that we know or have good reasons to believe many things  that Vancouver is near the Pacific Ocean\, that 2 + 2 = 4\, that Orcas are mammals\, that the sun will rise tomorrow\, and so on. We will begin the course by thinking about common sense principles that provide support for these claims. We will then consider the status of epistemic relativism\, the view that the kinds of reasons we give for our beliefs are only justified relative to a culture or perhaps even to an individual.\n\nNext\, we will turn our attention to philosophical skepticism. Philosophical skeptics doubt or deny that we have knowledge or justification of various sorts. Some deny that we know anything at all\, while other skeptics maintain that you dont have very much knowledge.  We will spend a lot of time thinking about arguments for and against various kinds of philosophical skepticism. How can you tell that youre not dreaming as you read this\, or that youre not currently in a Matrix?\n\nEpistemological issues arise in a number of areas of philosophy.  Well examine some of these\, including design arguments for the existence of God.  Well look at the relationship between epistemology and politics. What should you make of the fact that if you were raised in a different country or with a different family\, you might well have very different moral or political beliefs?  Well think about some epistemological issues about conspiracy theories. Are they always irrational? Finally\, well end with some epistemological questions about the nature of democracy: are there epistemic (as opposed to moral or political reasons) to make decisions in a democratic way?\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd133293
+DTSTART;TZID=America/Vancouver:20210906T110000
+DTEND;TZID=America/Vancouver:20210906T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:PHIL 240A 001
+LOCATION:Buchanan\, Room A202
+DESCRIPTION:Phil 240 is an introduction to philosophical issues about the nature of knowledge and evidence (epistemology).  In our everyday lives\, we often claim that we know or have good reasons to believe many things  that Vancouver is near the Pacific Ocean\, that 2 + 2 = 4\, that Orcas are mammals\, that the sun will rise tomorrow\, and so on. We will begin the course by thinking about common sense principles that provide support for these claims. We will then consider the status of epistemic relativism\, the view that the kinds of reasons we give for our beliefs are only justified relative to a culture or perhaps even to an individual.\n\nNext\, we will turn our attention to philosophical skepticism. Philosophical skeptics doubt or deny that we have knowledge or justification of various sorts. Some deny that we know anything at all\, while other skeptics maintain that you dont have very much knowledge.  We will spend a lot of time thinking about arguments for and against various kinds of philosophical skepticism. How can you tell that youre not dreaming as you read this\, or that youre not currently in a Matrix?\n\nEpistemological issues arise in a number of areas of philosophy.  Well examine some of these\, including design arguments for the existence of God.  Well look at the relationship between epistemology and politics. What should you make of the fact that if you were raised in a different country or with a different family\, you might well have very different moral or political beliefs?  Well think about some epistemological issues about conspiracy theories. Are they always irrational? Finally\, well end with some epistemological questions about the nature of democracy: are there epistemic (as opposed to moral or political reasons) to make decisions in a democratic way?\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd319696
+DTSTART;TZID=America/Vancouver:20210908T110000
+DTEND;TZID=America/Vancouver:20210908T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:PHIL 240A 001
+LOCATION:Buchanan\, Room A202
+DESCRIPTION:Phil 240 is an introduction to philosophical issues about the nature of knowledge and evidence (epistemology).  In our everyday lives\, we often claim that we know or have good reasons to believe many things  that Vancouver is near the Pacific Ocean\, that 2 + 2 = 4\, that Orcas are mammals\, that the sun will rise tomorrow\, and so on. We will begin the course by thinking about common sense principles that provide support for these claims. We will then consider the status of epistemic relativism\, the view that the kinds of reasons we give for our beliefs are only justified relative to a culture or perhaps even to an individual.\n\nNext\, we will turn our attention to philosophical skepticism. Philosophical skeptics doubt or deny that we have knowledge or justification of various sorts. Some deny that we know anything at all\, while other skeptics maintain that you dont have very much knowledge.  We will spend a lot of time thinking about arguments for and against various kinds of philosophical skepticism. How can you tell that youre not dreaming as you read this\, or that youre not currently in a Matrix?\n\nEpistemological issues arise in a number of areas of philosophy.  Well examine some of these\, including design arguments for the existence of God.  Well look at the relationship between epistemology and politics. What should you make of the fact that if you were raised in a different country or with a different family\, you might well have very different moral or political beliefs?  Well think about some epistemological issues about conspiracy theories. Are they always irrational? Finally\, well end with some epistemological questions about the nature of democracy: are there epistemic (as opposed to moral or political reasons) to make decisions in a democratic way?\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd408616
+DTSTART;TZID=America/Vancouver:20210910T110000
+DTEND;TZID=America/Vancouver:20210910T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:POLI 260 001
+LOCATION:\, Room 
+DESCRIPTION:Lectures and discussion groups for POLI 260-001 will be ONLINE\, the final exam will be held IN-PERSON during the regular UBC Exam period. Students who are prevented from being present on campus for the final exam will be given an opportunity during the term to apply for an alternate format final exam.\n\nWe will be releasing more seats in time for 2nd year registration.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd106403
+DTSTART;TZID=America/Vancouver:20210906T150000
+DTEND;TZID=America/Vancouver:20210906T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:POLI 260 001
+LOCATION:\, Room 
+DESCRIPTION:Lectures and discussion groups for POLI 260-001 will be ONLINE\, the final exam will be held IN-PERSON during the regular UBC Exam period. Students who are prevented from being present on campus for the final exam will be given an opportunity during the term to apply for an alternate format final exam.\n\nWe will be releasing more seats in time for 2nd year registration.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd543633
+DTSTART;TZID=America/Vancouver:20210908T150000
+DTEND;TZID=America/Vancouver:20210908T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:POLI 260 001
+LOCATION:\, Room 
+DESCRIPTION:Lectures and discussion groups for POLI 260-001 will be ONLINE\, the final exam will be held IN-PERSON during the regular UBC Exam period. Students who are prevented from being present on campus for the final exam will be given an opportunity during the term to apply for an alternate format final exam.\n\nWe will be releasing more seats in time for 2nd year registration.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd333065
+DTSTART;TZID=America/Vancouver:20210910T150000
+DTEND;TZID=America/Vancouver:20210910T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:POLI 260 L1B
+LOCATION:\, Room 
+DESCRIPTION:starts the second week of classes\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd75855
+DTSTART;TZID=America/Vancouver:20210908T120000
+DTEND;TZID=America/Vancouver:20210908T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T205409Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:STAT 251 101
+LOCATION:Centre for Interactive  Research on Sustainability\, Room 1250
+DESCRIPTION:If the course is full please register in the Waitlist STAT 251 WL1\n\nSTAT 241 HAS BEEN ELIMINATED. ALL STUDENTS SHOULD NOW REGISTER IN STAT 251.\n\nPlease note this course will be offered in the summer.\n\n
+DTSTAMP:20220119T205409Z
+UID:12341642625649984abcd341147
+DTSTART;TZID=America/Vancouver:20210906T080000
+DTEND;TZID=America/Vancouver:20210906T090000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T205409Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:STAT 251 101
+LOCATION:Centre for Interactive  Research on Sustainability\, Room 1250
+DESCRIPTION:If the course is full please register in the Waitlist STAT 251 WL1\n\nSTAT 241 HAS BEEN ELIMINATED. ALL STUDENTS SHOULD NOW REGISTER IN STAT 251.\n\nPlease note this course will be offered in the summer.\n\n
+DTSTAMP:20220119T205409Z
+UID:12341642625649984abcd261618
+DTSTART;TZID=America/Vancouver:20210908T080000
+DTEND;TZID=America/Vancouver:20210908T090000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T205409Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:STAT 251 101
+LOCATION:Centre for Interactive  Research on Sustainability\, Room 1250
+DESCRIPTION:If the course is full please register in the Waitlist STAT 251 WL1\n\nSTAT 241 HAS BEEN ELIMINATED. ALL STUDENTS SHOULD NOW REGISTER IN STAT 251.\n\nPlease note this course will be offered in the summer.\n\n
+DTSTAMP:20220119T205409Z
+UID:12341642625649984abcd292066
+DTSTART;TZID=America/Vancouver:20210910T080000
+DTEND;TZID=America/Vancouver:20210910T090000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:STAT 251 L1H
+LOCATION:Earth Sciences Building\, Room 1046
+DESCRIPTION:Labs begin second week of classes.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd469006
+DTSTART;TZID=America/Vancouver:20210910T120000
+DTEND;TZID=America/Vancouver:20210910T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CPSC 210 203
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd230843
+DTSTART;TZID=America/Vancouver:20220110T150000
+DTEND;TZID=America/Vancouver:20220110T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CPSC 210 203
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd458627
+DTSTART;TZID=America/Vancouver:20220112T150000
+DTEND;TZID=America/Vancouver:20220112T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CPSC 210 203
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd274991
+DTSTART;TZID=America/Vancouver:20220114T150000
+DTEND;TZID=America/Vancouver:20220114T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CPSC 210 L2S
+LOCATION:Institute for Computing (ICICS/CS)\, Room 014
+DESCRIPTION:
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd70132
+DTSTART;TZID=America/Vancouver:20220110T170000
+DTEND;TZID=America/Vancouver:20220110T190000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:ENGL 111 002
+LOCATION:Buchanan\, Room A201
+DESCRIPTION:**No student may take two First-Year English courses at the same time.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd546432
+DTSTART;TZID=America/Vancouver:20220110T100000
+DTEND;TZID=America/Vancouver:20220110T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:ENGL 111 002
+LOCATION:Buchanan\, Room A201
+DESCRIPTION:**No student may take two First-Year English courses at the same time.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd143362
+DTSTART;TZID=America/Vancouver:20220112T100000
+DTEND;TZID=America/Vancouver:20220112T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:ENGL 111 L22
+LOCATION:Buchanan\, Room D229
+DESCRIPTION:
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd177115
+DTSTART;TZID=America/Vancouver:20220114T100000
+DTEND;TZID=America/Vancouver:20220114T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:MATH 215 202
+LOCATION:Buchanan\, Room A102
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd52678
+DTSTART;TZID=America/Vancouver:20220110T090000
+DTEND;TZID=America/Vancouver:20220110T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:MATH 215 202
+LOCATION:Buchanan\, Room A102
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd210677
+DTSTART;TZID=America/Vancouver:20220112T090000
+DTEND;TZID=America/Vancouver:20220112T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:MATH 215 202
+LOCATION:Buchanan\, Room A102
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd303121
+DTSTART;TZID=America/Vancouver:20220114T090000
+DTEND;TZID=America/Vancouver:20220114T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:MATH 220 203
+LOCATION:Leonard S. Klinck\, Room 460
+DESCRIPTION: The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd269611
+DTSTART;TZID=America/Vancouver:20220110T130000
+DTEND;TZID=America/Vancouver:20220110T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:MATH 220 203
+LOCATION:Leonard S. Klinck\, Room 460
+DESCRIPTION: The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd216834
+DTSTART;TZID=America/Vancouver:20220112T130000
+DTEND;TZID=America/Vancouver:20220112T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T223631Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:MATH 220 203
+LOCATION:Leonard S. Klinck\, Room 460
+DESCRIPTION: The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T223631Z
+UID:12341642631791526abcd76517
+DTSTART;TZID=America/Vancouver:20220114T130000
+DTEND;TZID=America/Vancouver:20220114T140000
+END:VEVENT
+END:VCALENDAR
+

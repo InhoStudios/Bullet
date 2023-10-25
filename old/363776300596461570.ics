@@ -1,0 +1,297 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:THTR 205A 001
+LOCATION:Frederic Wood Theatre\, Room 18
+DESCRIPTION:<mark><b>Introduction to Vectorworks software for set and lighting design.</b> Class meetings will generally be held online. Students who wish to take this course but are not in the BFA Design and Production program should contact the instructor.</mark> IF THIS COURSE IS FULL OR BLOCKED PLEASE SIGN UP FOR THE WAITLIST SECTION: THTR 205A - WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to This is a course on Vectorworks for Majors\, Minors\, or Honours students in Theatre or Film. Please consult the instructor for registration. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ub&~\n\nc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687240abcd475585
+DTSTART;TZID=America/Vancouver:20210910T100000
+DTEND;TZID=America/Vancouver:20210910T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:THTR 210 001
+LOCATION:Chan Centre\, Room 290
+DESCRIPTION:<b>THTR 210 Drama: Forms and Ideas I</b>\n\n<br><br>\n\nTHTR 210 is an introduction to the study of dramatic literature\, with a particular focus on western theatrical traditions from the fifth century BCE to the eighteenth century CE. The course contextualizes the plays read in their original cultural and socio-political context\, while teaching students how to read these plays as texts which encode performance. We will examine original performance conventions tied to each play that we study\, but we will also consider how these plays have been reperformed in later periods. The classes consist of two large-scale lectures on Mondays and Wednesdays and a smaller discussion-based class each Friday. This is an introductory course and students are not expected to have a background in theatre\, either in reading dramatic literature or in thinking abou&~\n\nt plays in performance. <br><br><B>NOTE:</B> You must also register in a corresponding Discussion Section (D11\, D12\, D13\, or D14). If this section if FULL or BLOCKED please sign up for the corresponding wait list section - THTR 210\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687240abcd306985
+DTSTART;TZID=America/Vancouver:20210906T130000
+DTEND;TZID=America/Vancouver:20210906T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:THTR 210 001
+LOCATION:Chan Centre\, Room 290
+DESCRIPTION:<b>THTR 210 Drama: Forms and Ideas I</b>\n\n<br><br>\n\nTHTR 210 is an introduction to the study of dramatic literature\, with a particular focus on western theatrical traditions from the fifth century BCE to the eighteenth century CE. The course contextualizes the plays read in their original cultural and socio-political context\, while teaching students how to read these plays as texts which encode performance. We will examine original performance conventions tied to each play that we study\, but we will also consider how these plays have been reperformed in later periods. The classes consist of two large-scale lectures on Mondays and Wednesdays and a smaller discussion-based class each Friday. This is an introductory course and students are not expected to have a background in theatre\, either in reading dramatic literature or in thinking abou&~\n\nt plays in performance. <br><br><B>NOTE:</B> You must also register in a corresponding Discussion Section (D11\, D12\, D13\, or D14). If this section if FULL or BLOCKED please sign up for the corresponding wait list section - THTR 210\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687240abcd478698
+DTSTART;TZID=America/Vancouver:20210908T130000
+DTEND;TZID=America/Vancouver:20210908T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:THTR 210 D12
+LOCATION:UBC Life Building\, Room 2212
+DESCRIPTION:This is a discussion section for THTR 210\, Section 001.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687240abcd558626
+DTSTART;TZID=America/Vancouver:20210910T130000
+DTEND;TZID=America/Vancouver:20210910T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:THTR 250 001
+LOCATION:Frederic Wood Theatre\, Room 102
+DESCRIPTION:If you have previously taken stage craft classes or have been a part of backstage theatre production\, the THTR 150 pre-req may be waived. Please email the instructor to request waiving the pre-req.  PLEASE NOTE\, you must also register for a studio section\, THTR 250 S11 or S12. If you are unable to register for this course but are interested in enrolling\, please email the instructor. This course replaces THTR 254.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd370100
+DTSTART;TZID=America/Vancouver:20210909T093000
+DTEND;TZID=America/Vancouver:20210909T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:THTR 250 001
+LOCATION:Frederic Wood Theatre\, Room 108
+DESCRIPTION:If you have previously taken stage craft classes or have been a part of backstage theatre production\, the THTR 150 pre-req may be waived. Please email the instructor to request waiving the pre-req.  PLEASE NOTE\, you must also register for a studio section\, THTR 250 S11 or S12. If you are unable to register for this course but are interested in enrolling\, please email the instructor. This course replaces THTR 254.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd29990
+DTSTART;TZID=America/Vancouver:20210909T093000
+DTEND;TZID=America/Vancouver:20210909T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:THTR 250 001
+LOCATION:Frederic Wood Theatre\, Room 125
+DESCRIPTION:If you have previously taken stage craft classes or have been a part of backstage theatre production\, the THTR 150 pre-req may be waived. Please email the instructor to request waiving the pre-req.  PLEASE NOTE\, you must also register for a studio section\, THTR 250 S11 or S12. If you are unable to register for this course but are interested in enrolling\, please email the instructor. This course replaces THTR 254.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd283337
+DTSTART;TZID=America/Vancouver:20210909T093000
+DTEND;TZID=America/Vancouver:20210909T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:THTR 250 S11
+LOCATION:Frederic Wood Theatre\, Room 125
+DESCRIPTION:This is a Studio Section for THTR 250\, 001. You must be registered in the main section in order to enrol in the Studio.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd256088
+DTSTART;TZID=America/Vancouver:20210910T090000
+DTEND;TZID=America/Vancouver:20210910T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:THTR 308 001
+LOCATION:Dorothy Somerset Studio\, Room 101
+DESCRIPTION:<mark><b>NOTE:</b> Hybrid online and in-person labs for live reinforcement for those able.</mark>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd12590
+DTSTART;TZID=America/Vancouver:20210907T100000
+DTEND;TZID=America/Vancouver:20210907T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:THTR 399L 001
+LOCATION:Dorothy Somerset Studio\, Room 101
+DESCRIPTION:<B>NOTE:</B> Lighting design and production practicum\, consult instructor. Students must also register for secondary Workshop Section PM1: Scheduled production meetings as required for UBC Theatre and Film productions.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd239441
+DTSTART;TZID=America/Vancouver:20210910T120000
+DTEND;TZID=America/Vancouver:20210910T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:FIPR 234 001
+LOCATION:Theatre-Film Production Building\, Room 104
+DESCRIPTION:If this section if FULL or BLOCKED please sign up for the corresponding wait list section - FIPR 234\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd524379
+DTSTART;TZID=America/Vancouver:20220111T090000
+DTEND;TZID=America/Vancouver:20220111T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:THFL 100 001
+LOCATION:Dorothy Somerset Studio\, Room 101
+DESCRIPTION:This course is restricted to students in a BFA program offered by the UBC Department of Theatre and Film.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd25300
+DTSTART;TZID=America/Vancouver:20220111T140000
+DTEND;TZID=America/Vancouver:20220111T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:THFL 100 001
+LOCATION:Dorothy Somerset Studio\, Room 101
+DESCRIPTION:This course is restricted to students in a BFA program offered by the UBC Department of Theatre and Film.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd542300
+DTSTART;TZID=America/Vancouver:20220113T140000
+DTEND;TZID=America/Vancouver:20220113T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:THTR 211 001
+LOCATION:Chan Centre\, Room 290
+DESCRIPTION:<b>THTR 211 Drama: Forms and Ideas II</b>\n\n<br><br>\n\nFollowing THTR 210\, THTR 211 is the second part of a two-course series that explores dramatic forms and ideas across a range of geographical and historical theatre contexts. THTR 211 emphasizes plays with significant cultural currency and/or impact from 1850 to the present. As comprehensive coverage of drama in this vast period is not possible in this course context\, plays have been selected to investigate critical terms and formal innovations specifically related to pioneers of modern drama and socially provocative theatre.  The class will consider the particular challenges and opportunities of dramaturgical analysis: what analytical tools\, sources of evidence\, methodologies and theoretical debates drive the field? <br><br><B>NOTE:</B> You must also register in a corresponding Discussio&~\n\nn Section (D11\, D12\, or D13). If this section if FULL or BLOCKED please sign up for the corresponding wait list section - THTR 210\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd515702
+DTSTART;TZID=America/Vancouver:20220103T130000
+DTEND;TZID=America/Vancouver:20220103T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:THTR 211 001
+LOCATION:Chan Centre\, Room 290
+DESCRIPTION:<b>THTR 211 Drama: Forms and Ideas II</b>\n\n<br><br>\n\nFollowing THTR 210\, THTR 211 is the second part of a two-course series that explores dramatic forms and ideas across a range of geographical and historical theatre contexts. THTR 211 emphasizes plays with significant cultural currency and/or impact from 1850 to the present. As comprehensive coverage of drama in this vast period is not possible in this course context\, plays have been selected to investigate critical terms and formal innovations specifically related to pioneers of modern drama and socially provocative theatre.  The class will consider the particular challenges and opportunities of dramaturgical analysis: what analytical tools\, sources of evidence\, methodologies and theoretical debates drive the field? <br><br><B>NOTE:</B> You must also register in a corresponding Discussio&~\n\nn Section (D11\, D12\, or D13). If this section if FULL or BLOCKED please sign up for the corresponding wait list section - THTR 210\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd101920
+DTSTART;TZID=America/Vancouver:20220105T130000
+DTEND;TZID=America/Vancouver:20220105T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:THTR 211 D13
+LOCATION:West Mall Swing Space\, Room 105
+DESCRIPTION:This is a discussion section for THTR 211\, Section 001.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd506743
+DTSTART;TZID=America/Vancouver:20220114T130000
+DTEND;TZID=America/Vancouver:20220114T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:THTR 230 WL1
+LOCATION:\, Room 
+DESCRIPTION:This is a WAIT LIST section for THTR 230\, Section 001. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd192023
+DTSTART;TZID=America/Vancouver:20220110T100000
+DTEND;TZID=America/Vancouver:20220110T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:THTR 230 WL1
+LOCATION:\, Room 
+DESCRIPTION:This is a WAIT LIST section for THTR 230\, Section 001. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687241abcd64707
+DTSTART;TZID=America/Vancouver:20220112T100000
+DTEND;TZID=America/Vancouver:20220112T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211125T094807Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:THTR 307 001
+LOCATION:Dorothy Somerset Studio\, Room 101
+DESCRIPTION:Stage lighting principles and practice: equipment\, control systems and design fundamentals. Priority will be given to BFA Design and Production majors.\n\n
+DTSTAMP:20211125T094807Z
+UID:12341637833687242abcd279994
+DTSTART;TZID=America/Vancouver:20220114T130000
+DTEND;TZID=America/Vancouver:20220114T160000
+END:VEVENT
+END:VCALENDAR
+

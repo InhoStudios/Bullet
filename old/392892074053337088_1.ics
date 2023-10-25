@@ -1,0 +1,503 @@
+BEGIN:VCALENDAR
+PRODID://UBCmech-calgen.py//
+X-PUBLISHED-TTL:PT1H
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_2
+SUMMARY:LEC: 226 Lec 1: Course syllabus and outline. Writing in the technical workplace. Technical sentences.  
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20210929T090000
+DTEND;TZID=America/Vancouver:20210929T100000
+DESCRIPTION:Discuss the process\, attributes\, and features of technical writing. Learn to write clear\, concise\, and fluent sentences. [Read: Ch. 1 "Why Technical People Needn't Fear Writing\,"  Ch. 2 "Technical Sentences"] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_3
+SUMMARY:LEC: 226 Lec 2: Technical paragraphs. Parallelism in sentences\, lists\, and headings. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211006T090000
+DTEND;TZID=America/Vancouver:20211006T100000
+DESCRIPTION:Understand the role of audience and purpose in document design. Learn to shape effective paragraphs and apply an appropriate structure. [Read: Ch. 3 "Technical Paragraphs\," Ch. 4 "Parallelism\, Lists\, and Layout"     ] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_4
+SUMMARY:LEC: 226 Lec 3: Letter\, memo\, and email format. Report structure. Kinds of informal reports and proposals.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211013T090000
+DTEND;TZID=America/Vancouver:20211013T100000
+DESCRIPTION:Discuss the elements of correspondence\, informal reports\, and proposals. Learn how to create outlines. [Read: Ch. 5 "Emails\, Letters\, and Memos\, " Ch. 6 "Short Reports and Proposals" ] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_5
+SUMMARY:LEC: 226 Lec 4: Informal reports (cont.). Formal report: content\, structure\, elements.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211020T090000
+DTEND;TZID=America/Vancouver:20211020T100000
+DESCRIPTION:Understand the role of audience and purpose in reports. Discuss report structure and the difference between informal and formal reports. [Read: Ch. 6 "Documents that Define Future Actions. Lab Reports. Engineering or Project Logs"(cont.)\,  Ch. 7 "Formal Reports"] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_6
+SUMMARY:LEC: 226 Lec 5: Formal report: style\, tone\, front and back matter. Difference between the summary and introduction. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211027T090000
+DTEND;TZID=America/Vancouver:20211027T100000
+DESCRIPTION:Identify the elements of the formal report. Synthesize information in a technical abstract or summary. Learn how to write the introduction. [Read: Ch. 7 "Formal Reports" (cont.)] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_7
+SUMMARY:LEC: 226 Lec 6: Intercultural communication. Writing in teams. Document sharing and control.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211103T090000
+DTEND;TZID=America/Vancouver:20211103T100000
+DESCRIPTION:Discuss challenges of collaborative writing and document control. Examine the effect of interpersonal and cultural differences on collaborative writing. [Read: Ch. 8 "Intercultural Communication\, Collaborative Writing\, and Document Control"] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_9
+SUMMARY:LEC: 226 Lec 7: Intercultural communication. Writing in teams. Document sharing and control.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211117T090000
+DTEND;TZID=America/Vancouver:20211117T100000
+DESCRIPTION:Discuss challenges of collaborative writing and document control. Examine the effect of interpersonal and cultural differences on collaborative writing. [Read: Ch. 8 "Intercultural Communication\, Collaborative Writing\, and Document Control"] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_10
+SUMMARY:LEC: 226 Lec 8: Types and uses of technical graphics. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211124T090000
+DTEND;TZID=America/Vancouver:20211124T100000
+DESCRIPTION:Rules for putting graphics into reports.  [Read: Ch. 10 "Technical Graphics"] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_11
+SUMMARY:LEC: 226 Lec 9: Technical definitions. Conclusions and recommendations. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211201T090000
+DTEND;TZID=America/Vancouver:20211201T100000
+DESCRIPTION:How to write technical definitions for the glossary\, conclusions and recommendations for the research report.  [Read: Ch. 11 "Technical Definitions and Descriptions".] (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_12
+SUMMARY:LEC: 226 Lec 10: Letter of transmittal\, disclaimer\, appendices. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20211208T090000
+DTEND;TZID=America/Vancouver:20211208T100000
+DESCRIPTION:Q&A and checklist for the research project report.  Exam preparation.  (Teslenko)
+LOCATION:CEME 1204
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_50
+SUMMARY:TUT: 226 Tut 1: Introduction of topics for the research project. Case studies: "Northern snow drifts\," "Editing with artificial intelligence". 
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211006T140000
+DTEND;TZID=America/Vancouver:20211006T150000
+DESCRIPTION:Complete the exercise for Ch. 3 and Quiz 1 (Ch. 2\, 3). Post your group's topic in the project log.   (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_51
+SUMMARY:TUT: 226 Tut 2: Email etiquette. Style and tone in technical communication. Privacy and information security.  Case study: "Revising an angry email".
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211013T140000
+DTEND;TZID=America/Vancouver:20211013T150000
+DESCRIPTION:Complete the exercise for Ch 5. Complete the Canvas course "Privacy and Information Security - Fundamentals\, Part 1" and post certificates in the project log. (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_52
+SUMMARY:TUT: 226 Tut 3: Preparation for the short report assignment. Case study: "Reports on a moving-stage project".
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211020T140000
+DTEND;TZID=America/Vancouver:20211020T150000
+DESCRIPTION:Complete the exercise for Ch. 6 and Quiz 2 (Ch. 4\, 5\, 6). (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_53
+SUMMARY:TUT: 226 Tut 4: How to find and summarize scholarly sources for the research project. Case studies: "Ottawa Light-rail System\," "Intersection Design Report." 
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211027T140000
+DTEND;TZID=America/Vancouver:20211027T150000
+DESCRIPTION:Submit the short report. Find scholarly sources for the project at the UBC library and post a list of them in the project log. (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_54
+SUMMARY:TUT: 226 Tut 5: Intercultural influences in workplace communication. Case study: "Using clear and simple language in intercultural communication."
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211103T140000
+DTEND;TZID=America/Vancouver:20211103T150000
+DESCRIPTION:Complete the exercise for Ch. 8 and Quiz 3 (Ch. 7\, 8) (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_56
+SUMMARY:TUT: 226 Tut 6: Referencing copyrighted sources and avoiding plagiarism. Case study: "Detecting structural plagiarism." 
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211117T140000
+DTEND;TZID=America/Vancouver:20211117T150000
+DESCRIPTION:Complete the exercise for Ch. 9. Post report drafts in the project log for peer review. (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_57
+SUMMARY:TUT: 226 Tut 7: Avoiding graphical misrepresentation. 
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211124T140000
+DTEND;TZID=America/Vancouver:20211124T150000
+DESCRIPTION:Complete the exercise for Ch. 10.  Q&A and checklist for the poster. Post the list of tables and figures in the project log. (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_58
+SUMMARY:TUT: 226 Tut 8: Poster competition. 
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211201T140000
+DTEND;TZID=America/Vancouver:20211201T150000
+DESCRIPTION:Submit the electronic poster and project log.  Compete Quiz 4 (Ch. 9\, 10). Post the glossary in the project log.   (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_59
+SUMMARY:TUT: 226 Tut 9: Midterm
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20211208T140000
+DTEND;TZID=America/Vancouver:20211208T150000
+DESCRIPTION:Submit the research report and letter of transmittal. Write Exam 1.  (Teslenko)
+LOCATION:CEME 1202
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_72
+SUMMARY:LEC: 226 Lec 11: Positive\, neutral and negative letters. Direct and indirect pattern. Style and tone in letters.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220112T090000
+DTEND;TZID=America/Vancouver:20220112T100000
+DESCRIPTION:[Read: Ch. 5 'Routine Correspondence' (Review)] (Eyking)
+LOCATION:Zoom
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_73
+SUMMARY:LEC: 226 Lec 12: Argument. Letters of Adjustment.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220119T090000
+DTEND;TZID=America/Vancouver:20220119T100000
+DESCRIPTION:[Read: Readings on Canvas. Guidelines for letters conveying bad news and adjustment letters.] (Eyking)
+LOCATION:Zoom
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_74
+SUMMARY:LEC: 226 Lec 13: Technical definitions. Methods of expanding definitions. Technical descriptions. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220126T090000
+DTEND;TZID=America/Vancouver:20220126T100000
+DESCRIPTION:[Read: Ch. 11 'Technical Definitions and Descriptions'] (Eyking)
+LOCATION:HEBB 114
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_76
+SUMMARY:LEC: 226 Lec 14: Instructions (Part 1). Introduction\, step-by-step structure and conclusion.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220209T090000
+DTEND;TZID=America/Vancouver:20220209T100000
+DESCRIPTION:[Read: Ch. 12. Instructions\, Procedures and Manuals.] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_77
+SUMMARY:LEC: 226 Lec 15: Instructions (Part 2). Graphics\, notes\, cautions\, warnings and danger alerts. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220216T090000
+DTEND;TZID=America/Vancouver:20220216T100000
+DESCRIPTION:[Read: Ch. 12. Instructions\, Procedures and Manuals.] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_79
+SUMMARY:LEC: 226 Lec 16: Ethics in technical writing. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220302T090000
+DTEND;TZID=America/Vancouver:20220302T100000
+DESCRIPTION:[Read: Ch. 14 'Ethics'] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_80
+SUMMARY:LEC: 226 Lec 17: Job application packages.  Resumes and application letters. Social media and the job hunt (LinkedIn).
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220309T090000
+DTEND;TZID=America/Vancouver:20220309T100000
+DESCRIPTION:[Read: Ch. 15 'Job Application Packages'] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_81
+SUMMARY:LEC: 226 Lec 18: E-posters and semi-formal reports.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220316T090000
+DTEND;TZID=America/Vancouver:20220316T100000
+DESCRIPTION:[Read: Cases for discussion.] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_82
+SUMMARY:LEC: 226 Lec 19: Mech 223/226 Project documentation. Finding job openings.  Information interviews. 
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220323T090000
+DTEND;TZID=America/Vancouver:20220323T100000
+DESCRIPTION:[Read: Ch. 15: Job Application Packages. Finding Job Openings. Cases for discussion.] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_83
+SUMMARY:LEC: 226 Lec 20: Mech 223/226 Project documentation (cont.) Writing design reports and recommendation reports.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220330T090000
+DTEND;TZID=America/Vancouver:20220330T100000
+DESCRIPTION:[Read: Review: Ch. 6: Technical Reports and Documents. Ch. 7: Formal Reports.] (Eyking)
+LOCATION:DMP 310
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_85
+SUMMARY:LEC: 226 Lec 21: Preparation for the final exam.
+CATEGORIES:LEC
+DTSTART;TZID=America/Vancouver:20220413T090000
+DTEND;TZID=America/Vancouver:20220413T100000
+DESCRIPTION:[Read: Readings on Canvas.] (Eyking)
+LOCATION:HEBB 114
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_138
+SUMMARY:TUT: 226 Tut 10: Introduction of the group project.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220119T140000
+DTEND;TZID=America/Vancouver:20220119T150000
+DESCRIPTION:Readings on Canvas (Eyking)
+LOCATION:Zoom
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_139
+SUMMARY:TUT: 226 Tut 12: Mechanism and process Descriptions.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220126T140000
+DTEND;TZID=America/Vancouver:20220126T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_141
+SUMMARY:TUT: 226 Tut 13: Discussion of examples of instructions.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220209T140000
+DTEND;TZID=America/Vancouver:20220209T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_142
+SUMMARY:TUT: 226 Tut 14: Usability. Procedures and manuals.  
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220216T140000
+DTEND;TZID=America/Vancouver:20220216T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_144
+SUMMARY:TUT: 226 Tut 15: Ethics in technical writing. Discussion of cases.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220302T140000
+DTEND;TZID=America/Vancouver:20220302T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_145
+SUMMARY:TUT: 226 Tut 16: Discussion of the group report.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220309T140000
+DTEND;TZID=America/Vancouver:20220309T150000
+DESCRIPTION:Readings on Canvas. (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_146
+SUMMARY:TUT: 226 Tut 17: E-posters. Update on the group project.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220316T140000
+DTEND;TZID=America/Vancouver:20220316T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_147
+SUMMARY:TUT: 226 Tut 18: Oral presentations.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220323T140000
+DTEND;TZID=America/Vancouver:20220323T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_148
+SUMMARY:TUT: 226 Tut 19: Oral presentations.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220330T140000
+DTEND;TZID=America/Vancouver:20220330T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20140701T000000Z
+LAST-MODIFIED:20220108T205014Z
+DTSTAMP:20220108T205024Z
+UID:Mech226_2020W_150
+SUMMARY:TUT: 226 Tut 20: Discussion of past exams.
+CATEGORIES:TUT
+DTSTART;TZID=America/Vancouver:20220413T140000
+DTEND;TZID=America/Vancouver:20220413T150000
+DESCRIPTION: (Eyking)
+LOCATION:CEME 1215
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,484 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220113T173410Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:STAT 251 101
+LOCATION:Centre for Interactive  Research on Sustainability\, Room 1250
+DESCRIPTION:If the course is full please register in the Waitlist STAT 251 WL1\n\nSTAT 241 HAS BEEN ELIMINATED. ALL STUDENTS SHOULD NOW REGISTER IN STAT 251.\n\nPlease note this course will be offered in the summer.\n\n
+DTSTAMP:20220113T173410Z
+UID:12341642095250008abcd75319
+DTSTART;TZID=America/Vancouver:20210906T080000
+DTEND;TZID=America/Vancouver:20210906T090000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T173410Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:STAT 251 101
+LOCATION:Centre for Interactive  Research on Sustainability\, Room 1250
+DESCRIPTION:If the course is full please register in the Waitlist STAT 251 WL1\n\nSTAT 241 HAS BEEN ELIMINATED. ALL STUDENTS SHOULD NOW REGISTER IN STAT 251.\n\nPlease note this course will be offered in the summer.\n\n
+DTSTAMP:20220113T173410Z
+UID:12341642095250008abcd586341
+DTSTART;TZID=America/Vancouver:20210908T080000
+DTEND;TZID=America/Vancouver:20210908T090000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T173410Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:STAT 251 101
+LOCATION:Centre for Interactive  Research on Sustainability\, Room 1250
+DESCRIPTION:If the course is full please register in the Waitlist STAT 251 WL1\n\nSTAT 241 HAS BEEN ELIMINATED. ALL STUDENTS SHOULD NOW REGISTER IN STAT 251.\n\nPlease note this course will be offered in the summer.\n\n
+DTSTAMP:20220113T173410Z
+UID:12341642095250008abcd461294
+DTSTART;TZID=America/Vancouver:20210910T080000
+DTEND;TZID=America/Vancouver:20210910T090000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:STAT 251 L1I
+LOCATION:Earth Sciences Building\, Room 1046
+DESCRIPTION:Labs begin the second week of classes.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902980abcd281048
+DTSTART;TZID=America/Vancouver:20210909T160000
+DTEND;TZID=America/Vancouver:20210909T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=2;BYDAY=WE
+SUMMARY:APSC 279 206
+LOCATION:\, Room 
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd431744
+DTSTART;TZID=America/Vancouver:20220119T150000
+DTEND;TZID=America/Vancouver:20220119T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:MATH 256 201
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd227625
+DTSTART;TZID=America/Vancouver:20220111T140000
+DTEND;TZID=America/Vancouver:20220111T153000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:MATH 256 201
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd21000
+DTSTART;TZID=America/Vancouver:20220113T140000
+DTEND;TZID=America/Vancouver:20220113T153000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CIVL 201 101
+LOCATION:Hugh Dempster Pavilion\, Room 310
+DESCRIPTION:Special note: This course commences with a two-week pre-term module on Monday\, August 23 that is required for some students. For further information\, including exemption requirements and the schedule and location of the module\, please see CIVL 201 requirements http://www.civil.ubc.ca/academic-programs/undergraduate-program/civl-201-requirements .  For registration enquiries\, please contact undergradsupport@civil.ubc.ca.\n\nDo NOT contact the professor regarding registration problems.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd426442
+DTSTART;TZID=America/Vancouver:20210907T080000
+DTEND;TZID=America/Vancouver:20210907T093000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:CIVL 201 101
+LOCATION:Hugh Dempster Pavilion\, Room 310
+DESCRIPTION:Special note: This course commences with a two-week pre-term module on Monday\, August 23 that is required for some students. For further information\, including exemption requirements and the schedule and location of the module\, please see CIVL 201 requirements http://www.civil.ubc.ca/academic-programs/undergraduate-program/civl-201-requirements .  For registration enquiries\, please contact undergradsupport@civil.ubc.ca.\n\nDo NOT contact the professor regarding registration problems.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd583497
+DTSTART;TZID=America/Vancouver:20210909T080000
+DTEND;TZID=America/Vancouver:20210909T093000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CIVL 203 101
+LOCATION:West Mall Swing Space\, Room 221
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd426756
+DTSTART;TZID=America/Vancouver:20210906T140000
+DTEND;TZID=America/Vancouver:20210906T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CIVL 203 101
+LOCATION:Jack Bell Building for the School of Social Work\, Room 124
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd512883
+DTSTART;TZID=America/Vancouver:20210908T120000
+DTEND;TZID=America/Vancouver:20210908T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CIVL 203 101
+LOCATION:Jack Bell Building for the School of Social Work\, Room 124
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd470212
+DTSTART;TZID=America/Vancouver:20210910T120000
+DTEND;TZID=America/Vancouver:20210910T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CIVL 204 101
+LOCATION:Geography\, Room 100
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd335323
+DTSTART;TZID=America/Vancouver:20210906T090000
+DTEND;TZID=America/Vancouver:20210906T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CIVL 204 101
+LOCATION:Geography\, Room 100
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd207651
+DTSTART;TZID=America/Vancouver:20210908T090000
+DTEND;TZID=America/Vancouver:20210908T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CIVL 204 101
+LOCATION:Geography\, Room 100
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd388232
+DTSTART;TZID=America/Vancouver:20210910T090000
+DTEND;TZID=America/Vancouver:20210910T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CIVL 230 101
+LOCATION:West Mall Swing Space\, Room 221
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd484130
+DTSTART;TZID=America/Vancouver:20210906T100000
+DTEND;TZID=America/Vancouver:20210906T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CIVL 230 101
+LOCATION:West Mall Swing Space\, Room 221
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd25238
+DTSTART;TZID=America/Vancouver:20210908T100000
+DTEND;TZID=America/Vancouver:20210908T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CIVL 230 101
+LOCATION:West Mall Swing Space\, Room 221
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd500570
+DTSTART;TZID=America/Vancouver:20210910T100000
+DTEND;TZID=America/Vancouver:20210910T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CIVL 230 T1A
+LOCATION:West Mall Swing Space\, Room 222
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd202767
+DTSTART;TZID=America/Vancouver:20210908T150000
+DTEND;TZID=America/Vancouver:20210908T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:EOSC 210 101
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:If you are unable to register in the course\, please register on the waitlist and you will be contacted if you are elligible to take the course.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd329227
+DTSTART;TZID=America/Vancouver:20210907T110000
+DTEND;TZID=America/Vancouver:20210907T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:EOSC 210 101
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:If you are unable to register in the course\, please register on the waitlist and you will be contacted if you are elligible to take the course.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd361061
+DTSTART;TZID=America/Vancouver:20210909T110000
+DTEND;TZID=America/Vancouver:20210909T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:EOSC 210 L1G
+LOCATION:Earth and Ocean Sciences\, Room 107
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd481716
+DTSTART;TZID=America/Vancouver:20210909T130000
+DTEND;TZID=America/Vancouver:20210909T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:APSC 278 201
+LOCATION:Wesbrook\, Room 100
+DESCRIPTION:If you need to register in this course outside of your STT\, please register here. Term 2 Waitlists are cleared by mid-December if there is room. <br>  For students interested in APSC 279\, APSC 278 must been taken before\, or concurrently with\, APSC 279.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902981abcd404498
+DTSTART;TZID=America/Vancouver:20220110T130000
+DTEND;TZID=America/Vancouver:20220110T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:APSC 278 201
+LOCATION:Wesbrook\, Room 100
+DESCRIPTION:If you need to register in this course outside of your STT\, please register here. Term 2 Waitlists are cleared by mid-December if there is room. <br>  For students interested in APSC 279\, APSC 278 must been taken before\, or concurrently with\, APSC 279.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd437573
+DTSTART;TZID=America/Vancouver:20220112T130000
+DTEND;TZID=America/Vancouver:20220112T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:APSC 278 201
+LOCATION:Wesbrook\, Room 100
+DESCRIPTION:If you need to register in this course outside of your STT\, please register here. Term 2 Waitlists are cleared by mid-December if there is room. <br>  For students interested in APSC 279\, APSC 278 must been taken before\, or concurrently with\, APSC 279.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd83794
+DTSTART;TZID=America/Vancouver:20220114T130000
+DTEND;TZID=America/Vancouver:20220114T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CIVL 210 201
+LOCATION:UBC Life Building\, Room 2201
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd382690
+DTSTART;TZID=America/Vancouver:20220111T103000
+DTEND;TZID=America/Vancouver:20220111T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:CIVL 210 201
+LOCATION:UBC Life Building\, Room 2201
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd341215
+DTSTART;TZID=America/Vancouver:20220113T103000
+DTEND;TZID=America/Vancouver:20220113T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220321T235959;INTERVAL=2;BYDAY=MO
+SUMMARY:CIVL 210 L2B
+LOCATION:Civil and Mechanical Engineering\, Room 1006
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd484065
+DTSTART;TZID=America/Vancouver:20220124T150000
+DTEND;TZID=America/Vancouver:20220124T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CIVL 210 T2A
+LOCATION:Hennings\, Room 202
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd289029
+DTSTART;TZID=America/Vancouver:20220110T140000
+DTEND;TZID=America/Vancouver:20220110T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CIVL 215 201
+LOCATION:Geography\, Room 100
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\nMINING Year 2 students MUST take EITHER CIVL 215 or MECH 280.  Remember to register for the Tutorial section of CIVL 215.\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd553286
+DTSTART;TZID=America/Vancouver:20220110T100000
+DTEND;TZID=America/Vancouver:20220110T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CIVL 215 201
+LOCATION:Geography\, Room 100
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\nMINING Year 2 students MUST take EITHER CIVL 215 or MECH 280.  Remember to register for the Tutorial section of CIVL 215.\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd25063
+DTSTART;TZID=America/Vancouver:20220112T100000
+DTEND;TZID=America/Vancouver:20220112T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CIVL 215 201
+LOCATION:Geography\, Room 100
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\nMINING Year 2 students MUST take EITHER CIVL 215 or MECH 280.  Remember to register for the Tutorial section of CIVL 215.\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd498478
+DTSTART;TZID=America/Vancouver:20220114T100000
+DTEND;TZID=America/Vancouver:20220114T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CIVL 215 T2A
+LOCATION:Henry Angus\, Room 098
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd255816
+DTSTART;TZID=America/Vancouver:20220114T150000
+DTEND;TZID=America/Vancouver:20220114T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CIVL 231 201
+LOCATION:Pharmaceutical Sciences Building\, Room 1101
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd514905
+DTSTART;TZID=America/Vancouver:20220111T123000
+DTEND;TZID=America/Vancouver:20220111T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:CIVL 231 201
+LOCATION:Pharmaceutical Sciences Building\, Room 1101
+DESCRIPTION:Do NOT contact the professor regarding registration problems.\n\n\n\nIf the course is full\, please fill out the online course registration form available at the below web link http://www.civil.ubc.ca/webform/course-request-registration-form and submit it electronically. \n\n\n\nPlease check back regularly to see if space opens up in the class.  All applications requesting admission to the course will be considered in August.  Priority will be given to students requiring the course as a core component to their program and to Civil Engineering students requesting the course as a technical elective (if applicable).  You will be advised in August if you have been admitted to the class or not.\n\n\n\n
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd289875
+DTSTART;TZID=America/Vancouver:20220113T123000
+DTEND;TZID=America/Vancouver:20220113T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220113T181822Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CIVL 231 T2A
+LOCATION:Henry Angus\, Room 098
+DESCRIPTION:
+DTSTAMP:20220113T181822Z
+UID:12341642097902982abcd259254
+DTSTART;TZID=America/Vancouver:20220114T110000
+DTEND;TZID=America/Vancouver:20220114T130000
+END:VEVENT
+END:VCALENDAR
+

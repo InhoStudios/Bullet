@@ -1,0 +1,396 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CHEM 111 112
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:NOTE: To complete registration\, students must register for BOTH lecture and laboratory activities. Incomplete registration will result in being placed on the waitlist.\n\nRegistration to CHEM 111 requires a satisfactory score on the UBC Chemistry Basic Skills Test. Students with unsatisfactory scores will be registered in CHEM 100. See https://chem.ubc.ca/ubc-chemistry-basic-skills-test-information for details.\n\nThis course requires in-person attendance. However\, if you are a student who cannot attend classes on the UBC-Vancouver campus in September due to travel challenges\, contact the Department through its Advising Inquiry Form.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd497504
+DTSTART;TZID=America/Vancouver:20210906T120000
+DTEND;TZID=America/Vancouver:20210906T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CHEM 111 112
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:NOTE: To complete registration\, students must register for BOTH lecture and laboratory activities. Incomplete registration will result in being placed on the waitlist.\n\nRegistration to CHEM 111 requires a satisfactory score on the UBC Chemistry Basic Skills Test. Students with unsatisfactory scores will be registered in CHEM 100. See https://chem.ubc.ca/ubc-chemistry-basic-skills-test-information for details.\n\nThis course requires in-person attendance. However\, if you are a student who cannot attend classes on the UBC-Vancouver campus in September due to travel challenges\, contact the Department through its Advising Inquiry Form.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd435174
+DTSTART;TZID=America/Vancouver:20210908T120000
+DTEND;TZID=America/Vancouver:20210908T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CHEM 111 112
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:NOTE: To complete registration\, students must register for BOTH lecture and laboratory activities. Incomplete registration will result in being placed on the waitlist.\n\nRegistration to CHEM 111 requires a satisfactory score on the UBC Chemistry Basic Skills Test. Students with unsatisfactory scores will be registered in CHEM 100. See https://chem.ubc.ca/ubc-chemistry-basic-skills-test-information for details.\n\nThis course requires in-person attendance. However\, if you are a student who cannot attend classes on the UBC-Vancouver campus in September due to travel challenges\, contact the Department through its Advising Inquiry Form.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd555772
+DTSTART;TZID=America/Vancouver:20210910T120000
+DTEND;TZID=America/Vancouver:20210910T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:CHEM 111 112
+LOCATION:Chemistry\, Room B150
+DESCRIPTION:NOTE: To complete registration\, students must register for BOTH lecture and laboratory activities. Incomplete registration will result in being placed on the waitlist.\n\nRegistration to CHEM 111 requires a satisfactory score on the UBC Chemistry Basic Skills Test. Students with unsatisfactory scores will be registered in CHEM 100. See https://chem.ubc.ca/ubc-chemistry-basic-skills-test-information for details.\n\nThis course requires in-person attendance. However\, if you are a student who cannot attend classes on the UBC-Vancouver campus in September due to travel challenges\, contact the Department through its Advising Inquiry Form.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd289505
+DTSTART;TZID=America/Vancouver:20210909T123000
+DTEND;TZID=America/Vancouver:20210909T133000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:CHEM 111 L07
+LOCATION:Chemistry\, Room B270
+DESCRIPTION:Lab starts the SECOND week of T1.\n\nStudents who do not attend the first laboratory meeting of this course will be DEREGISTERED from the course.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd481192
+DTSTART;TZID=America/Vancouver:20210909T140000
+DTEND;TZID=America/Vancouver:20210909T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CPSC 210 103
+LOCATION:Geography\, Room 100
+DESCRIPTION:Depending upon how many students sign-up for this section either an additional lab section will be opened or the existing labs will be expanded slightly so as  to have a sufficient number of seats for the students registered in the course.  However\, there is no guarantee that the resulting seats will fit your time table so make sure to take that into consideration when planning your time table.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd465766
+DTSTART;TZID=America/Vancouver:20210906T150000
+DTEND;TZID=America/Vancouver:20210906T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CPSC 210 103
+LOCATION:Geography\, Room 100
+DESCRIPTION:Depending upon how many students sign-up for this section either an additional lab section will be opened or the existing labs will be expanded slightly so as  to have a sufficient number of seats for the students registered in the course.  However\, there is no guarantee that the resulting seats will fit your time table so make sure to take that into consideration when planning your time table.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd221392
+DTSTART;TZID=America/Vancouver:20210908T150000
+DTEND;TZID=America/Vancouver:20210908T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CPSC 210 103
+LOCATION:Geography\, Room 100
+DESCRIPTION:Depending upon how many students sign-up for this section either an additional lab section will be opened or the existing labs will be expanded slightly so as  to have a sufficient number of seats for the students registered in the course.  However\, there is no guarantee that the resulting seats will fit your time table so make sure to take that into consideration when planning your time table.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd48437
+DTSTART;TZID=America/Vancouver:20210910T150000
+DTEND;TZID=America/Vancouver:20210910T160000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CPSC 210 L1U
+LOCATION:Institute for Computing (ICICS/CS)\, Room 014
+DESCRIPTION:
+DTSTAMP:20220125T202715Z
+UID:12341643142435271abcd87305
+DTSTART;TZID=America/Vancouver:20210907T170000
+DTEND;TZID=America/Vancouver:20210907T190000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:MATH 200 102
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd177974
+DTSTART;TZID=America/Vancouver:20210906T110000
+DTEND;TZID=America/Vancouver:20210906T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:MATH 200 102
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd256152
+DTSTART;TZID=America/Vancouver:20210908T110000
+DTEND;TZID=America/Vancouver:20210908T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:MATH 200 102
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd166506
+DTSTART;TZID=America/Vancouver:20210910T110000
+DTEND;TZID=America/Vancouver:20210910T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:PHYS 100 101
+LOCATION:\, Room 
+DESCRIPTION:This section is reserved for students who are unable to return to Vancouver for the start of Term 1. In-term class activities will be online. The midterm and final exam will be held in person. Students who are prevented from being present on campus for the midterm and/or final exam will be given an opportunity during the term to apply for alternate format exams.\n\nPHYS 100 is restricted to students who do not have PHYS 12\; for students with PHYS 12\, please refer to our First Year Physics Guide: https://phas.ubc.ca/undergrad-first-year-guide for 1st year PHYS course options: PHYS 131\, PHYS 117\, PHYS 106. *PHYS 131 has replaced PHYS 101.\n\n**The restricted seats in this section DO NOT exclude 1st year science students. All first year students are allowed to register in this section when restricted seats are available. The section has a limited number of restricted seats for first year BA students. When these seats are full\, first year BA students wanting to take PHYS 100 should register for the waitlist -- section 10W. All other seats are restricted to not allow FIRST YEAR BA students\, but to allow OTHER FIRST YEAR STUDENTS to register.\n\nDo NOT contact the instructor as all registration is done centrally! Depending on the availability of the space\, students will be placed in the course. Please contact Physics First Year Advisor ug-phys1ATphas.ubc.ca for registration inquiries or use the section change request form. https://courses.phas.ubc.ca/ugSectionChange.html\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd104717
+DTSTART;TZID=America/Vancouver:20210907T080000
+DTEND;TZID=America/Vancouver:20210907T093000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:PHYS 100 101
+LOCATION:\, Room 
+DESCRIPTION:This section is reserved for students who are unable to return to Vancouver for the start of Term 1. In-term class activities will be online. The midterm and final exam will be held in person. Students who are prevented from being present on campus for the midterm and/or final exam will be given an opportunity during the term to apply for alternate format exams.\n\nPHYS 100 is restricted to students who do not have PHYS 12\; for students with PHYS 12\, please refer to our First Year Physics Guide: https://phas.ubc.ca/undergrad-first-year-guide for 1st year PHYS course options: PHYS 131\, PHYS 117\, PHYS 106. *PHYS 131 has replaced PHYS 101.\n\n**The restricted seats in this section DO NOT exclude 1st year science students. All first year students are allowed to register in this section when restricted seats are available. The section has a limited number of restricted seats for first year BA students. When these seats are full\, first year BA students wanting to take PHYS 100 should register for the waitlist -- section 10W. All other seats are restricted to not allow FIRST YEAR BA students\, but to allow OTHER FIRST YEAR STUDENTS to register.\n\nDo NOT contact the instructor as all registration is done centrally! Depending on the availability of the space\, students will be placed in the course. Please contact Physics First Year Advisor ug-phys1ATphas.ubc.ca for registration inquiries or use the section change request form. https://courses.phas.ubc.ca/ugSectionChange.html\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd300181
+DTSTART;TZID=America/Vancouver:20210909T080000
+DTEND;TZID=America/Vancouver:20210909T093000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:PHYS 100 TC1
+LOCATION:Hebb\, Room 312
+DESCRIPTION:This tutorial includes in-person activities and requires in-person attendance. All students on campus are expected to attend lectures and tutorials on campus.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd267297
+DTSTART;TZID=America/Vancouver:20210908T090000
+DTEND;TZID=America/Vancouver:20210908T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CPSC 221 202
+LOCATION:Geography\, Room 100
+DESCRIPTION:
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd202052
+DTSTART;TZID=America/Vancouver:20220110T160000
+DTEND;TZID=America/Vancouver:20220110T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CPSC 221 202
+LOCATION:Geography\, Room 100
+DESCRIPTION:
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd274507
+DTSTART;TZID=America/Vancouver:20220112T160000
+DTEND;TZID=America/Vancouver:20220112T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CPSC 221 202
+LOCATION:Geography\, Room 100
+DESCRIPTION:
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd537975
+DTSTART;TZID=America/Vancouver:20220114T160000
+DTEND;TZID=America/Vancouver:20220114T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CPSC 221 L2R
+LOCATION:Institute for Computing (ICICS/CS)\, Room 015
+DESCRIPTION:
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd548075
+DTSTART;TZID=America/Vancouver:20220111T170000
+DTEND;TZID=America/Vancouver:20220111T190000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:MATH 221 204
+LOCATION:Mathematics\, Room 100
+DESCRIPTION: The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd132806
+DTSTART;TZID=America/Vancouver:20220111T123000
+DTEND;TZID=America/Vancouver:20220111T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:MATH 221 204
+LOCATION:Mathematics\, Room 100
+DESCRIPTION: The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd371532
+DTSTART;TZID=America/Vancouver:20220113T123000
+DTEND;TZID=America/Vancouver:20220113T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:MATH 302 201
+LOCATION:Mathematics\, Room 100
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd423499
+DTSTART;TZID=America/Vancouver:20220110T110000
+DTEND;TZID=America/Vancouver:20220110T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:MATH 302 201
+LOCATION:Mathematics\, Room 100
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd542649
+DTSTART;TZID=America/Vancouver:20220112T110000
+DTEND;TZID=America/Vancouver:20220112T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:MATH 302 201
+LOCATION:Mathematics\, Room 100
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course.  Students will not be able to register themselves if they do not have the correct prerequisites.  If you need to get your UBC file updated with qualifications such as Transfer Credits\, take care of that by sending documentation to admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd429655
+DTSTART;TZID=America/Vancouver:20220114T110000
+DTEND;TZID=America/Vancouver:20220114T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T195113Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:STAT 200 202
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:
+DTSTAMP:20220125T195113Z
+UID:12341643140273268abcd247786
+DTSTART;TZID=America/Vancouver:20220110T140000
+DTEND;TZID=America/Vancouver:20220110T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T195113Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:STAT 200 202
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:
+DTSTAMP:20220125T195113Z
+UID:12341643140273268abcd434838
+DTSTART;TZID=America/Vancouver:20220112T140000
+DTEND;TZID=America/Vancouver:20220112T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T195113Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:STAT 200 202
+LOCATION:Earth Sciences Building\, Room 1013
+DESCRIPTION:
+DTSTAMP:20220125T195113Z
+UID:12341643140273268abcd407220
+DTSTART;TZID=America/Vancouver:20220114T140000
+DTEND;TZID=America/Vancouver:20220114T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220125T202715Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:STAT 200 L2H
+LOCATION:Earth Sciences Building\, Room 1042
+DESCRIPTION:
+DTSTAMP:20220125T202715Z
+UID:12341643142435272abcd552900
+DTSTART;TZID=America/Vancouver:20220114T100000
+DTEND;TZID=America/Vancouver:20220114T110000
+END:VEVENT
+END:VCALENDAR
+

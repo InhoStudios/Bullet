@@ -10,6 +10,5 @@ update = "update"
 toggle = "toggle"
 add = "add"
 upcoming = "upcoming"
-
-# Debugging
+sync = "sync"
 now = "now"

@@ -1,0 +1,319 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CRWR 206 001
+LOCATION:West Mall Swing Space\, Room 221
+DESCRIPTION:This is a blended learning course where 50% of the course takes place in-class and 50% online.\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510221abcd465666
+DTSTART;TZID=America/Vancouver:20210910T140000
+DTEND;TZID=America/Vancouver:20210910T153000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:FIST 240 001
+LOCATION:West Mall Swing Space\, Room 107
+DESCRIPTION:If this section if FULL or BLOCKED please sign up for the corresponding wait list section - FIST 240\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=https://theatrefilm.ubc.ca/how-to-wait-list-a-course/>https://theatrefilm.ubc.ca/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510221abcd237004
+DTSTART;TZID=America/Vancouver:20210907T110000
+DTEND;TZID=America/Vancouver:20210907T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:FIST 240 001
+LOCATION:West Mall Swing Space\, Room 107
+DESCRIPTION:If this section if FULL or BLOCKED please sign up for the corresponding wait list section - FIST 240\, Section WL1. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=https://theatrefilm.ubc.ca/how-to-wait-list-a-course/>https://theatrefilm.ubc.ca/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510221abcd431273
+DTSTART;TZID=America/Vancouver:20210909T110000
+DTEND;TZID=America/Vancouver:20210909T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:JAPN 100 008
+LOCATION:Buchanan\, Room B307
+DESCRIPTION:If you have taken or plan to take the intensive course equivalents\, you will receive credit for only one of the intensive or non-intensive courses\, although the final grade for both courses will be factored into your overall GPA. For further clarification\, please contact the Department of Asian Studies.\n\nIf this course is blocked please sign up for the waitlist section. Students will be placed into the class based off our department priority guidelines. For more information please visit: http://www.asia.ubc.ca/undergraduate/department-wait-lists/ (Is the class blocked even though there are a few seats that are free? This is normal. Please check our website for what this means.)\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510221abcd234675
+DTSTART;TZID=America/Vancouver:20210906T130000
+DTEND;TZID=America/Vancouver:20210906T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:JAPN 100 008
+LOCATION:Buchanan\, Room B211
+DESCRIPTION:If you have taken or plan to take the intensive course equivalents\, you will receive credit for only one of the intensive or non-intensive courses\, although the final grade for both courses will be factored into your overall GPA. For further clarification\, please contact the Department of Asian Studies.\n\nIf this course is blocked please sign up for the waitlist section. Students will be placed into the class based off our department priority guidelines. For more information please visit: http://www.asia.ubc.ca/undergraduate/department-wait-lists/ (Is the class blocked even though there are a few seats that are free? This is normal. Please check our website for what this means.)\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510221abcd275223
+DTSTART;TZID=America/Vancouver:20210907T130000
+DTEND;TZID=America/Vancouver:20210907T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:JAPN 100 008
+LOCATION:Buchanan\, Room B307
+DESCRIPTION:If you have taken or plan to take the intensive course equivalents\, you will receive credit for only one of the intensive or non-intensive courses\, although the final grade for both courses will be factored into your overall GPA. For further clarification\, please contact the Department of Asian Studies.\n\nIf this course is blocked please sign up for the waitlist section. Students will be placed into the class based off our department priority guidelines. For more information please visit: http://www.asia.ubc.ca/undergraduate/department-wait-lists/ (Is the class blocked even though there are a few seats that are free? This is normal. Please check our website for what this means.)\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510221abcd433377
+DTSTART;TZID=America/Vancouver:20210909T130000
+DTEND;TZID=America/Vancouver:20210909T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:JAPN 100 008
+LOCATION:Buchanan\, Room B309
+DESCRIPTION:If you have taken or plan to take the intensive course equivalents\, you will receive credit for only one of the intensive or non-intensive courses\, although the final grade for both courses will be factored into your overall GPA. For further clarification\, please contact the Department of Asian Studies.\n\nIf this course is blocked please sign up for the waitlist section. Students will be placed into the class based off our department priority guidelines. For more information please visit: http://www.asia.ubc.ca/undergraduate/department-wait-lists/ (Is the class blocked even though there are a few seats that are free? This is normal. Please check our website for what this means.)\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd565639
+DTSTART;TZID=America/Vancouver:20210910T130000
+DTEND;TZID=America/Vancouver:20210910T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211108T154813Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:PSYC 217 002
+LOCATION:Aquatic Ecosystems Research Laboratory\, Room 120
+DESCRIPTION:\n\n\n\n
+DTSTAMP:20211108T154813Z
+UID:12341636386493849abcd556453
+DTSTART;TZID=America/Vancouver:20210906T100000
+DTEND;TZID=America/Vancouver:20210906T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211108T154813Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:PSYC 217 002
+LOCATION:Aquatic Ecosystems Research Laboratory\, Room 120
+DESCRIPTION:\n\n\n\n
+DTSTAMP:20211108T154813Z
+UID:12341636386493850abcd49451
+DTSTART;TZID=America/Vancouver:20210908T100000
+DTEND;TZID=America/Vancouver:20210908T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211108T154813Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:PSYC 217 002
+LOCATION:Aquatic Ecosystems Research Laboratory\, Room 120
+DESCRIPTION:\n\n\n\n
+DTSTAMP:20211108T154813Z
+UID:12341636386493851abcd152083
+DTSTART;TZID=America/Vancouver:20210910T100000
+DTEND;TZID=America/Vancouver:20210910T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:PSYC 305A 001
+LOCATION:Buchanan\, Room A101
+DESCRIPTION:
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd498249
+DTSTART;TZID=America/Vancouver:20210907T093000
+DTEND;TZID=America/Vancouver:20210907T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:PSYC 305A 001
+LOCATION:Buchanan\, Room A101
+DESCRIPTION:
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd176753
+DTSTART;TZID=America/Vancouver:20210909T093000
+DTEND;TZID=America/Vancouver:20210909T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:FIST 210 002
+LOCATION:Buchanan\, Room B210
+DESCRIPTION:If this section if FULL or BLOCKED please sign up for the corresponding wait list section - FIST 210\, Section WL2. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd500017
+DTSTART;TZID=America/Vancouver:20220110T130000
+DTEND;TZID=America/Vancouver:20220110T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:FIST 210 002
+LOCATION:Chan Centre\, Room 290
+DESCRIPTION:If this section if FULL or BLOCKED please sign up for the corresponding wait list section - FIST 210\, Section WL2. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd22884
+DTSTART;TZID=America/Vancouver:20220113T130000
+DTEND;TZID=America/Vancouver:20220113T163000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:FIST 220 002
+LOCATION:Chan Centre\, Room 290
+DESCRIPTION:Students must also sign up for a discussion section FIST 220 D21 or D22. If this section if FULL or BLOCKED please sign up for the corresponding wait list section - FIST 220\, Section WL2. Once you have registered in the wait list there is no need to contact the Department. Your registration will be switched to the parent section when space becomes available. Preference may be given to Majors\, Minors\, or Honours students in Theatre or Film. For more information about Department of Theatre and Film wait lists please visit: <a href=http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/>http://theatrefilm.ubc.ca/undergraduate/undergraduate-courses/how-to-wait-list-a-course/</a>\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd364906
+DTSTART;TZID=America/Vancouver:20220112T093000
+DTEND;TZID=America/Vancouver:20220112T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:FIST 220 D22
+LOCATION:Theatre-Film Production Building\, Room 2
+DESCRIPTION:This is a discussion section for FIST 220\, Section 002. You must be registered in the primary section in order to register in the discussion.\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd35607
+DTSTART;TZID=America/Vancouver:20220114T100000
+DTEND;TZID=America/Vancouver:20220114T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:PSYC 218 006
+LOCATION:Aquatic Ecosystems Research Laboratory\, Room 120
+DESCRIPTION:For students unable to register for PSYC 218 (for example course section is full)  please do not contact the instructor.  You can complete the Request to be Added form using the following link\, which will record the details of your request\n\nThe link: https://ubc.ca1.qualtrics.com/jfe/form/SV_dcD3tj80YEzX76u\n\n\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd170246
+DTSTART;TZID=America/Vancouver:20220111T093000
+DTEND;TZID=America/Vancouver:20220111T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:PSYC 218 006
+LOCATION:Aquatic Ecosystems Research Laboratory\, Room 120
+DESCRIPTION:For students unable to register for PSYC 218 (for example course section is full)  please do not contact the instructor.  You can complete the Request to be Added form using the following link\, which will record the details of your request\n\nThe link: https://ubc.ca1.qualtrics.com/jfe/form/SV_dcD3tj80YEzX76u\n\n\n\n
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd260839
+DTSTART;TZID=America/Vancouver:20220113T093000
+DTEND;TZID=America/Vancouver:20220113T110000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:PSYC 308A 004
+LOCATION:Buchanan\, Room A104
+DESCRIPTION:
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd184077
+DTSTART;TZID=America/Vancouver:20220110T140000
+DTEND;TZID=America/Vancouver:20220110T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:PSYC 308A 004
+LOCATION:Buchanan\, Room A104
+DESCRIPTION:
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd170551
+DTSTART;TZID=America/Vancouver:20220112T140000
+DTEND;TZID=America/Vancouver:20220112T150000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20211109T022150Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:PSYC 308A 004
+LOCATION:Buchanan\, Room A104
+DESCRIPTION:
+DTSTAMP:20211109T022150Z
+UID:12341636424510222abcd218803
+DTSTART;TZID=America/Vancouver:20220114T140000
+DTEND;TZID=America/Vancouver:20220114T150000
+END:VEVENT
+END:VCALENDAR
+

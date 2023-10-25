@@ -128,8 +128,13 @@ class Event:
             The vevent object returned from vevent or vevent_list
         """
         self.summary = vevent.summary.value
+
+        # fill in location and description if they exist
         try:
             self.location = vevent.location.value
+        except:
+            pass
+        try:
             self.desc = vevent.description.value
         except:
             pass

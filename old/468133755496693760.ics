@@ -1,0 +1,352 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:BIOL 121 123
+LOCATION:Biological Sciences\, Room 1000
+DESCRIPTION:BIOL 121 is offered in TERM 1\,  TERM 2 and summer session.  1st year Biology labs are a separate course (BIOL 140) and are listed separately.  For more information about Biology courses see www.biology.ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd579396
+DTSTART;TZID=America/Vancouver:20210906T130000
+DTEND;TZID=America/Vancouver:20210906T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:BIOL 121 123
+LOCATION:Biological Sciences\, Room 1000
+DESCRIPTION:BIOL 121 is offered in TERM 1\,  TERM 2 and summer session.  1st year Biology labs are a separate course (BIOL 140) and are listed separately.  For more information about Biology courses see www.biology.ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd574914
+DTSTART;TZID=America/Vancouver:20210908T130000
+DTEND;TZID=America/Vancouver:20210908T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:BIOL 121 123
+LOCATION:Biological Sciences\, Room 1000
+DESCRIPTION:BIOL 121 is offered in TERM 1\,  TERM 2 and summer session.  1st year Biology labs are a separate course (BIOL 140) and are listed separately.  For more information about Biology courses see www.biology.ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd90298
+DTSTART;TZID=America/Vancouver:20210910T130000
+DTEND;TZID=America/Vancouver:20210910T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:BIOL 140 1J1
+LOCATION:\, Room 
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd101140
+DTSTART;TZID=America/Vancouver:20210909T093000
+DTEND;TZID=America/Vancouver:20210909T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CHEM 121 122
+LOCATION:Chemistry\, Room B250
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd205941
+DTSTART;TZID=America/Vancouver:20210907T140000
+DTEND;TZID=America/Vancouver:20210907T153000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211209T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:CHEM 121 122
+LOCATION:Chemistry\, Room B250
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd478616
+DTSTART;TZID=America/Vancouver:20210909T140000
+DTEND;TZID=America/Vancouver:20210909T153000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:CHEM 121 L22
+LOCATION:\, Room 
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd252376
+DTSTART;TZID=America/Vancouver:20210907T093000
+DTEND;TZID=America/Vancouver:20210907T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:MATH 102 106
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:Prerequisites for this course will be strictly enforced. If you have 80% or higher in Pre-Calculus 12 but do not\n\nhave the high school calculus prerequisite for this course\, please  register yourself in MATH 180.  If you do not have a grade of 80% or  better in Pre-Calclulus 12\, please register in MATH 110.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd214967
+DTSTART;TZID=America/Vancouver:20210906T090000
+DTEND;TZID=America/Vancouver:20210906T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:MATH 102 106
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:Prerequisites for this course will be strictly enforced. If you have 80% or higher in Pre-Calculus 12 but do not\n\nhave the high school calculus prerequisite for this course\, please  register yourself in MATH 180.  If you do not have a grade of 80% or  better in Pre-Calclulus 12\, please register in MATH 110.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd102088
+DTSTART;TZID=America/Vancouver:20210908T090000
+DTEND;TZID=America/Vancouver:20210908T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211210T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:MATH 102 106
+LOCATION:Leonard S. Klinck\, Room 200
+DESCRIPTION:Prerequisites for this course will be strictly enforced. If you have 80% or higher in Pre-Calculus 12 but do not\n\nhave the high school calculus prerequisite for this course\, please  register yourself in MATH 180.  If you do not have a grade of 80% or  better in Pre-Calclulus 12\, please register in MATH 110.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd51480
+DTSTART;TZID=America/Vancouver:20210910T090000
+DTEND;TZID=America/Vancouver:20210910T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:BIOL 112 201
+LOCATION:Wesbrook\, Room 100
+DESCRIPTION:For more information (seat availability\, waitlists) please see the Microbiology and Biology Program websites: http://blogs.ubc.ca/firstyearbiology/ or http://www.microbiology.ubc.ca/Undergraduate/BIOL112.\n\nStudents applying to MBIM should take BIOL 112 by the end of their first winter session.   BIOL 112 exemption requests should contact Karen Smith at karen.smith@ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd562888
+DTSTART;TZID=America/Vancouver:20220110T090000
+DTEND;TZID=America/Vancouver:20220110T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:BIOL 112 201
+LOCATION:Wesbrook\, Room 100
+DESCRIPTION:For more information (seat availability\, waitlists) please see the Microbiology and Biology Program websites: http://blogs.ubc.ca/firstyearbiology/ or http://www.microbiology.ubc.ca/Undergraduate/BIOL112.\n\nStudents applying to MBIM should take BIOL 112 by the end of their first winter session.   BIOL 112 exemption requests should contact Karen Smith at karen.smith@ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520866abcd266673
+DTSTART;TZID=America/Vancouver:20220112T090000
+DTEND;TZID=America/Vancouver:20220112T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:BIOL 112 201
+LOCATION:Wesbrook\, Room 100
+DESCRIPTION:For more information (seat availability\, waitlists) please see the Microbiology and Biology Program websites: http://blogs.ubc.ca/firstyearbiology/ or http://www.microbiology.ubc.ca/Undergraduate/BIOL112.\n\nStudents applying to MBIM should take BIOL 112 by the end of their first winter session.   BIOL 112 exemption requests should contact Karen Smith at karen.smith@ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd478139
+DTSTART;TZID=America/Vancouver:20220114T090000
+DTEND;TZID=America/Vancouver:20220114T100000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:BIOL 112 T62
+LOCATION:TBA\, Room TBA
+DESCRIPTION:All tutorial sections will be held online at the scheduled time for both on campus and remote learning students.   BIOL 112 Tutorials are graded and include activities that require online attendance and participation.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd404170
+DTSTART;TZID=America/Vancouver:20220110T170000
+DTEND;TZID=America/Vancouver:20220110T180000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T192131Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:CHEM 123 201
+LOCATION:Chemistry\, Room B250
+DESCRIPTION:
+DTSTAMP:20220119T192131Z
+UID:12341642620091996abcd74653
+DTSTART;TZID=America/Vancouver:20220110T130000
+DTEND;TZID=America/Vancouver:20220110T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T192131Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:CHEM 123 201
+LOCATION:Chemistry\, Room B250
+DESCRIPTION:
+DTSTAMP:20220119T192131Z
+UID:12341642620091996abcd368714
+DTSTART;TZID=America/Vancouver:20220112T130000
+DTEND;TZID=America/Vancouver:20220112T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T192131Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CHEM 123 201
+LOCATION:Chemistry\, Room B250
+DESCRIPTION:
+DTSTAMP:20220119T192131Z
+UID:12341642620091996abcd507634
+DTSTART;TZID=America/Vancouver:20220114T130000
+DTEND;TZID=America/Vancouver:20220114T140000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:CHEM 123 L92
+LOCATION:\, Room 
+DESCRIPTION:Students who do attend the first laboratory meeting of this course will be deregistered from the course. For winter 2021\, this will be a check-in lab and tutorial ON ZOOM in the week of 17th  21st January. Your check-in lab and tutorial will be held during your scheduled lab section.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd412710
+DTSTART;TZID=America/Vancouver:20220114T140000
+DTEND;TZID=America/Vancouver:20220114T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:MATH 103 207
+LOCATION:Leonard S. Klinck\, Room 201
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course if you have not received credit for a prerequisite course in a previous term\n\nor are not registered in a prerequisite course.  For example\, if you have not received credit for MATH 100 or have not registered in it before\n\ntrying to register for the follow up course MATH 101\, the system will block your registration for MATH 101.  If you register for MATH 100 in\n\nTerm 1 or have previous credit for it\, the system will allow you to register in MATH 101 in Term 2 as it knows you are taking a prerequisite\n\ncourse in Term 1 or have already received credit for MATH 100.  Sometimes the system will show a pop up message that questions your\n\npre-requisite\, however\, ignore that if you know you have the prerequisite and you are successfullly registered.  Adding a course to your Work List is not the same as registering for it\, so\, it is possible to add a course to your list without having the prerequisite but\, when\n\nyou go to actually register\, it will block you if no prerequisite is there.  If you know you have the prerequisite but it has not been added\n\nto your UBC file\, take care of that by contacting UBC Admissions at admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd416900
+DTSTART;TZID=America/Vancouver:20220111T153000
+DTEND;TZID=America/Vancouver:20220111T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:MATH 103 207
+LOCATION:Leonard S. Klinck\, Room 201
+DESCRIPTION:The SIS will enforce automatically prerequisites for this course if you have not received credit for a prerequisite course in a previous term\n\nor are not registered in a prerequisite course.  For example\, if you have not received credit for MATH 100 or have not registered in it before\n\ntrying to register for the follow up course MATH 101\, the system will block your registration for MATH 101.  If you register for MATH 100 in\n\nTerm 1 or have previous credit for it\, the system will allow you to register in MATH 101 in Term 2 as it knows you are taking a prerequisite\n\ncourse in Term 1 or have already received credit for MATH 100.  Sometimes the system will show a pop up message that questions your\n\npre-requisite\, however\, ignore that if you know you have the prerequisite and you are successfullly registered.  Adding a course to your Work List is not the same as registering for it\, so\, it is possible to add a course to your list without having the prerequisite but\, when\n\nyou go to actually register\, it will block you if no prerequisite is there.  If you know you have the prerequisite but it has not been added\n\nto your UBC file\, take care of that by contacting UBC Admissions at admissions.inquiry@ubc.ca.\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd506092
+DTSTART;TZID=America/Vancouver:20220113T153000
+DTEND;TZID=America/Vancouver:20220113T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:SCIE 113 211
+LOCATION:Leonard S. Klinck\, Room 462
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd407062
+DTSTART;TZID=America/Vancouver:20220103T110000
+DTEND;TZID=America/Vancouver:20220103T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:SCIE 113 211
+LOCATION:Leonard S. Klinck\, Room 462
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd29422
+DTSTART;TZID=America/Vancouver:20220105T110000
+DTEND;TZID=America/Vancouver:20220105T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:SCIE 113 211
+LOCATION:Leonard S. Klinck\, Room 462
+DESCRIPTION:
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd321914
+DTSTART;TZID=America/Vancouver:20220107T110000
+DTEND;TZID=America/Vancouver:20220107T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T214200Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:SCIE 113 GP2
+LOCATION:Hebb\, Room 100
+DESCRIPTION:Common meeting time for second-term SCIE 113 classes (speakers\, etc.)\n\n
+DTSTAMP:20220119T214200Z
+UID:12341642628520867abcd88206
+DTSTART;TZID=America/Vancouver:20220113T123000
+DTEND;TZID=America/Vancouver:20220113T140000
+END:VEVENT
+END:VCALENDAR
+

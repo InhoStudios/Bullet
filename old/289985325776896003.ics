@@ -1,0 +1,209 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UBC Course Schedule//iCal 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Vancouver
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo/America/Vancouver
+X-LIC-LOCATION:America/Vancouver
+X-PROLEPTIC-TZNAME:LMT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-081228
+TZOFFSETTO:-0800
+DTSTART:18840101T000000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19180414T020000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19181027T020000
+RDATE:19450930T020000
+RDATE:19460929T020000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PWT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19420209T020000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PPT
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+DTSTART:19450814T160000
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19460428T020000
+RRULE:FREQ=YEARLY;UNTIL=19860427T100000Z;BYMONTH=4;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19470928T020000
+RRULE:FREQ=YEARLY;UNTIL=19610924T090000Z;BYMONTH=9;BYDAY=-1SU
+END:STANDARD
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19621028T020000
+RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;UNTIL=20060402T100000Z;BYMONTH=4;BYDAY=1SU
+END:DAYLIGHT
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211207T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:VISA 210 001
+LOCATION:Ponderosa Commons North - Oak/Cedar House\, Room 1008
+DESCRIPTION:If registration for this class is blocked\, then it is full and you should register on the corresponding waitlist. Students will be periodically moved from the waitlist into the class as seats become available\, and notified of their registration via email.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd76896
+DTSTART;TZID=America/Vancouver:20210907T093000
+DTEND;TZID=America/Vancouver:20210907T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211208T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:VISA 241 001
+LOCATION:B.C. Binnings Studio\, Room 102
+DESCRIPTION:If registration for this class is blocked\, then it is full and you should register on the corresponding waitlist. Students will be periodically moved from the waitlist into the class as seats become available\, and notified of their registration via email.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd157373
+DTSTART;TZID=America/Vancouver:20210908T090000
+DTEND;TZID=America/Vancouver:20210908T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20211206T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:VISA 280 001
+LOCATION:Leon and Thea Koerner University Centre\, Room 103
+DESCRIPTION:
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd576548
+DTSTART;TZID=America/Vancouver:20210906T090000
+DTEND;TZID=America/Vancouver:20210906T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220405T235959;INTERVAL=1;BYDAY=TU
+SUMMARY:ARTH 251 001
+LOCATION:Frederic Lasserre\, Room 105
+DESCRIPTION:
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd127562
+DTSTART;TZID=America/Vancouver:20220111T153000
+DTEND;TZID=America/Vancouver:20220111T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:ARTH 251 001
+LOCATION:Frederic Lasserre\, Room 105
+DESCRIPTION:
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd369123
+DTSTART;TZID=America/Vancouver:20220113T153000
+DTEND;TZID=America/Vancouver:20220113T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:VISA 220 03W
+LOCATION:\, Room 
+DESCRIPTION:VISA 220 03W is a waitlist for VISA 220 003. Students will be moved from the waitlist into the course\, space permitting\, in order of registration date and then notified of their registration via email.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd593367
+DTSTART;TZID=America/Vancouver:20220112T090000
+DTEND;TZID=America/Vancouver:20220112T120000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:VISA 230 003
+LOCATION:Dorothy Somerset Studio\, Room 200
+DESCRIPTION:If registration for this class is blocked\, then it is full and you should register on the corresponding waitlist. Students will be periodically moved from the waitlist into the class as seats become available\, and notified of their registration via email.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd261771
+DTSTART;TZID=America/Vancouver:20220112T140000
+DTEND;TZID=America/Vancouver:20220112T170000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220407T235959;INTERVAL=1;BYDAY=TH
+SUMMARY:VISA 250 02W
+LOCATION:\, Room 
+DESCRIPTION:VISA 250 02W is a waiting list for VISA 250 002. Students will be moved from the waiting list into the course\, space permitting\, in order of registration date.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd235894
+DTSTART;TZID=America/Vancouver:20220113T093000
+DTEND;TZID=America/Vancouver:20220113T123000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220404T235959;INTERVAL=1;BYDAY=MO
+SUMMARY:WRDS 150A 342
+LOCATION:Buchanan\, Room B209
+DESCRIPTION:This section is for students in the Faculty of Arts.\n\nPlease visit https://jwam.ubc.ca/undergraduate/writing-requirements/arts-students/ for section topics.\n\nStudents in the Faculty of Arts require only ONE of WRDS 150\, WRDS 350\, ENGL 100\, ARTS 001 (Arts One)\, ASTU 100 or 101 (Coordinated Arts Program) to satisfy the Arts Writing Requirement.\n\nImportant note: WRDS 150 is designed in a series of steps where each assignment prepares you for the next. As instructors introduce key foundational material early in the course\, we strongly encourage students to finalize their registration in WRDS 150 by the end of the first week of term at the latest. Please keep in mind that instructors are not obligated to reteach any material that has been missed\, so it is recommended that you begin attending at the start of the course (or as early as possible afterwards) to give yourself the best opportunity for success.\n\nInstructors are not able to add students directly to their sections. If you have registration questions\, please contact wrds.advisor@ubc.ca.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd360756
+DTSTART;TZID=America/Vancouver:20220110T120000
+DTEND;TZID=America/Vancouver:20220110T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220406T235959;INTERVAL=1;BYDAY=WE
+SUMMARY:WRDS 150A 342
+LOCATION:Buchanan\, Room B209
+DESCRIPTION:This section is for students in the Faculty of Arts.\n\nPlease visit https://jwam.ubc.ca/undergraduate/writing-requirements/arts-students/ for section topics.\n\nStudents in the Faculty of Arts require only ONE of WRDS 150\, WRDS 350\, ENGL 100\, ARTS 001 (Arts One)\, ASTU 100 or 101 (Coordinated Arts Program) to satisfy the Arts Writing Requirement.\n\nImportant note: WRDS 150 is designed in a series of steps where each assignment prepares you for the next. As instructors introduce key foundational material early in the course\, we strongly encourage students to finalize their registration in WRDS 150 by the end of the first week of term at the latest. Please keep in mind that instructors are not obligated to reteach any material that has been missed\, so it is recommended that you begin attending at the start of the course (or as early as possible afterwards) to give yourself the best opportunity for success.\n\nInstructors are not able to add students directly to their sections. If you have registration questions\, please contact wrds.advisor@ubc.ca.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd463701
+DTSTART;TZID=America/Vancouver:20220112T120000
+DTEND;TZID=America/Vancouver:20220112T130000
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20220119T054530Z
+RRULE:FREQ=WEEKLY;WKST=MO;UNTIL=20220408T235959;INTERVAL=1;BYDAY=FR
+SUMMARY:WRDS 150A 342
+LOCATION:Buchanan\, Room B209
+DESCRIPTION:This section is for students in the Faculty of Arts.\n\nPlease visit https://jwam.ubc.ca/undergraduate/writing-requirements/arts-students/ for section topics.\n\nStudents in the Faculty of Arts require only ONE of WRDS 150\, WRDS 350\, ENGL 100\, ARTS 001 (Arts One)\, ASTU 100 or 101 (Coordinated Arts Program) to satisfy the Arts Writing Requirement.\n\nImportant note: WRDS 150 is designed in a series of steps where each assignment prepares you for the next. As instructors introduce key foundational material early in the course\, we strongly encourage students to finalize their registration in WRDS 150 by the end of the first week of term at the latest. Please keep in mind that instructors are not obligated to reteach any material that has been missed\, so it is recommended that you begin attending at the start of the course (or as early as possible afterwards) to give yourself the best opportunity for success.\n\nInstructors are not able to add students directly to their sections. If you have registration questions\, please contact wrds.advisor@ubc.ca.\n\n
+DTSTAMP:20220119T054530Z
+UID:12341642571130923abcd362723
+DTSTART;TZID=America/Vancouver:20220114T120000
+DTEND;TZID=America/Vancouver:20220114T130000
+END:VEVENT
+END:VCALENDAR
+

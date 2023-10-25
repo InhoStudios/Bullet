@@ -86,7 +86,7 @@ async def on_message(message):
             embed.add_field(name="?toggle", value="Toggles your status (Available / Busy)")
             embed.add_field(name="?status (@[user])", value="Shows your current status. If a user is mentioned their status is shown instead")
             embed.add_field(name="?update", value="Updates your current calendar. Resets all previously added calendars. (Please attach a valid .ics file)")
-            embed.add_field(name="?add", value="Adds a concurrent calendar to your schedule (Please attach a valid .ics file)")
+            embed.add_field(name="?add (link)", value="Adds a concurrent calendar to your schedule. Please attach a valid .ics file or link to a remote .ics")
             embed.add_field(name="?weather (upcoming)", value="Shows the weather on UBC campus. Specify \"upcoming\" to see the forecast for the next 4 days.")
             embed.add_field(name="Want to add Bullet to your own server?", value="Click [here](https://discord.com/api/oauth2/authorize?client_id=900540913053499472&permissions=8&scope=bot) to add the bot, or contact `inho#7094` for more details!", inline=False)
             embed.set_footer(text="Made with ❤️ by InhoStudios")
@@ -212,27 +212,41 @@ async def on_message(message):
             await chan.send(embed=embed)
             return
         if call.startswith(globals.add):
-            if len(attachments) == 0:
-                await chan.send("Please attach the .ics file in the ?update message")
+            if len(attachments) == 0 and len(cmd_parameters) == 0:
+                await chan.send("Please attach the .ics file in the ?add message or use a remote ICS link")
                 return
-            for attachment in attachments:
-                filename = attachment.filename
-                if filename.endswith(".ics"):
-                    FILE_PATH = join(CAL_FOLDER, str(authid) + ".ics")
-                    save_file = FILE_PATH + ""
-                    i = 1
-                    while exists(save_file):
-                        print(save_file)
-                        save_file = join(CAL_FOLDER, str(authid) + "_" + str(i) + ".ics")
-                        i += 1
-                    await attachment.save(save_file)
-                    try:
-                        cal = users[authid]
-                    except:
-                        cal = Calendar()
-                        users[authid] = cal
-                    with open(save_file, 'r') as f:
-                        cal.import_calendar(f.read())
+            # generate save file for either situation
+            FILE_PATH = join(CAL_FOLDER, str(authid) + ".ics")
+            save_file = FILE_PATH + ""
+            i = 1
+            while exists(save_file):
+                print(save_file)
+                save_file = join(CAL_FOLDER, str(authid) + "_" + str(i) + ".ics")
+                i += 1
+            # get calendar index
+            try:
+                cal = users[authid]
+            except:
+                cal = Calendar()
+                users[authid] = cal
+            # get file and save it
+            if len(attachments) > 0:
+                for attachment in attachments:
+                    filename = attachment.filename
+                    if filename.endswith(".ics"):
+                        await attachment.save(save_file)
+                with open(save_file, 'r') as f:
+                    cal.import_calendar(f.read())
+            elif len(cmd_parameters) > 0:
+                await message.delete()
+                url = cmd_parameters[0]
+                r = requests.get(url, allow_redirects=True)
+                open(save_file, "wb").write(r.content)
+                cal.import_calendar(r.text)
+            else:
+                await chan.send("There was an error with your file or link. Please try again.")
+                return
+            # finally
             evt_page = cal.get_week(datetime.now())
             embed = create_week_embed(evt_page, author, cal.get_status())
             embed.set_footer(text="Events this week")
@@ -320,15 +334,26 @@ async def on_message(message):
 
 def create_week_embed(events, user, status, title="Schedule"):
     embed = discord.Embed(title=title)
-    embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+    try:
+        embed.set_author(name=user.display_name, icon_url=user.avatar)
+    except:
+        embed.set_author(name=user.display_name)
     weekday_vals = ["", "", "", "", "", "", ""]
     timezone = users[str(user.id)].timezone
     embed.description = "Timezone: {}".format(timezone)
+    # add sorting
     for event in events:
         for interval in event.intervals:
-            start_time = interval[0].astimezone(timezone).strftime("%H:%M")
-            end_time = interval[1].astimezone(timezone).strftime("%H:%M")
-            weekday_vals[int(interval[0].weekday())] = weekday_vals[int(interval[0].weekday())] + "```{}\n{}-{}```".format(event.summary, start_time, end_time)
+            try:
+                # parse datetime for start times
+                start_time = interval[0].astimezone(timezone).strftime("%H:%M")
+                end_time = interval[1].astimezone(timezone).strftime("%H:%M")
+                weekday_vals[int(interval[0].weekday())] = weekday_vals[int(interval[0].weekday())] + "```\n{}\n{}-{}```".format(event.summary, start_time, end_time)
+            except AttributeError:
+                # all day event, no datetime
+                print(event.summary)
+                start_time = "All day"
+                weekday_vals[int(interval[0].weekday())] = weekday_vals[int(interval[0].weekday())] + f"```\n{event.summary}```"
     for i in range(len(weekday_vals)):
         if (weekday_vals[i] == ""):
             weekday_vals[i] = "No events to display."
@@ -347,13 +372,18 @@ def create_week_embed(events, user, status, title="Schedule"):
 
 def create_events_embed(events, user, status, title="Calendar"):
     embed = discord.Embed(title=title)
-    embed.set_author(name=user.display_name, icon_url=user.avatar_url)
+    embed.set_author(name=user.display_name, icon_url=user.avatar)
     timezone = users[str(user.id)].timezone
     for event in events:
         date = event.intervals[0]
-        date_str = date[0].astimezone(timezone).strftime("%A %d %B, %Y")
-        start_time = date[0].astimezone(timezone).strftime("%H:%M")
-        end_time = date[1].astimezone(timezone).strftime("%H:%M")
+        try:
+            date_str = date[0].astimezone(timezone).strftime("%A %d %B, %Y")
+            start_time = date[0].astimezone(timezone).strftime("%H:%M")
+            end_time = date[1].astimezone(timezone).strftime("%H:%M")
+        except AttributeError:
+            date_str = date[0].strftime("%A %d %B, %Y")
+            start_time = "All day event"
+            end_time = "."
         location = ""
         if event.location != "":
             location = "\nLocation: {}".format(event.location)
